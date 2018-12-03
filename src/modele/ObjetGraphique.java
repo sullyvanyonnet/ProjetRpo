@@ -2,8 +2,10 @@ package modele;
 
 public abstract class ObjetGraphique {
 
-  protected int coordonneeX;
-  protected int coordonneY;
+  protected Coordonnees coordonnees;
   
-  public void seDeplacer() {}
+  protected void seDeplacer() {}
+  
+  
+  
 }
