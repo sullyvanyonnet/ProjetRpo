@@ -6,9 +6,10 @@ import java.util.List;
 import Fourmi.Fourmi;
 import Role.Reine;
 
-public class Fourmiliere {
+public class Fourmiliere extends ObjetGraphique{
     List<Fourmi> listeDeFourmis;
     Reine saMajeste;
+    
 
     public Fourmiliere(){
         this.listeDeFourmis = new ArrayList<>();
@@ -17,7 +18,12 @@ public class Fourmiliere {
 
     public String resumeFourmi(){
         StringBuilder res = new StringBuilder();
-
         return res.toString();
     }
+    
+    public void ajouterFourmi(){
+    	listeDeFourmis.add(new Fourmi());
+    }
+    
+    
 }
