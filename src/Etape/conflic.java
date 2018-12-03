@@ -9,7 +9,7 @@ public class conflic {
 		//a suppr
 		
 		//qsdqsd 
-		//lapatate v2
+		//une super patate 
 		//qsd
 	}
 	
