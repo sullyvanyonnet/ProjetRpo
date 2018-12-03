@@ -69,14 +69,19 @@ public class Fourmi {
 			case oeuf :
 				System.out.println("Larve ?");
 				this.evolutionLarve();
+				break;
 			case larve :
 				System.out.println("Nymphe ?");
 				this.evolutionNymphe();
+				break;
 			case nymphe :
 				System.out.println("Adulte ?");
 				this.evolutionAdulte();	
+				break;
 			case adulte :
+				System.out.println("Mourrir ?");
 				this.mourrir();
+				break;
 			default:
 				break;			
 		}
@@ -95,14 +100,19 @@ public class Fourmi {
 	}
 	public void evolutionAdulte()
 	{
-		this.setDureeDeVie(1.5*(1+(0.7*Math.random())));
+		this.setDureeDeVie(this.dureeVieFourmiAdulte());
 		this.setPhase(new Adulte());	
 		this.poids = PoidsEnMilligramme;
 	}
 	
-	//TODO
+	public double dureeVieFourmiAdulte()
+	{
+		return (1.5*(1+((7*Math.random())/10)))*365;
+	}
+	
 	public void mourrir()
 	{
+		this.setDureeDeVie(1);
 		this.setPhase(new Cadavre());
 	}
 }
