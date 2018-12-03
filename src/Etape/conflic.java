@@ -2,13 +2,17 @@ package Etape;
 
 public class conflic {
 
+	//teste 
 	
 	conflic(){
-		a ajouter
-		a suppr
+		//a ajouter
+		//a suppr
 		
 		
-		// bcp de comme 
+		// bcp de comme /// 4 
+		
+		//coucou
+		
 	}
 	
 }
