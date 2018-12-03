@@ -17,4 +17,13 @@ public class Coordonnees {
     this.coordonneeY = coordonneeY;
   }
   
+  public boolean equals(Coordonnees UneCoordonnees) {
+	    if(UneCoordonnees.getCoordonneeX() == this.getCoordonneeX()) {
+	    	if(UneCoordonnees.getCoordonneeY() == this.getCoordonneeY()) {
+	    		return true;
+	    	}
+	    return false;
+	    }
+	return false;
+  }
 }
