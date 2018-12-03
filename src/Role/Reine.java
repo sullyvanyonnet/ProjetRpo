@@ -2,7 +2,7 @@ package Role;
 
 import Etape.Phase;
 
-public class Reine extends Phase {
+public class Reine extends Role {
 
     public Reine() {
         this.age = 0;

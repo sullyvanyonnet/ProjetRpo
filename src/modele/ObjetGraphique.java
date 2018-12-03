@@ -1,4 +1,9 @@
 package modele;
 
-public class ObjetGraphique {
+public abstract class ObjetGraphique {
+
+  protected int coordonneeX;
+  protected int coordonneY;
+  
+  public void seDeplacer() {}
 }

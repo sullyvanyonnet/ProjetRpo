@@ -1,7 +1,7 @@
 package Etape;
 
-public class Phase {
-    int dureeDeVie;
-    int age;
+import modele.ObjetGraphique;
 
+public class Phase extends ObjetGraphique {
+  
 }
