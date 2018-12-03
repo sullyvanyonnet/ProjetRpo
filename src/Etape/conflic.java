@@ -9,6 +9,7 @@ public class conflic {
 		
 		
 		// bcp de comme 
+		//patate
 	}
 	
 }
