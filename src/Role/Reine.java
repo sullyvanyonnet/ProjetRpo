@@ -1,4 +1,6 @@
-package modele;
+package Role;
+
+import Etape.Phase;
 
 public class Reine extends Phase {
 

@@ -1,4 +1,4 @@
-package modele;
+package Role;
 
 public class Role {
 }

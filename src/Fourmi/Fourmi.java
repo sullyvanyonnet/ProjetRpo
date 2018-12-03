@@ -1,4 +1,4 @@
-package modele;
+package Fourmi;
 
 public class Fourmi {
 }

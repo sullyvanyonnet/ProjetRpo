@@ -3,6 +3,9 @@ package modele;
 import java.util.ArrayList;
 import java.util.List;
 
+import Fourmi.Fourmi;
+import Role.Reine;
+
 public class Fourmiliere {
     List<Fourmi> listeDeFourmis;
     Reine saMajeste;
