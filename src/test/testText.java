@@ -1,10 +1,10 @@
 package test;
 
-import modele.Fourmiliere;
+import Etape.*;
 
 public class testText {
 
     public void main(){
-        Fourmiliere f = new Fourmiliere();
+      Adulte anthony = new Adulte();
     }
 }
