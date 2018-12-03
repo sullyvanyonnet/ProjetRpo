@@ -3,17 +3,19 @@ package modele;
 import java.util.ArrayList;
 import java.util.List;
 
+import Etape.Adulte;
 import Fourmi.Fourmi;
 import Role.Reine;
 
 public class Fourmiliere extends ObjetGraphique{
-    List<Fourmi> listeDeFourmis;
+    List<Adulte> listeDeFourmis;
     Reine saMajeste;
     
 
     public Fourmiliere(){
         this.listeDeFourmis = new ArrayList<>();
         this.saMajeste = new Reine();
+        this.coordonnees = new Coordonnees(100,100);
     }
 
     public String resumeFourmi(){
@@ -21,8 +23,11 @@ public class Fourmiliere extends ObjetGraphique{
         return res.toString();
     }
     
-    public void ajouterFourmi(){
-    	listeDeFourmis.add(new Fourmi());
+    public Adulte ajouterFourmi(){
+      Adulte newFourmi = new Adulte();
+      newFourmi.setCoordonnees(this.coordonnees);
+    	listeDeFourmis.add(new Adulte());
+    	return newFourmi;
     }
     
     

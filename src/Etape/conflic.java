@@ -10,6 +10,7 @@ public class conflic {
 		
 	
 		// bcp de patate
+	  //encore une patate
 	}
 	
 }
