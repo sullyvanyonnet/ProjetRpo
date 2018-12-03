@@ -3,14 +3,14 @@ package Etape;
 public class conflic {
 
 	//teste 
-	
+	//qsd
 	conflic(){
 		//a ajouter
 		//a suppr
 		
-	
-		// bcp de patate
-	  //encore une patate
+		//qsdqsd 
+		//une super patate 
+		//qsd
 	}
 	
 }

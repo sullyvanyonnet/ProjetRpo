@@ -1,6 +1,10 @@
 package Etape;
 
-public class Adulte extends Phase {
+public class Adulte extends Phase {		
+	public Adulte() {
+		super(Etape.adulte);
+	}
+	
   
   /**
    * Deplacement de base sans gestion des hormones
