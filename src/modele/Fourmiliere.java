@@ -7,7 +7,7 @@ import Etape.Adulte;
 import Fourmi.Fourmi;
 import Role.Reine;
 
-public class Fourmiliere extends ObjetGraphique{
+public class Fourmiliere extends ObjetGraphique {
     List<Fourmi> listeDeFourmis;
     Reine saMajeste;
     private int nombreDeFourmi;

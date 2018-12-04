@@ -4,7 +4,7 @@ public abstract class ObjetGraphique {
 
   protected Coordonnees coordonnees;
   
-  protected void seDeplacer() {}
+  public void seDeplacer() {}
   
   public Coordonnees getCoordonnees() {
     return this.coordonnees;
