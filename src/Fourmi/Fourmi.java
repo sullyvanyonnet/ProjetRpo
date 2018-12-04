@@ -23,6 +23,9 @@ public class Fourmi extends ObjetGraphique {
 		this.phase = new Oeuf();
 	}
 	
+	public int getIdentifiant() {
+		return this.identifiant;
+	}
 	public Double getDureeDeVie() {
 		return dureeDeVie;
 	}

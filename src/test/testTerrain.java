@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -47,7 +48,7 @@ public class testTerrain {
 					mesObjetsGraphiques.add(listAdulte.get(i));
 				}
 
-				List<IMovableDrawable> drawables = monTerrain.getLeJardin().contents();
+				HashMap<Integer, IMovableDrawable> drawables = monTerrain.getLeJardin().contents();
 
 				for (int i = 0; i < mesObjetsGraphiques.size(); i++) {
 
@@ -74,7 +75,7 @@ public class testTerrain {
 						int xFourmi = listAdulte.get(i).getCoordonnees().getCoordonneeX();
 						int yFourmi = listAdulte.get(i).getCoordonnees().getCoordonneeY();
 						dim = new Dimension(3, 3);
-						monTerrain.getLeJardin().add(new Oval(Color.RED, new Point(xFourmi, yFourmi), dim));
+						monTerrain.getLeJardin().contents().put(listFourmis.get(i).getIdentifiant(), new Oval(Color.RED, new Point(xFourmi, yFourmi), dim));
 					}
 				} else {
 					listFourmis.get(i).vivre();
