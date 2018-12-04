@@ -16,9 +16,7 @@ public class Terrain implements Observateur{
 		
 		
 	}
-	
-	
-	
+
 	public void notifyObservers() {
 		// TODO Auto-generated method stub
 		for (int i=0;i<this.lesObjetGraphiques.size();i++) {
