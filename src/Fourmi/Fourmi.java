@@ -8,8 +8,9 @@ import Etape.Larve;
 import Etape.Nymphe;
 import Etape.Oeuf;
 import Etape.Phase;
+import modele.ObjetGraphique;
 
-public class Fourmi {
+public class Fourmi extends ObjetGraphique {
 	
 	private static int PoidsEnMilligramme = 15;
 	
