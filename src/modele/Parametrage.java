@@ -5,12 +5,14 @@ import java.util.concurrent.TimeUnit;
 
 public class Parametrage implements Runnable {
 	int Tick; //temps avant action en ms
+	int nbHeur;
 	
-	//todo observable 
-	ArrayList<Observateur> lesObserveur = new ArrayList<Observateur>();
+	Terrain unTerrain ;
 	
 	public Parametrage(int tickInitial) {
 		this.Tick = tickInitial;
+		this.unTerrain = new Terrain();
+		this.nbHeur = 0;
 	}
 	
 	public int getTick() {
@@ -21,14 +23,12 @@ public class Parametrage implements Runnable {
 		this.Tick = nouveauTick;
 	}
 	
-	public void register(Observateur o) {
-		this.lesObserveur.add(o);
+	public void notifyObserversH() {
+		this.unTerrain.updateH();
 	}
-
-	public void notifyObservers() {
-		for (int i=0;i<this.lesObserveur.size();i++) {
-			this.lesObserveur.get(i).update();
-		}
+	
+	public void notifyObserversJ() {	
+		this.unTerrain.updateJ();
 	}
 	
 	@Override
@@ -43,7 +43,11 @@ public class Parametrage implements Runnable {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}	
-			this.notifyObservers();
+			if(this.nbHeur == 24) {
+				notifyObserversJ();
+				this.nbHeur = 0;
+			}
+			this.nbHeur++;
 		}		
 	}
 
