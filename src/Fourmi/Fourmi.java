@@ -105,7 +105,6 @@ public class Fourmi {
 		this.poids = PoidsEnMilligramme;
 	}
 	
-<<<<<<< HEAD
 	public Adulte isAdult() {
 	  if (this.getPhase().getEtape() == Etape.adulte) {
 	    return (Adulte)this.phase;
@@ -114,14 +113,11 @@ public class Fourmi {
 	  }
 	}
 	
-	//TODO
-=======
 	public double dureeVieFourmiAdulte()
 	{
 		return (1.5*(1+((7*Math.random())/10)))*365;
 	}
 	
->>>>>>> branch 'corentingrallsv-v0.1' of https://github.com/sullyvanyonnet/ProjetRpo.git
 	public void mourrir()
 	{
 		this.setDureeDeVie(1);
