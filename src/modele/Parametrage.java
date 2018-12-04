@@ -33,8 +33,6 @@ public class Parametrage implements Runnable {
 	
 	@Override
 	public void run() {
-		Terrain monTerrain = new Terrain();
-		
 		while(true) {
 			
 			try {
@@ -47,6 +45,7 @@ public class Parametrage implements Runnable {
 				notifyObserversJ();
 				this.nbHeur = 0;
 			}
+			notifyObserversH();
 			this.nbHeur++;
 		}		
 	}
