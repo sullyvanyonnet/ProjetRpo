@@ -16,8 +16,8 @@ public class Fourmi {
 	
 	private int identifiant;
 	private Double dureeDeVie;  //jours
-    private int poids;    
-    private Phase phase ;
+  private int poids;    
+  private Phase phase;
 	
 	public Fourmi(int identifiant) {
 		this.identifiant = identifiant;
@@ -98,6 +98,14 @@ public class Fourmi {
 		this.setDureeDeVie(1.5*(1+(0.7*Math.random())));
 		this.setPhase(new Adulte());	
 		this.poids = PoidsEnMilligramme;
+	}
+	
+	public Adulte isAdult() {
+	  if (this.getPhase().getEtape() == Etape.adulte) {
+	    return (Adulte)this.phase;
+	  } else {
+	    return null;
+	  }
 	}
 	
 	//TODO

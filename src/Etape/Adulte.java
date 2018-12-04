@@ -1,5 +1,7 @@
 package Etape;
 
+import modele.Coordonnees;
+
 public class Adulte extends Phase {		
 	public Adulte() {
 		super(Etape.adulte);
@@ -26,6 +28,10 @@ public class Adulte extends Phase {
     } else if (direction < 1.00) {
       this.coordonnees.setCoordonneeY(this.coordonnees.getCoordonneeY() - 1);
     }
+  }
+  
+  public void setCoordonnees(Coordonnees coord) {
+    this.coordonnees = coord;
   }
   
   public void seNourrir() {

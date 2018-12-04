@@ -3,6 +3,7 @@ package test;
 import java.util.concurrent.TimeUnit;
 
 import Etape.*;
+import Fourmi.Fourmi;
 import modele.Coordonnees;
 import modele.Fourmiliere;
 
@@ -25,15 +26,24 @@ public class testText {
   
   public void testFourmiliere() throws InterruptedException {
     Fourmiliere newYork = new Fourmiliere();
-    Adulte fourmule1 = newYork.ajouterFourmi();
-    Adulte fourAPain = newYork.ajouterFourmi();
+    Fourmi fourmule1 = newYork.ajouterFourmi();
+    fourmule1.evolutionAdulte();
+    Fourmi fourmAPain = newYork.ajouterFourmi();
+    fourmAPain.evolutionAdulte();
+    
     
     while (true) {
-      fourmule1.seDeplacer();
-      System.out.println(fourmule1.toString());
+      Adulte adulte1;
+      if ( (adulte1 = fourmule1.isAdult()) != null) {
+        adulte1.seDeplacer();
+      }
+      System.out.println("Fourmule1 : " + adulte1.toString());
 
-      fourAPain.seDeplacer();
-      System.out.println(fourAPain.toString());
+      Adulte adulteAir;
+      if ( (adulteAir = fourmAPain.isAdult()) != null) {
+        adulteAir.seDeplacer();
+      }
+      System.out.println("FourmAPain : " + adulteAir.toString());
       TimeUnit.SECONDS.sleep(1);
     }
     

@@ -4,4 +4,6 @@ public class Nymphe extends Phase {
 	public Nymphe() {
 		super(Etape.nymphe);
 	}
+
+  public void seDeplacer() {}
 }

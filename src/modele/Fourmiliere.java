@@ -8,14 +8,16 @@ import Fourmi.Fourmi;
 import Role.Reine;
 
 public class Fourmiliere extends ObjetGraphique{
-    List<Adulte> listeDeFourmis;
+    List<Fourmi> listeDeFourmis;
     Reine saMajeste;
+    private int nombreDeFourmi;
     
 
     public Fourmiliere(){
         this.listeDeFourmis = new ArrayList<>();
         this.saMajeste = new Reine();
         this.coordonnees = new Coordonnees(100,100);
+        this.nombreDeFourmi = 0;
     }
 
     public String resumeFourmi(){
@@ -23,10 +25,10 @@ public class Fourmiliere extends ObjetGraphique{
         return res.toString();
     }
     
-    public Adulte ajouterFourmi(){
-      Adulte newFourmi = new Adulte();
-      newFourmi.setCoordonnees(this.coordonnees);
-    	listeDeFourmis.add(new Adulte());
+    public Fourmi ajouterFourmi(){
+      Fourmi newFourmi = new Fourmi(this.nombreDeFourmi);
+    	listeDeFourmis.add(newFourmi);
+    	this.nombreDeFourmi++;
     	return newFourmi;
     }
     
