@@ -45,7 +45,6 @@ public class Terrain implements Observateur{
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
-		
 	}
 
 }
