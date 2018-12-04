@@ -3,7 +3,7 @@ package modele;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class Parametrage {
+public class Parametrage implements Runnable {
 	int Tick = 1000; //temps avant action en ms
 	
 	//todo observable 
@@ -20,14 +20,21 @@ public class Parametrage {
 		}
 	}
 	
-	public void main(String[] args) throws InterruptedException {
+	@Override
+	public void run() {
+		Fourmiliere uneFourmiliere = new Fourmiliere();
+		uneFourmiliere.ajouterFourmi();
 		
 		while(true) {
-			TimeUnit.MILLISECONDS.sleep(this.Tick);	
 			
-		}
-		
-		
+			try {
+				TimeUnit.MILLISECONDS.sleep(this.Tick);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+			this.notifyObservers();
+		}		
 	}
 
 	
