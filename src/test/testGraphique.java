@@ -43,7 +43,9 @@ public class testGraphique {
 			listFourmis.add(newFourmi);
 			newYork.ajouterFourmi();
 			
-			listAdulte.add(listFourmis.get(i).isAdult());
+			if (listFourmis.get(i).isPhase().equals("adulte")){
+				listAdulte.add((Adulte)listFourmis.get(i).getPhase());
+			}
 			listAdulte.get(i).setCoordonnees(new Coordonnees(100, 100));
 		}
 
