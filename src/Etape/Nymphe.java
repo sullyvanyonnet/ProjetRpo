@@ -2,8 +2,11 @@ package Etape;
 
 public class Nymphe extends Phase {
 	public Nymphe() {
-		super(Etape.nymphe);
+		super();
 	}
-
-  public void seDeplacer() {}
+	
+	@Override
+	public String jeSuis() {
+		  return "nymphe";
+	  }
 }

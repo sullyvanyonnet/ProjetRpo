@@ -1,4 +1,7 @@
 package Role;
 
-public class Soldat {
+public class Soldat extends Role{
+	public Soldat() {
+    	super();
+    }
 }

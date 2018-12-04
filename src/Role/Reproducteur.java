@@ -1,4 +1,7 @@
 package Role;
 
-public class Reproducteur {
+public class Reproducteur extends Role{
+	public Reproducteur() {
+    	super();
+    }
 }

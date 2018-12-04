@@ -2,7 +2,6 @@ package Etape;
 
 import javax.management.relation.Role;
 
-import Role.Poste;
 import Role.*;
 
 public class Adulte extends Phase {	

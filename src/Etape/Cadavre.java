@@ -3,7 +3,12 @@ package Etape;
 public class Cadavre extends Phase {
 
 	public Cadavre() {
-		super(Etape.mort);
+		super();
 	}
+	
+	@Override
+	public String jeSuis() {
+		  return "cadavre";
+	  }
 
 }
