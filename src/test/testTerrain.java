@@ -20,7 +20,7 @@ import vue.World;
 
 public class testTerrain {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		Terrain monTerrain = new Terrain();
 		Dimension dim = new Dimension(5, 5);
 
@@ -30,56 +30,63 @@ public class testTerrain {
 
 		List<Fourmi> listFourmis = new ArrayList<Fourmi>();
 		List<Adulte> listAdulte = new ArrayList<Adulte>();
-		
-		
+
 		for (int i = 0; i < 100; i++) {
 			Fourmi newFourmi = new Fourmi(i);
-			newFourmi.evolutionAdulte();
 			listFourmis.add(newFourmi);
 			lesFourmilieres.get(0).ajouterFourmi();
-			
-			if (listFourmis.get(i).isPhase().equals("adulte")){
-				listAdulte.add((Adulte)listFourmis.get(i).getPhase());
-			}
-			listAdulte.get(i).setCoordonnees(new Coordonnees(xFourmiliere, yFourmiliere));
+
 		}
 
-
-		for (int i = 0; i < 100; i++) {
-			int xFourmi = listAdulte.get(i).getCoordonnees().getCoordonneeX();
-			int yFourmi = listAdulte.get(i).getCoordonnees().getCoordonneeY();
-			dim = new Dimension(5, 5);
-			monTerrain.getLeJardin().add(new Oval(Color.RED, new Point(xFourmi, yFourmi), dim));
-		}
-		
-		List<ObjetGraphique> mesObjetsGraphiques = new ArrayList<ObjetGraphique>();
-		mesObjetsGraphiques.add(lesFourmilieres.get(0));
-		for (int i = 0; i < 100; i++) {
-			mesObjetsGraphiques.add(listAdulte.get(i));
-		}
-		
 		monTerrain.getLeJardin().open();
 		while (true) {
-			List<IMovableDrawable> drawables = monTerrain.getLeJardin().contents();
-			
-			for (int i = 0; i < mesObjetsGraphiques.size(); i++) {
-				
-				mesObjetsGraphiques.get(i).seDeplacer();
-				int coordonneeX = mesObjetsGraphiques.get(i).getCoordonnees().getCoordonneeX();
-				int coordonneeY = mesObjetsGraphiques.get(i).getCoordonnees().getCoordonneeY();
-				
-				IMovableDrawable unObjet = drawables.get(i);
+			if (listAdulte.size() > 0) {
 
-				unObjet.setPosition(new Point(coordonneeX, coordonneeY));
+				List<ObjetGraphique> mesObjetsGraphiques = new ArrayList<ObjetGraphique>();
+				mesObjetsGraphiques.addAll(lesFourmilieres);
+				for (int i = 0; i < listAdulte.size(); i++) {
+					mesObjetsGraphiques.add(listAdulte.get(i));
+				}
+
+				List<IMovableDrawable> drawables = monTerrain.getLeJardin().contents();
+
+				for (int i = 0; i < mesObjetsGraphiques.size(); i++) {
+
+					mesObjetsGraphiques.get(i).seDeplacer();
+					int coordonneeX = mesObjetsGraphiques.get(i).getCoordonnees().getCoordonneeX();
+					int coordonneeY = mesObjetsGraphiques.get(i).getCoordonnees().getCoordonneeY();
+
+					IMovableDrawable unObjet = drawables.get(i);
+
+					unObjet.setPosition(new Point(coordonneeX, coordonneeY));
+				}
+
+				try {
+					TimeUnit.MILLISECONDS.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				monTerrain.getLeJardin().repaint();
+
 			}
-			
-			try {
-				TimeUnit.MILLISECONDS.sleep(1);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+
+			for (int i = 0; i < listFourmis.size(); i++) {
+				if (listFourmis.get(i).isPhase().equals("nymphe")) {
+					listFourmis.get(i).vivre();
+					if (listFourmis.get(i).isPhase().equals("adulte")) {
+						listAdulte.add((Adulte) listFourmis.get(i).getPhase());
+						listAdulte.get(i).setCoordonnees(new Coordonnees(xFourmiliere, yFourmiliere));
+						int xFourmi = listAdulte.get(i).getCoordonnees().getCoordonneeX();
+						int yFourmi = listAdulte.get(i).getCoordonnees().getCoordonneeY();
+						dim = new Dimension(5, 5);
+						monTerrain.getLeJardin().add(new Oval(Color.RED, new Point(xFourmi, yFourmi), dim));
+					}
+				} else {
+					listFourmis.get(i).vivre();
+				}
+				
 			}
-			monTerrain.getLeJardin().repaint();
 		}
 	}
 

@@ -116,10 +116,25 @@ public class Fourmi extends ObjetGraphique {
 		return (1.5*(1+((7*Math.random())/10)))*365;
 	}
 	
+	public double dureeVieFourmiReine()
+	{
+		return (4*(1+((1.5*Math.random())/10)))*365;
+	}
+	
 	public void mourrir()
 	{
 		this.setDureeDeVie(1);
 		this.setPhase(new Cadavre());
+	}
+	
+	public boolean devenirReine()
+	{
+		if("adulte".equals(this.isPhase()))
+		{
+			this.getPhase().devenirReine();
+			this.dureeDeVie = this.dureeVieFourmiReine();
+		}		
+		return false;
 	}
 
 

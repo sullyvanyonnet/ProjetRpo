@@ -31,7 +31,7 @@ public class testGraphique {
 
 		int xFourmiliere = newYork.getCoordonnees().getCoordonneeX();
 		int yFourmiliere = newYork.getCoordonnees().getCoordonneeY();
-		jc.add(new Oval(Color.RED, new Point(xFourmiliere, yFourmiliere), new Dimension(20, 20)));
+		jc.add(new Oval(Color.BLACK, new Point(xFourmiliere, yFourmiliere), new Dimension(20, 20)));
 
 		List<Fourmi> listFourmis = new ArrayList<Fourmi>();
 		List<Adulte> listAdulte = new ArrayList<Adulte>();
@@ -79,7 +79,7 @@ public class testGraphique {
 			}
 			
 			try {
-				TimeUnit.MILLISECONDS.sleep(1);
+				TimeUnit.MILLISECONDS.sleep(500);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

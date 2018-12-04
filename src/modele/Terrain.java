@@ -53,7 +53,6 @@ public class Terrain implements Observateur{
 	@Override
 	public void updateJ() {
 		// TODO Auto-generated method stub
-		
 	}
 
 }
