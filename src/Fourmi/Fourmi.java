@@ -123,4 +123,10 @@ public class Fourmi extends ObjetGraphique {
 		this.setDureeDeVie(1);
 		this.setPhase(new Cadavre());
 	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
 }

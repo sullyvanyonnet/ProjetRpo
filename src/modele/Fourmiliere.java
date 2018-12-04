@@ -3,7 +3,6 @@ package modele;
 import java.util.ArrayList;
 import java.util.List;
 
-import Etape.Adulte;
 import Fourmi.Fourmi;
 import Role.Reine;
 
@@ -31,6 +30,25 @@ public class Fourmiliere extends ObjetGraphique{
     	this.nombreDeFourmi++;
     	return newFourmi;
     }
+    
+    public void Nourire() {
+    	int sommeANourir = 0;
+    	//get somme
+    	for(int i = 0; i> this.listeDeFourmis.size(); i++) {
+    		sommeANourir = sommeANourir + this.listeDeFourmis.get(i).getPoids();
+    		
+    		
+    	}
+    	
+    	//
+    	
+    }
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
     
     
 }
