@@ -94,6 +94,8 @@ public class Adulte extends Phase {
     }
   }
   
+
+  
   public void seNourrir() {
     
   }
@@ -110,4 +112,16 @@ public class Adulte extends Phase {
     return res.toString();
     
   }
+  
+	@Override
+	public void updateH() {
+		// TODO Auto-generated method stub	
+		this.seDeplacer();
+	}
+
+	@Override
+	public void updateJ() {
+		// TODO Auto-generated method stub
+		
+	}
 }
