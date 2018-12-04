@@ -141,7 +141,11 @@ public class Fourmi extends ObjetGraphique {
 
 	@Override
 	public void updateH() {
-
+		Phase unephase = this.getPhase();
+		if(unephase.jeSuis().equals("adulte")) {
+			Adulte unAdulte = (Adulte)unephase;
+			unAdulte.updateH();
+		}
 	}
 
 	@Override
@@ -152,6 +156,12 @@ public class Fourmi extends ObjetGraphique {
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		
+		Phase unephase = this.getPhase();
+		if(unephase.jeSuis().equals("adulte")) {
+			Adulte unAdulte = (Adulte)unephase;
+			unAdulte.updateJ();
 		}
 	}
 }
