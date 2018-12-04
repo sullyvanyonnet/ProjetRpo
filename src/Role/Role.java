@@ -18,16 +18,4 @@ public abstract class Role implements Observateur{
 		// TODO Auto-generated method stub
 		return (Double) null;
 	}
-
-	@Override
-	public void updateH() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateJ() {
-		// TODO Auto-generated method stub
-		
-	}
 }

@@ -10,4 +10,16 @@ public class Soldat extends Role{
 	{
 		return "soldat";
 	}
+
+	@Override
+	public void updateH() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateJ() {
+		// TODO Auto-generated method stub
+		
+	}
 }

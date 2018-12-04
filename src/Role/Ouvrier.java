@@ -10,4 +10,14 @@ public class Ouvrier extends Role{
 	{
 		return "ouvrier";
 	}
+	@Override
+	public void updateH() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void updateJ() {
+		// TODO Auto-generated method stub
+		
+	}
 }

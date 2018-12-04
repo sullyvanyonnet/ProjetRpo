@@ -3,8 +3,7 @@ package Etape;
 import Etape.*;
 import Role.*;
 
-public class Adulte extends Phase {	
-	
+public class Adulte extends Phase {
 	private Role role ;
 	
 	public Adulte() {

@@ -18,4 +18,16 @@ public class Reine extends Role {
 	public String monRole() {
 		return "reine";
 	}
+
+	@Override
+	public void updateH() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateJ() {
+		// TODO Auto-generated method stub
+		
+	}
 }
