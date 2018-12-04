@@ -9,7 +9,10 @@ public class Terrain implements Observateur{
 	Terrain(){
 		Fourmiliere uneFourmiliere = new Fourmiliere();
 		this.lesObjetGraphiques.add(uneFourmiliere);
-		uneFourmiliere.ajouterFourmi();
+		
+		for (int i = 0; i < 100 ; i++ ) {
+			uneFourmiliere.ajouterFourmi();
+		}
 		
 		
 	}
