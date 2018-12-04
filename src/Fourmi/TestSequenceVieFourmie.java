@@ -27,7 +27,7 @@ public class TestSequenceVieFourmie {
 				case "adulte" :
 					System.out.println("Mourrir ?");
 					break;
-				case "mort" :
+				case "cadavre" :
 					System.out.println("***MORT****");
 					break;	
 				default:

@@ -122,8 +122,7 @@ public class Fourmi extends ObjetGraphique {
 	}
 	
 	public boolean devenirReine()
-	{
-		
+	{		
 		boolean res = this.getPhase().devenirReine();
 		if(res)
 		{
