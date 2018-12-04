@@ -141,13 +141,17 @@ public class Fourmi extends ObjetGraphique {
 
 	@Override
 	public void updateH() {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void updateJ() {
-		// TODO Auto-generated method stub
-		
+		//realise le viellissement
+		try {
+			this.vivre();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
