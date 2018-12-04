@@ -11,6 +11,7 @@ public class Terrain implements Observateur{
 		this.lesObjetGraphiques.add(uneFourmiliere);
 		
 		for (int i = 0; i < 100 ; i++ ) {
+			
 			uneFourmiliere.ajouterFourmi();
 		}
 		
