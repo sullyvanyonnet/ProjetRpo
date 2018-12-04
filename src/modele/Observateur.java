@@ -3,6 +3,6 @@ package modele;
 
 public interface Observateur {
 	
-	void updateFrom ();
+	void update ();
 
 }
