@@ -1,6 +1,5 @@
 package Etape;
 
-import javax.management.relation.Role;
 import Etape.*;
 import Role.*;
 
@@ -20,10 +19,13 @@ public class Adulte extends Phase {
 		this.role = (Role)role;
 	}
 	
-	public String monRole()
+	//sert a resoudre 
+	//l'utilisation de instance of
+	public String leRole()
 	{
 		Role role = getRole();
-		return role.monRole();
+		String res = role.monRole();
+		return res;
 	}
 	
 	//devenirReine
@@ -67,6 +69,7 @@ public class Adulte extends Phase {
 		{
 			Reproducteur reproducteur = new Reproducteur();
 			this.setRole(reproducteur);
+			return true;
 		} 
 		return false;
 	}

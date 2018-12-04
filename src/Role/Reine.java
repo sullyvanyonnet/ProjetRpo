@@ -18,10 +18,9 @@ public class Reine extends Role {
 	{
 		return (1.5*(1+((1.5*Math.random())/10)))*365;
 	}
-    
+
     @Override
-    public String monRole()
-	{
+	public String monRole() {
 		return "reine";
 	}
 }
