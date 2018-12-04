@@ -1,7 +1,14 @@
 package Role;
 
-public class Ouvrier {
-	  public Ouvrier() {
-	    	super();
-	    }
+public class Ouvrier extends Role{
+	
+	public Ouvrier() {
+	   	super();
+	}
+	
+	@Override
+    public String monRole()
+	{
+		return "ouvrier";
+	}
 }

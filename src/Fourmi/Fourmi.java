@@ -1,7 +1,5 @@
 package Fourmi;
 
-import java.util.concurrent.TimeUnit;
-
 import Etape.Adulte;
 import Etape.Cadavre;
 import Etape.Larve;
@@ -65,7 +63,7 @@ public class Fourmi extends ObjetGraphique {
 	oeuf, larve, nymphe */
 	public String isPhase()
 	{
-		return this.phase.jeSuis();
+		return getPhase().jeSuis();
 	}
 	
 	//evolution

@@ -1,7 +1,7 @@
 package Etape;
 
 import javax.management.relation.Role;
-
+import Etape.*;
 import Role.*;
 
 public class Adulte extends Phase {	
@@ -12,10 +12,64 @@ public class Adulte extends Phase {
 		super();
 	}
 	
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Object role) {
+		this.role = (Role)role;
+	}
+	
+	public String monRole()
+	{
+		Role role = getRole();
+		return role.monRole();
+	}
+	
 	//devenirReine
+	public boolean devenirReine()
+	{
+		if(this.jeSuis().equals("adulte"))
+		{
+			Reine reine = new Reine();
+			this.setRole(reine);
+			return true;
+		}
+		return false;
+		
+	}
 	//devenirOuvriere
+	public boolean devenirOuvrier()
+	{
+		if(this.jeSuis().equals("adulte"))
+		{
+			Ouvrier ouvrier = new Ouvrier();
+			this.setRole(ouvrier);
+			return true;
+		}
+		return false;
+	}
 	//devenirSoldat
+	public boolean devenirSoldat()
+	{
+		if(this.jeSuis().equals("adulte"))
+		{
+			Soldat soldat = new Soldat();
+			this.setRole(soldat);
+			return true;
+		}
+		return false;
+	}
 	//devenirReproducteur
+	public boolean devenirReproducteur()
+	{
+		if(this.jeSuis().equals("adulte"))
+		{
+			Reproducteur reproducteur = new Reproducteur();
+			this.setRole(reproducteur);
+		} 
+		return false;
+	}
   
   /**
    * Deplacement de base sans gestion des hormones
