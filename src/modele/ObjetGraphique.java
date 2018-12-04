@@ -1,6 +1,6 @@
 package modele;
 
-public abstract class ObjetGraphique {
+public abstract class ObjetGraphique implements Observateur{
 
   protected Coordonnees coordonnees;
   
