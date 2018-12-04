@@ -53,12 +53,10 @@ public class Fourmi extends ObjetGraphique {
 		if(this.getDureeDeVie() == 0)
 		{
 			this.evolution();
-		}
-			
-		
+		}		
 	}
 	
-	/*TODO fonction retourne une chaine 
+	/*DO fonction retourne une chaine 
 	de caracteres pour signaler le type d'objet : 
 	oeuf, larve, nymphe */
 	public String isPhase()
@@ -73,19 +71,15 @@ public class Fourmi extends ObjetGraphique {
 		switch(this.isPhase())
 		{
 			case "oeuf" :
-				System.out.println("Larve ?");
 				this.evolutionLarve();
 				break;
 			case "larve" :
-				System.out.println("Nymphe ?");
 				this.evolutionNymphe();
 				break;
 			case "nymphe" :
-				System.out.println("Adulte ?");
 				this.evolutionAdulte();	
 				break;
 			case "adulte" :
-				System.out.println("Mourrir ?");
 				this.mourrir();
 				break;
 			default:
@@ -123,31 +117,44 @@ public class Fourmi extends ObjetGraphique {
 	
 	public void mourrir()
 	{
-		this.setDureeDeVie(1);
+		this.setDureeDeVie(-1);
 		this.setPhase(new Cadavre());
 	}
 	
 	public boolean devenirReine()
 	{
-		if("adulte".equals(this.isPhase()))
+		
+		boolean res = this.getPhase().devenirReine();
+		if(res)
 		{
-			this.getPhase().devenirReine();
 			this.dureeDeVie = this.dureeVieFourmiReine();
-		}		
-		return false;
+		}				
+		return res;
 	}
-
-
 
 	@Override
 	public void updateH() {
-		// TODO Auto-generated method stub
-		
+		Phase unephase = this.getPhase();
+		if(unephase.jeSuis().equals("adulte")) {
+			Adulte unAdulte = (Adulte)unephase;
+			unAdulte.updateH();
+		}
 	}
 
 	@Override
 	public void updateJ() {
-		// TODO Auto-generated method stub
+		//realise le viellissement
+		try {
+			this.vivre();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		Phase unephase = this.getPhase();
+		if(unephase.jeSuis().equals("adulte")) {
+			Adulte unAdulte = (Adulte)unephase;
+			unAdulte.updateJ();
+		}
 	}
 }
