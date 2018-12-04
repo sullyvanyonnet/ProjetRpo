@@ -1,8 +1,9 @@
 package Role;
 
 import Etape.Oeuf;
+import modele.Observateur;
 
-public class Role {	
+public abstract class Role implements Observateur{	
 
 	public String monRole() {
 		return null;
@@ -16,5 +17,17 @@ public class Role {
 	public double dureeVieFourmiReine() {
 		// TODO Auto-generated method stub
 		return (Double) null;
+	}
+
+	@Override
+	public void updateH() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateJ() {
+		// TODO Auto-generated method stub
+		
 	}
 }
