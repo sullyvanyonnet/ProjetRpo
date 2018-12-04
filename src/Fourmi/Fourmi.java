@@ -69,14 +69,19 @@ public class Fourmi {
 			case oeuf :
 				System.out.println("Larve ?");
 				this.evolutionLarve();
+				break;
 			case larve :
 				System.out.println("Nymphe ?");
 				this.evolutionNymphe();
+				break;
 			case nymphe :
 				System.out.println("Adulte ?");
 				this.evolutionAdulte();	
+				break;
 			case adulte :
+				System.out.println("Mourrir ?");
 				this.mourrir();
+				break;
 			default:
 				break;			
 		}
@@ -95,11 +100,12 @@ public class Fourmi {
 	}
 	public void evolutionAdulte()
 	{
-		this.setDureeDeVie(1.5*(1+(0.7*Math.random())));
+		this.setDureeDeVie(this.dureeVieFourmiAdulte());
 		this.setPhase(new Adulte());	
 		this.poids = PoidsEnMilligramme;
 	}
 	
+<<<<<<< HEAD
 	public Adulte isAdult() {
 	  if (this.getPhase().getEtape() == Etape.adulte) {
 	    return (Adulte)this.phase;
@@ -109,8 +115,16 @@ public class Fourmi {
 	}
 	
 	//TODO
+=======
+	public double dureeVieFourmiAdulte()
+	{
+		return (1.5*(1+((7*Math.random())/10)))*365;
+	}
+	
+>>>>>>> branch 'corentingrallsv-v0.1' of https://github.com/sullyvanyonnet/ProjetRpo.git
 	public void mourrir()
 	{
+		this.setDureeDeVie(1);
 		this.setPhase(new Cadavre());
 	}
 }

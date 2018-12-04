@@ -2,6 +2,8 @@ package Fourmi;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -62,7 +64,10 @@ class TestsUnitairesFourmi {
 		assert(mimo.getPhase() instanceof Adulte);
 	}
 	
-	//TODO vivre
-	
-
+	@Test
+	void testDureeVieFourmiAdulte()
+	{		
+		Double vie = mimi.dureeVieFourmiAdulte();
+		assert(vie>(1.5*365) && vie<(2.6*365));
+	}
 }
