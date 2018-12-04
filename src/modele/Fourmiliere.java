@@ -4,10 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Fourmi.Fourmi;
+import Piece.Decharge;
+import Piece.Salle;
+import Piece.Stock;
 import Role.Reine;
 
 public class Fourmiliere extends ObjetGraphique{
     List<Fourmi> listeDeFourmis;
+    List<Salle> ListeSalle;
     Reine saMajeste;
     private int nombreDeFourmi;
     
@@ -16,6 +20,8 @@ public class Fourmiliere extends ObjetGraphique{
         this.listeDeFourmis = new ArrayList<>();
         this.saMajeste = new Reine();
         this.coordonnees = new Coordonnees(100,100);
+        this.ListeSalle.add(new Stock());
+        this.ListeSalle.add(new Decharge());        
         this.nombreDeFourmi = 0;
     }
 
@@ -35,13 +41,9 @@ public class Fourmiliere extends ObjetGraphique{
     	int sommeANourir = 0;
     	//get somme
     	for(int i = 0; i> this.listeDeFourmis.size(); i++) {
-    		sommeANourir = sommeANourir + this.listeDeFourmis.get(i).getPoids();
-    		
-    		
-    	}
-    	
-    	//
-    	
+    		sommeANourir = sommeANourir + this.listeDeFourmis.get(i).getPoids();	
+    	}	   	    
+    	//todo debiter
     }
 
 	@Override

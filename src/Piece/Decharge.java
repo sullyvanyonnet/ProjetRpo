@@ -1,5 +1,5 @@
 package Piece;
 
-public class Decharge {
+public class Decharge extends Salle{
 
 }
