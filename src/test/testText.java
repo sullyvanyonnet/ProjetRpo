@@ -37,7 +37,7 @@ public class testText {
       if ( (adulte1 = fourmule1.isAdult()) != null) {
         adulte1.seDeplacer();
       }
-      System.out.println("Fourmule1 : " + adulte1.toString());
+      System.out.println("Fourmule1  : " + adulte1.toString());
 
       Adulte adulteAir;
       if ( (adulteAir = fourmAPain.isAdult()) != null) {
