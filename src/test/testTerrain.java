@@ -31,11 +31,10 @@ public class testTerrain {
 		List<Fourmi> listFourmis = new ArrayList<Fourmi>();
 		List<Adulte> listAdulte = new ArrayList<Adulte>();
 
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 10; i++) {
 			Fourmi newFourmi = new Fourmi(i);
 			listFourmis.add(newFourmi);
 			lesFourmilieres.get(0).ajouterFourmi();
-
 		}
 
 		monTerrain.getLeJardin().open();
@@ -61,12 +60,7 @@ public class testTerrain {
 					unObjet.setPosition(new Point(coordonneeX, coordonneeY));
 				}
 
-				try {
-					TimeUnit.MILLISECONDS.sleep(500);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				
 				monTerrain.getLeJardin().repaint();
 
 			}
@@ -79,13 +73,23 @@ public class testTerrain {
 						listAdulte.get(i).setCoordonnees(new Coordonnees(xFourmiliere, yFourmiliere));
 						int xFourmi = listAdulte.get(i).getCoordonnees().getCoordonneeX();
 						int yFourmi = listAdulte.get(i).getCoordonnees().getCoordonneeY();
-						dim = new Dimension(5, 5);
+						dim = new Dimension(3, 3);
 						monTerrain.getLeJardin().add(new Oval(Color.RED, new Point(xFourmi, yFourmi), dim));
 					}
 				} else {
 					listFourmis.get(i).vivre();
 				}
 				
+			}
+			
+			try {
+				TimeUnit.MILLISECONDS.sleep(100);
+				Fourmi newFourmi = new Fourmi(listFourmis.size());
+				listFourmis.add(newFourmi);
+				lesFourmilieres.get(0).ajouterFourmi();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 	}
