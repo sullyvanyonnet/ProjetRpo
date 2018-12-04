@@ -29,16 +29,10 @@ public class Adulte extends Phase {
 	}
 	
 	//devenirReine
-	public boolean devenirReine()
-	{
-		if(this.jeSuis().equals("adulte"))
-		{
-			Reine reine = new Reine();
-			this.setRole(reine);
-			return true;
-		}
-		return false;
-		
+	public void devenirReine()
+	{			
+		Reine reine = new Reine();
+		this.setRole(reine);		
 	}
 	//devenirOuvriere
 	public boolean devenirOuvrier()

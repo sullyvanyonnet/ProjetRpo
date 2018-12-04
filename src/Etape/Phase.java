@@ -17,4 +17,9 @@ public class Phase extends ObjetGraphique {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void devenirReine() {
+		// TODO Auto-generated method stub
+		
+	}
 }
