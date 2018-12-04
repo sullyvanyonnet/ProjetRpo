@@ -12,8 +12,16 @@ public class Phase extends ObjetGraphique {
 		return null;
 	}
 
+
+
 	@Override
-	public void update() {
+	public void updateH() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateJ() {
 		// TODO Auto-generated method stub
 		
 	}

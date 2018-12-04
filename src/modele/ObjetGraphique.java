@@ -13,7 +13,5 @@ public abstract class ObjetGraphique implements Observateur{
   public void setCoordonnees(Coordonnees coord) {
     this.coordonnees = coord;
   }
-
-  public abstract void update();
   
 }

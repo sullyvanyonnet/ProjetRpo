@@ -47,8 +47,16 @@ public class Fourmiliere extends ObjetGraphique{
     	//todo debiter
     }
 
+
+
 	@Override
-	public void update() {
+	public void updateH() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateJ() {
 		// TODO Auto-generated method stub
 		
 	}

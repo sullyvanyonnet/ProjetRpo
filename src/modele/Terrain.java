@@ -38,12 +38,20 @@ public class Terrain implements Observateur{
 	public void notifyObservers() {
 		// TODO Auto-generated method stub
 		for (int i=0;i<this.lesFourmilieres.size();i++) {
-			this.lesFourmilieres.get(i).update();
+			this.lesFourmilieres.get(i).updateH();
 		}
 	}
 	
+
+
 	@Override
-	public void update() {
+	public void updateH() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateJ() {
 		// TODO Auto-generated method stub
 		
 	}
