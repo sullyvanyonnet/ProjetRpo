@@ -26,6 +26,9 @@ public class Fourmiliere extends ObjetGraphique{
         this.nombreDeFourmi = 0;
     }
 
+    public List<Fourmi> getFourmis(){
+    	return this.listeDeFourmis;
+    }
     public String resumeFourmi(){
         StringBuilder res = new StringBuilder();
         return res.toString();
