@@ -10,7 +10,8 @@ public class TestSequenceVieFourmie {
 
 	public static void main(String[] args) throws InterruptedException {		
 		Fourmi mimi = new Fourmi(1);
-		while (!(mimi.getPhase() instanceof Cadavre))
+		int ageMax = (3*365);
+		for (int i=0; i<ageMax; i++)
 		{
 			switch(mimi.isPhase())
 			{
@@ -26,11 +27,14 @@ public class TestSequenceVieFourmie {
 				case "adulte" :
 					System.out.println("Mourrir ?");
 					break;
+				case "mort" :
+					System.out.println("***MORT****");
+					break;	
 				default:
 					break;			
 			}
 			mimi.vivre();
-			TimeUnit.MILLISECONDS.sleep(100);
+			TimeUnit.MILLISECONDS.sleep(1);
 		}
 	}
 }
