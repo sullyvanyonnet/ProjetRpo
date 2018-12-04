@@ -4,7 +4,6 @@ import java.util.concurrent.TimeUnit;
 
 import Etape.Adulte;
 import Etape.Cadavre;
-import Etape.Etape;
 import Etape.Larve;
 import Etape.Nymphe;
 import Etape.Oeuf;
@@ -16,8 +15,8 @@ public class Fourmi {
 	
 	private int identifiant;
 	private Double dureeDeVie;  //jours
-  private int poids;    
-  private Phase phase;
+    private int poids;    
+    private Phase phase ;
 	
 	public Fourmi(int identifiant) {
 		this.identifiant = identifiant;
@@ -60,25 +59,33 @@ public class Fourmi {
 		
 	}
 	
+	/*TODO fonction retourne une chaine 
+	de caracteres pour signaler le type d'objet : 
+	oeuf, larve, nymphe */
+	public String isPhase()
+	{
+		return this.phase.jeSuis();
+	}
+	
 	//evolution
 	public void evolution()
 	{
 		//switch case sur la phase
-		switch(this.getPhase().getEtape())
+		switch(this.isPhase())
 		{
-			case oeuf :
+			case "oeuf" :
 				System.out.println("Larve ?");
 				this.evolutionLarve();
 				break;
-			case larve :
+			case "larve" :
 				System.out.println("Nymphe ?");
 				this.evolutionNymphe();
 				break;
-			case nymphe :
+			case "nymphe" :
 				System.out.println("Adulte ?");
 				this.evolutionAdulte();	
 				break;
-			case adulte :
+			case "adulte" :
 				System.out.println("Mourrir ?");
 				this.mourrir();
 				break;
@@ -103,14 +110,6 @@ public class Fourmi {
 		this.setDureeDeVie(this.dureeVieFourmiAdulte());
 		this.setPhase(new Adulte());	
 		this.poids = PoidsEnMilligramme;
-	}
-	
-	public Adulte isAdult() {
-	  if (this.getPhase().getEtape() == Etape.adulte) {
-	    return (Adulte)this.phase;
-	  } else {
-	    return null;
-	  }
 	}
 	
 	public double dureeVieFourmiAdulte()

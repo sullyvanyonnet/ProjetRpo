@@ -12,18 +12,18 @@ public class TestSequenceVieFourmie {
 		Fourmi mimi = new Fourmi(1);
 		while (!(mimi.getPhase() instanceof Cadavre))
 		{
-			switch(mimi.getPhase().getEtape())
+			switch(mimi.isPhase())
 			{
-				case oeuf :
+				case "oeuf" :
 					System.out.println("Larve ?");					
 					break;
-				case larve :
+				case "larve" :
 					System.out.println("Nymphe ?");
 					break;
-				case nymphe :
+				case "nymphe" :
 					System.out.println("Adulte ?");
 					break;
-				case adulte :
+				case "adulte" :
 					System.out.println("Mourrir ?");
 					break;
 				default:

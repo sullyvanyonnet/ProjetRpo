@@ -1,12 +1,22 @@
 package Etape;
 
-import modele.Coordonnees;
+import javax.management.relation.Role;
 
-public class Adulte extends Phase {		
+import Role.Poste;
+import Role.*;
+
+public class Adulte extends Phase {	
+	
+	private Role role ;
+	
 	public Adulte() {
-		super(Etape.adulte);
+		super();
 	}
 	
+	//devenirReine
+	//devenirOuvriere
+	//devenirSoldat
+	//devenirReproducteur
   
   /**
    * Deplacement de base sans gestion des hormones
@@ -30,14 +40,14 @@ public class Adulte extends Phase {
     }
   }
   
-  public void setCoordonnees(Coordonnees coord) {
-    this.coordonnees = coord;
-  }
-  
   public void seNourrir() {
     
   }
-  
+
+  @Override
+  public String jeSuis() {
+	  return "adulte";
+  }
   public String toString() {
     StringBuilder res = new StringBuilder("");
     res.append(this.coordonnees.getCoordonneeX() + " ");
