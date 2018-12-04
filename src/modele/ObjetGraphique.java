@@ -1,6 +1,6 @@
 package modele;
 
-public abstract class ObjetGraphique implements Observateur{
+public abstract class ObjetGraphique {
 
   protected Coordonnees coordonnees;
   
@@ -13,6 +13,7 @@ public abstract class ObjetGraphique implements Observateur{
   public void setCoordonnees(Coordonnees coord) {
     this.coordonnees = coord;
   }
-  
+
+  public abstract void update();
   
 }

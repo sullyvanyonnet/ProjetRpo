@@ -2,8 +2,10 @@ package modele;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Point;
 import java.util.ArrayList;
 
+import vue.Oval;
 import vue.World;
 
 public class Terrain implements Observateur{
@@ -15,13 +17,15 @@ public class Terrain implements Observateur{
 		this.leJardin = new World("Le Jardin");
 		this.leJardin.setBackground(Color.WHITE);
 		this.leJardin.setPreferredSize(new Dimension(800, 800));
-		
+
 		Fourmiliere uneFourmiliere = new Fourmiliere();
 		this.lesFourmilieres.add(uneFourmiliere);
 		
-		for (int i = 0; i < 100 ; i++ ) {
-			uneFourmiliere.ajouterFourmi();
-		}	
+		int xFourmiliere = uneFourmiliere.getCoordonnees().getCoordonneeX();
+		int yFourmiliere = uneFourmiliere.getCoordonnees().getCoordonneeY();
+		this.leJardin.add(new Oval(Color.BLACK, new Point(xFourmiliere, yFourmiliere), new Dimension(20, 20)));
+		
+		
 	}
 
 	public ArrayList<Fourmiliere> getLesFourmilieres() {

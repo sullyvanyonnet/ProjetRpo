@@ -27,7 +27,6 @@ public class testTerrain {
 		ArrayList<Fourmiliere> lesFourmilieres = monTerrain.getLesFourmilieres();
 		int xFourmiliere = lesFourmilieres.get(0).getCoordonnees().getCoordonneeX();
 		int yFourmiliere = lesFourmilieres.get(0).getCoordonnees().getCoordonneeY();
-		monTerrain.getLeJardin().add(new Oval(Color.BLACK, new Point(xFourmiliere, yFourmiliere), new Dimension(20, 20)));
 
 		List<Fourmi> listFourmis = new ArrayList<Fourmi>();
 		List<Adulte> listAdulte = new ArrayList<Adulte>();
