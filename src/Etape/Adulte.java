@@ -64,7 +64,7 @@ public class Adulte extends Phase {
 	{
 		if(this.jeSuis().equals("adulte"))
 		{
-			Soldat soldat = new Soldat(super.fourmi);
+			Soldat soldat = new Soldat(super.fourmi);;
 			this.setRole(soldat);
 			return true;
 		}
