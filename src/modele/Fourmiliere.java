@@ -24,8 +24,18 @@ public class Fourmiliere extends ObjetGraphique{
         this.ListeSalle.add(new Stock());
         this.ListeSalle.add(new Decharge());        
         this.nombreDeFourmi = 0;
+        
+        for (int i = 0 ; i < 100 ; i++) {
+        	ajouterFourmi();
+        	
+
+    		
+        }
     }
 
+    public List<Fourmi> getFourmis(){
+    	return this.listeDeFourmis;
+    }
     public String resumeFourmi(){
         StringBuilder res = new StringBuilder();
         return res.toString();
@@ -51,13 +61,16 @@ public class Fourmiliere extends ObjetGraphique{
 
 	@Override
 	public void updateH() {
-		// TODO Auto-generated method stub
-		
+		for ( int i = 0 ; i< this.listeDeFourmis.size() ; i++) {
+			this.listeDeFourmis.get(i).updateH();
+		}
 	}
 
 	@Override
 	public void updateJ() {
-		// TODO Auto-generated method stub
+		for ( int i = 0 ; i< this.listeDeFourmis.size() ; i++) {
+			this.listeDeFourmis.get(i).updateJ();
+		}
 		
 	}
     
