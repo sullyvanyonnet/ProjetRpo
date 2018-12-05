@@ -5,22 +5,56 @@ import java.util.ArrayList;
 import Etape.Cadavre;
 import Fourmi.Fourmi;
 
-public class Decharge extends Salle{
+public class Decharge extends Salle {
 
-	int poidsTotal = 0 ;
-	
-	ArrayList<Cadavre> listeCadavre = new ArrayList<Cadavre>();
-	
-	void Ajouter(int unPoids){
+	int poidsTotal;
+	int size;	
+	ArrayList<Cadavre> listeCadavre;
+		
+	public Decharge() {
+		super();
+		this.poidsTotal = 0;
+		this.size = 0;
+		this.listeCadavre = new ArrayList<Cadavre>();
+	}
+
+	public int getPoidsTotal() {
+		return poidsTotal;
+	}
+
+	public void setPoidsTotal(int poidsTotal) {
+		this.poidsTotal = poidsTotal;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	public ArrayList<Cadavre> getListeCadavre() {
+		return listeCadavre;
+	}
+
+	public void setListeCadavre(ArrayList<Cadavre> listeCadavre) {
+		this.listeCadavre = listeCadavre;
+	}
+
+	public void ajouter(int unPoids){
 		this.poidsTotal = this.poidsTotal + unPoids;
 	}
 	
-	void AjouterFourmi(Cadavre uneFourmiMorte){
-		this.listeCadavre.add(uneFourmiMorte);
+	public void ajouterFourmi(Cadavre mimi){
+		this.listeCadavre.add(mimi);
+		this.poidsTotal +=mimi.getFourmi().getPoids();
+		size++;
 	}
 	
-	
-	void Suppr(Fourmi uneFourmiMorte){
+	public void suppr(Cadavre uneFourmiMorte){
 		this.listeCadavre.remove(uneFourmiMorte);
+		this.poidsTotal -=uneFourmiMorte.getFourmi().getPoids();
+		size--;
 	}
 }

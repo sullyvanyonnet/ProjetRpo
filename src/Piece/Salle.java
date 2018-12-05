@@ -1,5 +1,6 @@
 package Piece;
 
-public abstract class Salle {
+public class Salle {
 
 }
+ 

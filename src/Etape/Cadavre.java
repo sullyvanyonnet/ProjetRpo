@@ -10,6 +10,11 @@ public class Cadavre extends Phase {
 		super(fourmi);
 	}
 	
+	public Fourmi getFourmi()
+	{
+		return super.fourmi;
+	}
+	
 	@Override
 	public String jeSuis() {
 		  return "cadavre";
