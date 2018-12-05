@@ -19,7 +19,7 @@ public class Fourmiliere extends EtreVivant {
 	public Fourmiliere() {
 		
 		this.listeDeFourmis = new ArrayList<>();
-		this.representationGraphique = InterfaceMoph.CreeFourmiliere(new Point(100, 100));
+		this.representationGraphique = InterfaceMorph.creeFourmiliere(new Point(100, 100));
 		Fourmi uneFourmi = new Fourmi(nombreDeFourmi,this.representationGraphique.getPosition());
 		uneFourmi.devenirReine();		
 		this.saMajeste = uneFourmi;

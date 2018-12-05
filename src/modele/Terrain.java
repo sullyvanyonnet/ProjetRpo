@@ -23,43 +23,28 @@ import vue.World;
 
 public class Terrain extends JFrame implements Observateur {
 
-	private final JSplitPane splitPane; // split the window in top and bottom
-	private final JPanel topPanel; // container panel for the top
-	private final JPanel bottomPanel; // container panel for the bottom
+	private JSplitPane splitPane; // split the window in top and bottom
+	private JPanel topPanel; // container panel for the top
+	private JPanel bottomPanel; // container panel for the bottom
 
 	private World leJardin;
 	private JTree tree;
 	private ArrayList<Fourmiliere> lesFourmilieres = new ArrayList<Fourmiliere>();
 
+	private Case[][] matriceTerrain;
+	
 	public Terrain() {
 		
-		splitPane = new JSplitPane();
-		topPanel = new JPanel();
-        bottomPanel = new JPanel();
+		initFrame();
 		
-        getContentPane().setLayout(new GridLayout());
-		this.leJardin = new World("Le Jardin");
-		DefaultMutableTreeNode top = new DefaultMutableTreeNode("Fourmilieres");
-		this.tree = new JTree(top);
-
+		this.matriceTerrain = new Case[800][800];
 		Fourmiliere uneFourmiliere = new Fourmiliere();
-		setPreferredSize(new Dimension(1200, 800));
-		getContentPane().add(splitPane);
-		
-		splitPane.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
-        splitPane.setDividerLocation(800);
-        splitPane.setLeftComponent(leJardin);
-        splitPane.setRightComponent(tree);
-
-        pack();
-        
-        this.leJardin.setBackground(Color.WHITE);
-		this.leJardin.setPreferredSize(new Dimension(800, 800));
 		
 		this.lesFourmilieres.add(uneFourmiliere);
 
 		int xFourmiliere = (int) uneFourmiliere.getCoordonnees().getX();
 		int yFourmiliere = (int)uneFourmiliere.getCoordonnees().getY();
+		
 		this.leJardin.contents().put(-1,
 				new Oval(Color.BLACK, new Point(xFourmiliere, yFourmiliere), new Dimension(20, 20)));
 
@@ -74,6 +59,31 @@ public class Terrain extends JFrame implements Observateur {
 
 	}
 
+	private void initFrame() {
+		
+		splitPane = new JSplitPane();
+		topPanel = new JPanel();
+        bottomPanel = new JPanel();
+		
+        getContentPane().setLayout(new GridLayout());
+		this.leJardin = new World("Le Jardin");
+		DefaultMutableTreeNode top = new DefaultMutableTreeNode("Fourmilieres");
+		this.tree = new JTree(top);
+
+		setPreferredSize(new Dimension(1200, 800));
+		getContentPane().add(splitPane);
+		
+		splitPane.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
+        splitPane.setDividerLocation(800);
+        splitPane.setLeftComponent(leJardin);
+        splitPane.setRightComponent(tree);
+
+        pack();
+        
+        this.leJardin.setBackground(Color.WHITE);
+		this.leJardin.setPreferredSize(new Dimension(800, 800));
+	}
+	
 	public void open() {
 		WindowAdapter wa = new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
