@@ -38,7 +38,7 @@ public class testGraphique {
 		jc.contents().put(-1, InterfaceMorph.CreeFourmiliere(pos)) ;
 
 		List<Fourmi> listFourmis = new ArrayList<Fourmi>();
-		List<Adulte> listAdulte = new ArrayList<Adulte>();
+		List<Fourmi> listAdulte = new ArrayList<Fourmi>();
 		
 		
 		for (int i = 0; i < 100; i++) {
@@ -48,7 +48,7 @@ public class testGraphique {
 			newYork.ajouterFourmi();
 			
 			if (listFourmis.get(i).isPhase().equals("adulte")){
-				listAdulte.add((Adulte)listFourmis.get(i).getPhase());
+				listAdulte.add(listFourmis.get(i));
 			}
 			listAdulte.get(i).setCoordonnees(new Point(100, 100));
 		}
