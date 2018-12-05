@@ -6,7 +6,6 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import Etape.Adulte;
@@ -17,7 +16,6 @@ import modele.ObjetGraphique;
 import modele.Terrain;
 import vue.IMovableDrawable;
 import vue.Oval;
-import vue.World;
 
 public class testTerrain {
 
@@ -35,7 +33,7 @@ public class testTerrain {
 			lesFourmilieres.get(0).ajouterFourmi();
 		}
 		
-		monTerrain.getLeJardin().open();
+		monTerrain.open();
 		while (true) {
 			if (listAdulte.size() > 0) {
 
