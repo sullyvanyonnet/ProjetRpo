@@ -83,6 +83,22 @@ public class Fourmi extends ObjetGraphique {
 		return (4*(1+((1.5*Math.random())/10)))*365;
 	}
 	
+
+
+	/*public void mourrir()
+	{
+		this.setDureeDeVie(-1);
+		this.setPhase(new Cadavre(this));
+	}*/
+	public void seDeplacer() {
+		
+		if(this.phase.jeSuis().equals("adulte")) {
+			Adulte unAdulte = (Adulte)this.phase;
+			this.coordonnees = unAdulte.seDeplacer(this.coordonnees);
+		}
+	}
+	
+	
 	public boolean devenirReine()
 	{		
 		boolean res = this.getPhase().devenirReine();
@@ -97,8 +113,10 @@ public class Fourmi extends ObjetGraphique {
 	public void updateH() {
 		Phase unephase = this.getPhase();
 		if(unephase.jeSuis().equals("adulte")) {
-			Adulte unAdulte = (Adulte)unephase;
-			unAdulte.updateH();
+			this.seDeplacer();
+			
+			//Adulte unAdulte = (Adulte)unephase;
+			//unAdulte.updateH();
 		}
 	}
 
@@ -114,8 +132,8 @@ public class Fourmi extends ObjetGraphique {
 		
 		Phase unephase = this.getPhase();
 		if(unephase.jeSuis().equals("adulte")) {
-			Adulte unAdulte = (Adulte)unephase;
-			unAdulte.updateJ();
+			//Adulte unAdulte = (Adulte)unephase;
+			//unAdulte.updateJ();
 		}
 	}
 }
