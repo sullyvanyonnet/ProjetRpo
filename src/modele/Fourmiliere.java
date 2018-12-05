@@ -59,14 +59,16 @@ public class Fourmiliere extends ObjetGraphique {
 
 	@Override
 	public void updateH() {
-		// TODO Auto-generated method stub
-
+		for(int i = 0 ; i < this.listeDeFourmis.size(); i++) {
+			listeDeFourmis.get(i).updateH();
+		}
 	}
 
 	@Override
 	public void updateJ() {
-		// TODO Auto-generated method stub
-
+		for(int i = 0 ; i < this.listeDeFourmis.size(); i++) {
+			listeDeFourmis.get(i).updateJ();
+		}
 	}
 
 }
