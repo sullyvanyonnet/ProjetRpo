@@ -8,6 +8,7 @@ public class Larve extends Phase {
 	
 	public Larve(Fourmi fourmi) {
 		super(fourmi);
+		fourmi.setDureeDeVie(dureeLarve);
 	}
 	
 	@Override
@@ -16,7 +17,7 @@ public class Larve extends Phase {
 	  }
 	
 	public Phase phaseSuivante() {
-		if (this.fourmi.getDureeDeVie() < dureeLarve) return this;
-		return new Nymphe(fourmi);
+		if (this.fourmi.getDureeDeVie() < dureeLarve) return new Nymphe(fourmi);
+		return this;
 	}
 }

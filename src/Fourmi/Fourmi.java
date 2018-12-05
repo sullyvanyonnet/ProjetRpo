@@ -6,6 +6,7 @@ import Etape.Larve;
 import Etape.Nymphe;
 import Etape.Oeuf;
 import Etape.Phase;
+import Role.Ouvrier;
 import modele.ObjetGraphique;
 
 public class Fourmi extends ObjetGraphique {
@@ -83,15 +84,7 @@ public class Fourmi extends ObjetGraphique {
 		return (4*(1+((1.5*Math.random())/10)))*365;
 	}
 	
-
-
-	/*public void mourrir()
-	{
-		this.setDureeDeVie(-1);
-		this.setPhase(new Cadavre(this));
-	}*/
-	public void seDeplacer() {
-		
+	public void seDeplacer() {		
 		if(this.phase.jeSuis().equals("adulte")) {
 			Adulte unAdulte = (Adulte)this.phase;
 			this.coordonnees = unAdulte.seDeplacer(this.coordonnees);
@@ -106,6 +99,23 @@ public class Fourmi extends ObjetGraphique {
 		{
 			this.dureeDeVie = this.dureeVieFourmiReine();
 		}				
+		return res;
+	}
+	
+	public boolean devenirOuvrier()
+	{		
+		boolean res = this.getPhase().devenirOuvrier();
+		return res;
+	}	
+	
+	public boolean devenirSoldat()
+	{		
+		boolean res = this.getPhase().devenirSoldat();
+		return res;
+	}	
+	
+	public boolean devenirReproducteur() {
+		boolean res = this.getPhase().devenirReproducteur();
 		return res;
 	}
 

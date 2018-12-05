@@ -8,6 +8,7 @@ public class Nymphe extends Phase {
 	
 	public Nymphe(Fourmi fourmi) {
 		super(fourmi);
+		fourmi.setDureeDeVie(dureeNymphe);
 	}
 	
 	@Override
@@ -17,7 +18,7 @@ public class Nymphe extends Phase {
 	
 	//TODO faire comme dans oeuf
 	public Phase phaseSuivante() {
-		if (this.fourmi.getDureeDeVie() < dureeNymphe) return this;
+		if (this.fourmi.getDureeDeVie() > dureeNymphe) return this;
 		return new Adulte(fourmi);
 	}
 }

@@ -25,51 +25,7 @@ class TestsUnitairesFourmi {
 	@AfterEach
 	void tearDown() throws Exception {
 	}
-
-	//DO evolutionLarve
-	/*@Test
-	void testEvolutionLarve() {
-		mimi.evolutionLarve();
-		assert(mimi.getPhase() instanceof Larve);
-	}*/
-	//DO evolutionNymphe
-	//@Test
-	/*void testEvolutionNymphe() {
-		mimi.evolutionNymphe();
-		assert(mimi.getPhase() instanceof Nymphe);
-	}*/
-	//DO evolutionAdulte
-	/*@Test
-	void testEvolutionAdulte() {
-		mimi.evolutionAdulte();
-		assert(mimi.getPhase() instanceof Adulte);
-	}*/
-	//DO mourrir
-	/*@Test
-	void testMourrir() {
-		mimi.mourrir();
-		assert(mimi.getPhase() instanceof Cadavre);
-	}*/
 	
-	//DO mourrir
-	/*	@Test
-		void testMourrir2() throws InterruptedException {
-			int age = 15;
-			mimi.evolutionAdulte();
-			mimi.setDureeDeVie(age);
-			for (int i=0; i<age+1; i++)
-			{
-				mimi.vivre();
-				if(mimi.isPhase().equals("cadavre"))
-				{
-					System.out.println("***MORT****");	
-					break;
-				}
-				TimeUnit.MILLISECONDS.sleep(1);
-			}
-		}*/
-	
-	//DO evolution
 	@Test
 	void testEvolution()
 	{

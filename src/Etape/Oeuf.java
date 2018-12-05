@@ -16,8 +16,8 @@ public class Oeuf extends Phase {
 	  }
 	
 	public Phase phaseSuivante() {
-		if (this.fourmi.getDureeDeVie() < dureeOeuf) return this;
-		return new Larve(fourmi);
+		if (this.fourmi.getDureeDeVie() < dureeOeuf) return new Larve(fourmi);;
+		return this;
 	}
 	
 	

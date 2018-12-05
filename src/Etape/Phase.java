@@ -33,13 +33,22 @@ public class Phase extends ObjetGraphique {
 	}
 
 	public boolean devenirReine() {
-		return false;
-		// TODO Auto-generated method stub
-		
+		return false;	
+	}
+	
+	public boolean devenirOuvrier() {
+		return false;		
 	}
 
+	public boolean devenirSoldat() {
+		return false;	
+	}
+	
+	public boolean devenirReproducteur() {
+		return false;		
+	}
+	
 	public Phase phaseSuivante() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }
