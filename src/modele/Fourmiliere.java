@@ -56,7 +56,7 @@ public class Fourmiliere extends ObjetGraphique{
     public void Nourire() {
     	int sommeANourir = 0;
     	//get somme
-    	for(int i = 0; i> this.listeDeFourmis.size(); i++) {
+    	for(int i = 0; i < this.listeDeFourmis.size(); i++) {
     		sommeANourir = sommeANourir + this.listeDeFourmis.get(i).getPoids();	
     	}	   	    
     	//todo debiter
