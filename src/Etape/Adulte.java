@@ -94,6 +94,7 @@ public class Adulte extends Phase {
    * 0.75 / 1.00 : bas
    */
   public Point seDeplacer(Point point) {
+	  
     double direction = Math.random();
     Point retourCoordonnees = point;
     if(direction < 0.25) {

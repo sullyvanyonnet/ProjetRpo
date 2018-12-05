@@ -8,7 +8,6 @@ import Fourmi.Fourmi;
 import Piece.Decharge;
 import Piece.Salle;
 import Piece.Stock;
-import Role.Reine;
 
 public class Fourmiliere extends EtreVivant {
 	List<Fourmi> listeDeFourmis;
