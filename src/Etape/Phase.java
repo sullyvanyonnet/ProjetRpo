@@ -3,7 +3,7 @@ package Etape;
 import Fourmi.Fourmi;
 import modele.EtreVivant;
 
-public class Phase extends EtreVivant {
+public abstract class Phase extends EtreVivant {
 	
 	//attribut Fourmi 
 	Fourmi fourmi;
