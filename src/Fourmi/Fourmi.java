@@ -20,9 +20,12 @@ public class Fourmi extends ObjetGraphique {
 	public Fourmi(int identifiant) {
 		this.identifiant = identifiant;
 		this.dureeDeVie = (double) 3;
-		this.phase = new Oeuf();
+		this.phase = new Oeuf(this);
 	}
 	
+	public int getIdentifiant() {
+		return this.identifiant;
+	}
 	public Double getDureeDeVie() {
 		return dureeDeVie;
 	}
@@ -67,8 +70,11 @@ public class Fourmi extends ObjetGraphique {
 	//evolution
 	public void evolution()
 	{
+		phase = phase.phaseSuivante();
+		
+		//TODO supprimer ce bout de code
 		//switch case sur la phase
-		switch(this.isPhase())
+	/*	switch(this.isPhase())
 		{
 			case "oeuf" :
 				this.evolutionLarve();
@@ -84,10 +90,11 @@ public class Fourmi extends ObjetGraphique {
 				break;
 			default:
 				break;			
-		}
+		}*/
 	}
 	
-	public void evolutionLarve()
+//TODO refaire l'evolution selon le modele du prof	
+/*	public void evolutionLarve()
 	{
 		this.setDureeDeVie(10);
 		this.setPhase(new Larve());		
@@ -103,7 +110,7 @@ public class Fourmi extends ObjetGraphique {
 		this.setDureeDeVie(this.dureeVieFourmiAdulte());
 		this.setPhase(new Adulte());	
 		this.poids = PoidsEnMilligramme;
-	}
+	}*/
 	
 	public double dureeVieFourmiAdulte()
 	{
@@ -118,7 +125,7 @@ public class Fourmi extends ObjetGraphique {
 	public void mourrir()
 	{
 		this.setDureeDeVie(-1);
-		this.setPhase(new Cadavre());
+		this.setPhase(new Cadavre(this));
 	}
 	
 	public boolean devenirReine()
