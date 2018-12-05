@@ -26,8 +26,10 @@ public class testTerrain {
 		Dimension dim = new Dimension(5, 5);
 
 		ArrayList<Fourmiliere> lesFourmilieres = monTerrain.getLesFourmilieres();
-		int xFourmiliere = lesFourmilieres.get(0).getCoordonnees().getCoordonneeX();
-		int yFourmiliere = lesFourmilieres.get(0).getCoordonnees().getCoordonneeY();
+		int xFourmiliere = (int) lesFourmilieres.get(0)
+				.getrepresentationGraphique().getPosition().getX();
+		int yFourmiliere = (int) lesFourmilieres.get(0)
+				.getrepresentationGraphique().getPosition().getY();
 
 		List<EtreVivant> mesObjetsGraphiques = new ArrayList<EtreVivant>();
 		mesObjetsGraphiques.addAll(lesFourmilieres);
@@ -44,8 +46,10 @@ public class testTerrain {
 				    IMovableDrawable value = entry.getValue();
 				    
 				    mesObjetsGraphiques.get(i).seDeplacer();
-					int coordonneeX = mesObjetsGraphiques.get(i).getCoordonnees().getCoordonneeX();
-					int coordonneeY = mesObjetsGraphiques.get(i).getCoordonnees().getCoordonneeY();
+					int coordonneeX = (int) mesObjetsGraphiques.get(i)
+							.getrepresentationGraphique().getPosition().getX();
+					int coordonneeY = (int) mesObjetsGraphiques.get(i)
+							.getrepresentationGraphique().getPosition().getY();
 					
 					IMovableDrawable unObjet = value;
 
@@ -59,15 +63,21 @@ public class testTerrain {
 			}
 
 			for (int i = 0; i < lesFourmilieres.get(0).getFourmis().size(); i++) {
-				if (lesFourmilieres.get(0).getFourmis().get(i).isPhase().equals("nymphe")) {
+				if (lesFourmilieres.get(0).getFourmis().get(i).isPhase().equals("nymphe")) 
+				{
 					lesFourmilieres.get(0).getFourmis().get(i).vivre();
-					if (lesFourmilieres.get(0).getFourmis().get(i).isPhase().equals("adulte")) {
-						mesObjetsGraphiques.add(lesFourmilieres.get(0).getFourmis().get(i));
-						
-						int xFourmi = lesFourmilieres.get(0).getFourmis().get(i).getCoordonnees().getCoordonneeX();
-						int yFourmi = lesFourmilieres.get(0).getFourmis().get(i).getCoordonnees().getCoordonneeY();
+					if (lesFourmilieres.get(0).getFourmis().get(i).isPhase().equals("adulte")) 
+					{
+						mesObjetsGraphiques.add(lesFourmilieres.get(0).getFourmis().get(i));						
+						int xFourmi = (int) lesFourmilieres.get(0).getFourmis().get(i)
+								.getrepresentationGraphique().getPosition().getX();
+						int yFourmi = (int) lesFourmilieres.get(0).getFourmis().get(i)
+								.getrepresentationGraphique().getPosition().getY();
 						dim = new Dimension(3, 3);
-						monTerrain.getLeJardin().contents().put(lesFourmilieres.get(0).getFourmis().get(i).getIdentifiant(), new Oval(Color.RED, new Point(xFourmi, yFourmi), dim));
+						//creer un nouvel objet graphique de type Fourmi dans le terrain : 
+						monTerrain.getLeJardin().contents()
+								.put(lesFourmilieres.get(0).getFourmis().get(i).getIdentifiant(), 
+								new Oval(Color.RED, new Point(xFourmi, yFourmi), dim));
 					}
 				} else {
 					lesFourmilieres.get(0).getFourmis().get(i).vivre();
