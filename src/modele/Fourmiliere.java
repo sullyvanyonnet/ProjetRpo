@@ -48,7 +48,7 @@ public class Fourmiliere extends ObjetGraphique {
 		return newFourmi;
 	}
 
-	public void Nourire() {
+	public void nourir() {
 		int sommeANourir = 0;
 		// get somme
 		for (int i = 0; i > this.listeDeFourmis.size(); i++) {
