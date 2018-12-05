@@ -36,6 +36,9 @@ public class Fourmiliere extends ObjetGraphique{
     
     public Fourmi ajouterFourmi(){
       Fourmi newFourmi = new Fourmi(this.nombreDeFourmi);
+      newFourmi.setCoordonnees(new Coordonnees(
+    		  this.coordonnees.getCoordonneeX(), this.coordonnees.getCoordonneeY()));
+		
     	listeDeFourmis.add(newFourmi);
     	this.nombreDeFourmi++;
     	return newFourmi;

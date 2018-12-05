@@ -34,7 +34,7 @@ public class testTerrain {
 		for (int i = 0; i < 10; i++) {
 			lesFourmilieres.get(0).ajouterFourmi();
 		}
-		
+
 		monTerrain.getLeJardin().open();
 		while (true) {
 			if (listAdulte.size() > 0) {
@@ -46,21 +46,19 @@ public class testTerrain {
 				}
 
 				HashMap<Integer, IMovableDrawable> drawables = monTerrain.getLeJardin().contents();
-
+				System.out.println(mesObjetsGraphiques.size() + " " + drawables.size());
 				for (int i = 0; i < mesObjetsGraphiques.size(); i++) {
 
 					mesObjetsGraphiques.get(i).seDeplacer();
 					int coordonneeX = mesObjetsGraphiques.get(i).getCoordonnees().getCoordonneeX();
 					int coordonneeY = mesObjetsGraphiques.get(i).getCoordonnees().getCoordonneeY();
-//indice 10 drawable est nul
+//indice 10 drawable est null
 					IMovableDrawable unObjet = drawables.get(i);
-
-					unObjet.setPosition(new Point(coordonneeX, coordonneeY));
+					if (unObjet != null) {
+						unObjet.setPosition(new Point(coordonneeX, coordonneeY));
+					}
 				}
-
-				
 				monTerrain.getLeJardin().repaint();
-
 			}
 
 			for (int i = 0; i < lesFourmilieres.get(0).getFourmis().size(); i++) {
@@ -72,19 +70,22 @@ public class testTerrain {
 						int xFourmi = listAdulte.get(i).getCoordonnees().getCoordonneeX();
 						int yFourmi = listAdulte.get(i).getCoordonnees().getCoordonneeY();
 						dim = new Dimension(3, 3);
-						monTerrain.getLeJardin().contents().put(lesFourmilieres.get(0).getFourmis().get(i).getIdentifiant(), new Oval(Color.RED, new Point(xFourmi, yFourmi), dim));
+						monTerrain.getLeJardin().contents().put(
+								lesFourmilieres.get(0).getFourmis().get(i).getIdentifiant(),
+								new Oval(Color.RED, new Point(xFourmi, yFourmi), dim));
+						System.out.println(monTerrain.getLeJardin().contents().size());
 					}
 				} else {
 					lesFourmilieres.get(0).getFourmis().get(i).vivre();
 				}
-				
+
 			}
-			
+
 			try {
 				TimeUnit.MILLISECONDS.sleep(100);
-				Fourmi newFourmi = new Fourmi(lesFourmilieres.get(0).getFourmis().size());
-				lesFourmilieres.get(0).getFourmis().add(newFourmi);
-				lesFourmilieres.get(0).ajouterFourmi();
+				if (lesFourmilieres.get(0).getFourmis().size() < 200) {
+					lesFourmilieres.get(0).ajouterFourmi();
+				}
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
