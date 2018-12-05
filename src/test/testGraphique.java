@@ -4,10 +4,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -33,7 +31,7 @@ public class testGraphique {
 
 		int xFourmiliere = newYork.getCoordonnees().getCoordonneeX();
 		int yFourmiliere = newYork.getCoordonnees().getCoordonneeY();
-		jc.contents().put(-1, new Oval(Color.BLACK, new Point(xFourmiliere, yFourmiliere), new Dimension(20, 20)));
+		jc.add(new Oval(Color.BLACK, new Point(xFourmiliere, yFourmiliere), new Dimension(20, 20)));
 
 		List<Fourmi> listFourmis = new ArrayList<Fourmi>();
 		List<Adulte> listAdulte = new ArrayList<Adulte>();
@@ -41,7 +39,7 @@ public class testGraphique {
 		
 		for (int i = 0; i < 100; i++) {
 			Fourmi newFourmi = new Fourmi(i);
-			newFourmi.evolution();
+			newFourmi.evolutionAdulte();
 			listFourmis.add(newFourmi);
 			newYork.ajouterFourmi();
 			
@@ -56,7 +54,7 @@ public class testGraphique {
 			int xFourmi = listAdulte.get(i).getCoordonnees().getCoordonneeX();
 			int yFourmi = listAdulte.get(i).getCoordonnees().getCoordonneeY();
 			dim = new Dimension(5, 5);
-			jc.contents().put(i, new Oval(Color.RED, new Point(xFourmi, yFourmi), dim));
+			jc.add(new Oval(Color.RED, new Point(xFourmi, yFourmi), dim));
 		}
 		
 		List<ObjetGraphique> mesObjetsGraphiques = new ArrayList<ObjetGraphique>();
@@ -67,7 +65,7 @@ public class testGraphique {
 		
 		jc.open();
 		while (true) {
-			HashMap<Integer, IMovableDrawable> drawables = jc.contents();
+			List<IMovableDrawable> drawables = jc.contents();
 			
 			for (int i = 0; i < mesObjetsGraphiques.size(); i++) {
 				

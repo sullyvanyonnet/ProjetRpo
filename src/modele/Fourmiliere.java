@@ -12,27 +12,18 @@ import Role.Reine;
 public class Fourmiliere extends ObjetGraphique{
     List<Fourmi> listeDeFourmis;
     List<Salle> ListeSalle;
-    Fourmi saMajeste;
+    Reine saMajeste;
     private int nombreDeFourmi;
     
 
     public Fourmiliere(){
         this.listeDeFourmis = new ArrayList<>();
-        Fourmi uneFourmi = new Fourmi(nombreDeFourmi);
-        uneFourmi.devenirReine();
-        this.saMajeste = uneFourmi;
+        this.saMajeste = new Reine();
         this.coordonnees = new Coordonnees(100,100);
         this.ListeSalle = new ArrayList<>();
         this.ListeSalle.add(new Stock());
         this.ListeSalle.add(new Decharge());        
         this.nombreDeFourmi = 0;
-        
-        for (int i = 0 ; i < 100 ; i++) {
-        	ajouterFourmi();
-        	
-
-    		
-        }
     }
 
     public List<Fourmi> getFourmis(){
@@ -45,9 +36,6 @@ public class Fourmiliere extends ObjetGraphique{
     
     public Fourmi ajouterFourmi(){
       Fourmi newFourmi = new Fourmi(this.nombreDeFourmi);
-      newFourmi.setCoordonnees(new Coordonnees(
-    		  this.coordonnees.getCoordonneeX(), this.coordonnees.getCoordonneeY()));
-		
     	listeDeFourmis.add(newFourmi);
     	this.nombreDeFourmi++;
     	return newFourmi;
@@ -56,7 +44,7 @@ public class Fourmiliere extends ObjetGraphique{
     public void Nourire() {
     	int sommeANourir = 0;
     	//get somme
-    	for(int i = 0; i < this.listeDeFourmis.size(); i++) {
+    	for(int i = 0; i> this.listeDeFourmis.size(); i++) {
     		sommeANourir = sommeANourir + this.listeDeFourmis.get(i).getPoids();	
     	}	   	    
     	//todo debiter
@@ -66,16 +54,13 @@ public class Fourmiliere extends ObjetGraphique{
 
 	@Override
 	public void updateH() {
-		for ( int i = 0 ; i< this.listeDeFourmis.size() ; i++) {
-			this.listeDeFourmis.get(i).updateH();
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void updateJ() {
-		for ( int i = 0 ; i< this.listeDeFourmis.size() ; i++) {
-			this.listeDeFourmis.get(i).updateJ();
-		}
+		// TODO Auto-generated method stub
 		
 	}
     

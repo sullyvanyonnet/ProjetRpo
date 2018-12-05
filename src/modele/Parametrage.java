@@ -51,21 +51,4 @@ public class Parametrage implements Runnable {
 	}
 
 	
-	public void starte() {
-		while(true) {
-			try {
-				TimeUnit.MILLISECONDS.sleep(this.Tick);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}	
-			if(this.nbHeur == 24) {
-				notifyObserversJ();
-				this.nbHeur = 0;
-			}
-			notifyObserversH();
-			this.nbHeur++;
-		}		
-	}
-	
 }
