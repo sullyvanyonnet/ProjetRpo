@@ -1,8 +1,9 @@
 package Role;
 
-import modele.Observateur;
 import Etape.Oeuf;
 import Fourmi.Fourmi;
+import Etape.Adulte;
+import modele.Observateur;
 
 public abstract class Role implements Observateur{	
 	

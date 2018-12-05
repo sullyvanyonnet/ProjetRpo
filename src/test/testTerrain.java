@@ -28,10 +28,6 @@ public class testTerrain {
 		int yFourmiliere = lesFourmilieres.get(0).getCoordonnees().getCoordonneeY();
 
 		List<Adulte> listAdulte = new ArrayList<Adulte>();
-
-		for (int i = 0; i < 10; i++) {
-			lesFourmilieres.get(0).ajouterFourmi();
-		}
 		
 		monTerrain.open();
 		while (true) {
@@ -50,7 +46,7 @@ public class testTerrain {
 					mesObjetsGraphiques.get(i).seDeplacer();
 					int coordonneeX = mesObjetsGraphiques.get(i).getCoordonnees().getCoordonneeX();
 					int coordonneeY = mesObjetsGraphiques.get(i).getCoordonnees().getCoordonneeY();
-//indice 10 drawable est nul
+					
 					IMovableDrawable unObjet = drawables.get(i);
 
 					unObjet.setPosition(new Point(coordonneeX, coordonneeY));
@@ -80,8 +76,6 @@ public class testTerrain {
 			
 			try {
 				TimeUnit.MILLISECONDS.sleep(100);
-				Fourmi newFourmi = new Fourmi(lesFourmilieres.get(0).getFourmis().size());
-				lesFourmilieres.get(0).getFourmis().add(newFourmi);
 				lesFourmilieres.get(0).ajouterFourmi();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block

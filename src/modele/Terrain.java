@@ -43,7 +43,7 @@ public class Terrain extends JFrame implements Observateur {
 		this.tree = new JTree(top);
 
 		Fourmiliere uneFourmiliere = new Fourmiliere();
-		setPreferredSize(new Dimension(100, 800));
+		setPreferredSize(new Dimension(1200, 800));
 		getContentPane().add(splitPane);
 		
 		splitPane.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
@@ -74,20 +74,16 @@ public class Terrain extends JFrame implements Observateur {
 	}
 
 	public void open() {
-		JFrame frame = new JFrame("Le terrain");
 		WindowAdapter wa = new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				System.exit(0);
 			}
 		};
-		frame.addWindowListener(wa);
-		frame.getContentPane().add(this.leJardin);
-		frame.getContentPane().add(this.tree);
-		frame.pack();
-		this.leJardin.setVisible(true);
-		frame.setVisible(true);
+		addWindowListener(wa);
+		setVisible(true);
 	}
 
+	
 	public ArrayList<Fourmiliere> getLesFourmilieres() {
 		return this.lesFourmilieres;
 	}
