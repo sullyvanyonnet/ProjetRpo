@@ -15,6 +15,7 @@ import Etape.Adulte;
 import Fourmi.Fourmi;
 import modele.Coordonnees;
 import modele.Fourmiliere;
+import modele.InterfaceMorph;
 import modele.EtreVivant;
 import vue.IMovableDrawable;
 import vue.Oval;
@@ -31,16 +32,17 @@ public class testGraphique {
 		
 		Fourmiliere newYork = new Fourmiliere();
 
-		int xFourmiliere = newYork.getCoordonnees().getCoordonneeX();
-		int yFourmiliere = newYork.getCoordonnees().getCoordonneeY();
-		jc.contents().put(-1, new Oval(Color.BLACK, new Point(xFourmiliere, yFourmiliere), new Dimension(20, 20)));
+		int xFourmiliere =(int) newYork.getrepresentationGraphique().getPosition().getX();
+		int yFourmiliere =(int)  newYork.getrepresentationGraphique().getPosition().getY();
+		Point pos =  new Point(xFourmiliere, yFourmiliere);
+		jc.contents().put(-1, InterfaceMorph.creeFourmiliere(pos)) ;
 
 		List<Fourmi> listFourmis = new ArrayList<Fourmi>();
 		List<Adulte> listAdulte = new ArrayList<Adulte>();
 		
 		
 		for (int i = 0; i < 100; i++) {
-			Fourmi newFourmi = new Fourmi(i);
+			Fourmi newFourmi = new Fourmi(i,pos);
 			newFourmi.evolution();
 			listFourmis.add(newFourmi);
 			newYork.ajouterFourmi();
@@ -48,15 +50,16 @@ public class testGraphique {
 			if (listFourmis.get(i).isPhase().equals("adulte")){
 				listAdulte.add((Adulte)listFourmis.get(i).getPhase());
 			}
-			listAdulte.get(i).setCoordonnees(new Coordonnees(100, 100));
+			listAdulte.get(i).setCoordonnees(new Point(100, 100));
 		}
 
 
 		for (int i = 0; i < 100; i++) {
-			int xFourmi = listAdulte.get(i).getCoordonnees().getCoordonneeX();
-			int yFourmi = listAdulte.get(i).getCoordonnees().getCoordonneeY();
+			int xFourmi = (int)listAdulte.get(i).getrepresentationGraphique().getPosition().getX();
+			int yFourmi = (int)listAdulte.get(i).getrepresentationGraphique().getPosition().getY();
 			dim = new Dimension(5, 5);
-			jc.contents().put(i, new Oval(Color.RED, new Point(xFourmi, yFourmi), dim));
+			Point posiFourm = new Point(xFourmi, yFourmi);
+			jc.contents().put(i,InterfaceMorph.creeFourmiliere(posiFourm));
 		}
 		
 		List<EtreVivant> mesObjetsGraphiques = new ArrayList<EtreVivant>();
@@ -72,8 +75,8 @@ public class testGraphique {
 			for (int i = 0; i < mesObjetsGraphiques.size(); i++) {
 				
 				mesObjetsGraphiques.get(i).seDeplacer();
-				int coordonneeX = mesObjetsGraphiques.get(i).getCoordonnees().getCoordonneeX();
-				int coordonneeY = mesObjetsGraphiques.get(i).getCoordonnees().getCoordonneeY();
+				int coordonneeX = (int) mesObjetsGraphiques.get(i).getrepresentationGraphique().getPosition().getX();
+				int coordonneeY = (int)mesObjetsGraphiques.get(i).getrepresentationGraphique().getPosition().getY();
 				
 				IMovableDrawable unObjet = drawables.get(i);
 
