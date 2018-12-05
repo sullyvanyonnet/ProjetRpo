@@ -1,8 +1,10 @@
 package Role;
 
+import Fourmi.Fourmi;
+
 public class Reproducteur extends Role{
-	public Reproducteur() {
-    	super();
+	public Reproducteur(Fourmi fourmi) {
+    	super(fourmi);
     }
 	
 	@Override		

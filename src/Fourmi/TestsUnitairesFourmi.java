@@ -26,32 +26,50 @@ class TestsUnitairesFourmi {
 	void tearDown() throws Exception {
 	}
 
-	//TODO evolutionLarve
-	@Test
+	//DO evolutionLarve
+	/*@Test
 	void testEvolutionLarve() {
 		mimi.evolutionLarve();
 		assert(mimi.getPhase() instanceof Larve);
-	}
-	//TODO evolutionNymphe
-	@Test
-	void testEvolutionNymphe() {
+	}*/
+	//DO evolutionNymphe
+	//@Test
+	/*void testEvolutionNymphe() {
 		mimi.evolutionNymphe();
 		assert(mimi.getPhase() instanceof Nymphe);
-	}
-	//TODO evolutionAdulte
-	@Test
+	}*/
+	//DO evolutionAdulte
+	/*@Test
 	void testEvolutionAdulte() {
 		mimi.evolutionAdulte();
 		assert(mimi.getPhase() instanceof Adulte);
-	}
-	//TODO mourrir
-	@Test
+	}*/
+	//DO mourrir
+	/*@Test
 	void testMourrir() {
 		mimi.mourrir();
 		assert(mimi.getPhase() instanceof Cadavre);
-	}
+	}*/
 	
-	//TODO evolution
+	//DO mourrir
+	/*	@Test
+		void testMourrir2() throws InterruptedException {
+			int age = 15;
+			mimi.evolutionAdulte();
+			mimi.setDureeDeVie(age);
+			for (int i=0; i<age+1; i++)
+			{
+				mimi.vivre();
+				if(mimi.isPhase().equals("cadavre"))
+				{
+					System.out.println("***MORT****");	
+					break;
+				}
+				TimeUnit.MILLISECONDS.sleep(1);
+			}
+		}*/
+	
+	//DO evolution
 	@Test
 	void testEvolution()
 	{
@@ -68,6 +86,9 @@ class TestsUnitairesFourmi {
 	void testDureeVieFourmiAdulte()
 	{		
 		Double vie = mimi.dureeVieFourmiAdulte();
+		System.out.println("duree de vie d'une fourmi adulte : " + vie);
+		Double vie2 = mimi.dureeVieFourmiAdulte();
+		System.out.println("duree de vie d'une fourmi adulte : " + vie2);
 		assert(vie>(1.5*365) && vie<(2.6*365));
 	}
 }
