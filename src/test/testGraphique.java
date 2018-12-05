@@ -35,7 +35,7 @@ public class testGraphique {
 		int xFourmiliere =(int) newYork.getrepresentationGraphique().getPosition().getX();
 		int yFourmiliere =(int)  newYork.getrepresentationGraphique().getPosition().getY();
 		Point pos =  new Point(xFourmiliere, yFourmiliere);
-		jc.contents().put(-1, InterfaceMorph.creeFourmiliere(pos)) ;
+		jc.contents().put(-1, InterfaceMorph.CreeFourmiliere(pos)) ;
 
 		List<Fourmi> listFourmis = new ArrayList<Fourmi>();
 		List<Adulte> listAdulte = new ArrayList<Adulte>();
@@ -59,7 +59,7 @@ public class testGraphique {
 			int yFourmi = (int)listAdulte.get(i).getrepresentationGraphique().getPosition().getY();
 			dim = new Dimension(5, 5);
 			Point posiFourm = new Point(xFourmi, yFourmi);
-			jc.contents().put(i,InterfaceMorph.creeFourmiliere(posiFourm));
+			jc.contents().put(i,InterfaceMorph.CreeFourmiliere(posiFourm));
 		}
 		
 		List<EtreVivant> mesObjetsGraphiques = new ArrayList<EtreVivant>();
