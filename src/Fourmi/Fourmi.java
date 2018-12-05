@@ -20,7 +20,7 @@ public class Fourmi extends EtreVivant {
     private int poids;    
     private Phase phase ;
 	
-	public Fourmi(int identifiant, Point unpoint) {
+	public Fourmi(int identifiant, Point unPoint) {
 		this.identifiant = identifiant;
 		this.dureeDeVie = (double) 3;
 		this.phase = new Oeuf(this);

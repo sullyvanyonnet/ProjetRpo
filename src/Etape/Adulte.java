@@ -1,5 +1,7 @@
 package Etape;
 
+import java.awt.Point;
+
 import Etape.*;
 import Fourmi.Fourmi;
 import Role.*;
@@ -91,17 +93,17 @@ public class Adulte extends Phase {
    * 0.50 / 0.75 : haut
    * 0.75 / 1.00 : bas
    */
-  public Coordonnees seDeplacer(Coordonnees unecoordonnees) {
+  public Point seDeplacer(Point point) {
     double direction = Math.random();
-    Coordonnees retourCoordonnees = unecoordonnees;
+    Point retourCoordonnees = point;
     if(direction < 0.25) {
-    	retourCoordonnees.setCoordonneeX( unecoordonnees.getCoordonneeX() - 1);
+    	retourCoordonnees.setLocation(point.getX() - 1, point.getY());
     } else if (direction < 0.50) {
-    	retourCoordonnees.setCoordonneeX(unecoordonnees.getCoordonneeX() + 1);
+    	retourCoordonnees.setLocation(point.getX() + 1, point.getY());
     } else if (direction < 0.75) {
-    	retourCoordonnees.setCoordonneeY(unecoordonnees.getCoordonneeY() + 1);
+    	retourCoordonnees.setLocation(point.getX() ,point.getY() + 1);
     } else if (direction < 1.00) {
-    	retourCoordonnees.setCoordonneeY(unecoordonnees.getCoordonneeY() - 1);
+    	retourCoordonnees.setLocation(point.getX() ,point.getY() - 1);
     }
     return retourCoordonnees;
   }
@@ -118,8 +120,8 @@ public class Adulte extends Phase {
   }
   public String toString() {
     StringBuilder res = new StringBuilder("");
-    res.append(this.coordonnees.getCoordonneeX() + " ");
-    res.append(this.coordonnees.getCoordonneeY() + " ");
+    res.append(this.representationGraphique.getPosition().getX() + " ");
+    res.append(this.representationGraphique.getPosition().getY()  + " ");
     
     return res.toString();
     

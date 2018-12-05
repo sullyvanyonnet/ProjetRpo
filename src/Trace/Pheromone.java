@@ -8,8 +8,6 @@ public abstract class Pheromone extends EtreVivant {
 	
 	Pheromone(Coordonnees unecoor){
 		this.ID = Integer.toString(unecoor.getCoordonneeX()) + Integer.toString(unecoor.getCoordonneeY());
-		this.coordonnees.setCoordonneeX(unecoor.getCoordonneeX());
-		this.coordonnees.setCoordonneeY(unecoor.getCoordonneeY());
 	}
 	
 	
