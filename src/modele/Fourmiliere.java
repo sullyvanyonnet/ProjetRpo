@@ -24,6 +24,13 @@ public class Fourmiliere extends ObjetGraphique{
         this.ListeSalle.add(new Stock());
         this.ListeSalle.add(new Decharge());        
         this.nombreDeFourmi = 0;
+        
+        for (int i = 0 ; i < 100 ; i++) {
+        	ajouterFourmi();
+        	
+
+    		
+        }
     }
 
     public List<Fourmi> getFourmis(){
@@ -57,13 +64,16 @@ public class Fourmiliere extends ObjetGraphique{
 
 	@Override
 	public void updateH() {
-		// TODO Auto-generated method stub
-		
+		for ( int i = 0 ; i< this.listeDeFourmis.size() ; i++) {
+			this.listeDeFourmis.get(i).updateH();
+		}
 	}
 
 	@Override
 	public void updateJ() {
-		// TODO Auto-generated method stub
+		for ( int i = 0 ; i< this.listeDeFourmis.size() ; i++) {
+			this.listeDeFourmis.get(i).updateJ();
+		}
 		
 	}
     
