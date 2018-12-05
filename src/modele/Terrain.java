@@ -34,8 +34,8 @@ public class Terrain extends JFrame implements Observateur {
 	public Terrain() {
 		
 		splitPane = new JSplitPane();
-		topPanel = new JPanel();         // our top component
-        bottomPanel = new JPanel();      // our bottom component
+		topPanel = new JPanel();
+        bottomPanel = new JPanel();
 		
         getContentPane().setLayout(new GridLayout());
 		this.leJardin = new World("Le Jardin");

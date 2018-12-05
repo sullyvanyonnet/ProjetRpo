@@ -6,6 +6,8 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 
 import Etape.Adulte;
@@ -27,31 +29,30 @@ public class testTerrain {
 		int xFourmiliere = lesFourmilieres.get(0).getCoordonnees().getCoordonneeX();
 		int yFourmiliere = lesFourmilieres.get(0).getCoordonnees().getCoordonneeY();
 
-		List<Adulte> listAdulte = new ArrayList<Adulte>();
+		List<ObjetGraphique> mesObjetsGraphiques = new ArrayList<ObjetGraphique>();
+		mesObjetsGraphiques.addAll(lesFourmilieres);
 		
 		monTerrain.open();
 		while (true) {
-			if (listAdulte.size() > 0) {
-
-				List<ObjetGraphique> mesObjetsGraphiques = new ArrayList<ObjetGraphique>();
-				mesObjetsGraphiques.addAll(lesFourmilieres);
-				for (int i = 0; i < listAdulte.size(); i++) {
-					mesObjetsGraphiques.add(listAdulte.get(i));
-				}
+			if (mesObjetsGraphiques.size() > 0) {
 
 				HashMap<Integer, IMovableDrawable> drawables = monTerrain.getLeJardin().contents();
 
-				for (int i = 0; i < mesObjetsGraphiques.size(); i++) {
-
-					mesObjetsGraphiques.get(i).seDeplacer();
+				int i = 0;
+				for(Entry<Integer, IMovableDrawable> entry : drawables.entrySet()) {
+					Integer key = entry.getKey();
+				    IMovableDrawable value = entry.getValue();
+				    
+				    mesObjetsGraphiques.get(i).seDeplacer();
 					int coordonneeX = mesObjetsGraphiques.get(i).getCoordonnees().getCoordonneeX();
 					int coordonneeY = mesObjetsGraphiques.get(i).getCoordonnees().getCoordonneeY();
 					
-					IMovableDrawable unObjet = drawables.get(i);
+					IMovableDrawable unObjet = value;
 
 					unObjet.setPosition(new Point(coordonneeX, coordonneeY));
+				 
+					i++;
 				}
-
 				
 				monTerrain.getLeJardin().repaint();
 
@@ -61,10 +62,10 @@ public class testTerrain {
 				if (lesFourmilieres.get(0).getFourmis().get(i).isPhase().equals("nymphe")) {
 					lesFourmilieres.get(0).getFourmis().get(i).vivre();
 					if (lesFourmilieres.get(0).getFourmis().get(i).isPhase().equals("adulte")) {
-						listAdulte.add((Adulte) lesFourmilieres.get(0).getFourmis().get(i).getPhase());
-						listAdulte.get(i).setCoordonnees(new Coordonnees(xFourmiliere, yFourmiliere));
-						int xFourmi = listAdulte.get(i).getCoordonnees().getCoordonneeX();
-						int yFourmi = listAdulte.get(i).getCoordonnees().getCoordonneeY();
+						mesObjetsGraphiques.add(lesFourmilieres.get(0).getFourmis().get(i));
+						
+						int xFourmi = lesFourmilieres.get(0).getFourmis().get(i).getCoordonnees().getCoordonneeX();
+						int yFourmi = lesFourmilieres.get(0).getFourmis().get(i).getCoordonnees().getCoordonneeY();
 						dim = new Dimension(3, 3);
 						monTerrain.getLeJardin().contents().put(lesFourmilieres.get(0).getFourmis().get(i).getIdentifiant(), new Oval(Color.RED, new Point(xFourmi, yFourmi), dim));
 					}
@@ -76,7 +77,7 @@ public class testTerrain {
 			
 			try {
 				TimeUnit.MILLISECONDS.sleep(100);
-				lesFourmilieres.get(0).ajouterFourmi();
+				//lesFourmilieres.get(0).ajouterFourmi();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
