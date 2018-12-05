@@ -77,7 +77,7 @@ public class testTerrain {
 			
 			try {
 				TimeUnit.MILLISECONDS.sleep(100);
-				//lesFourmilieres.get(0).ajouterFourmi();
+				lesFourmilieres.get(0).ajouterFourmi();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
