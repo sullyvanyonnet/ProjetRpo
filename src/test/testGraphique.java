@@ -35,10 +35,10 @@ public class testGraphique {
 		int xFourmiliere =(int) newYork.getrepresentationGraphique().getPosition().getX();
 		int yFourmiliere =(int)  newYork.getrepresentationGraphique().getPosition().getY();
 		Point pos =  new Point(xFourmiliere, yFourmiliere);
-		jc.contents().put(-1, InterfaceMorph.creeFourmiliere(pos)) ;
+		jc.contents().put(-1, InterfaceMorph.CreeFourmiliere(pos)) ;
 
 		List<Fourmi> listFourmis = new ArrayList<Fourmi>();
-		List<Adulte> listAdulte = new ArrayList<Adulte>();
+		List<Fourmi> listAdulte = new ArrayList<Fourmi>();
 		
 		
 		for (int i = 0; i < 100; i++) {
@@ -48,7 +48,7 @@ public class testGraphique {
 			newYork.ajouterFourmi();
 			
 			if (listFourmis.get(i).isPhase().equals("adulte")){
-				listAdulte.add((Adulte)listFourmis.get(i).getPhase());
+				listAdulte.add(listFourmis.get(i));
 			}
 			listAdulte.get(i).setCoordonnees(new Point(100, 100));
 		}
@@ -59,7 +59,7 @@ public class testGraphique {
 			int yFourmi = (int)listAdulte.get(i).getrepresentationGraphique().getPosition().getY();
 			dim = new Dimension(5, 5);
 			Point posiFourm = new Point(xFourmi, yFourmi);
-			jc.contents().put(i,InterfaceMorph.creeFourmiliere(posiFourm));
+			jc.contents().put(i,InterfaceMorph.CreeFourmiliere(posiFourm));
 		}
 		
 		List<EtreVivant> mesObjetsGraphiques = new ArrayList<EtreVivant>();

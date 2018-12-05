@@ -21,6 +21,7 @@ class ReineTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
+		
 		mimi = new Fourmi(1);
 		int ageMax = 40;
 		boolean b = false;

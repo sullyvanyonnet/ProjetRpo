@@ -120,8 +120,8 @@ public class Adulte extends Phase {
   }
   public String toString() {
     StringBuilder res = new StringBuilder("");
-    res.append(this.representationGraphique.getPosition().getX() + " ");
-    res.append(this.representationGraphique.getPosition().getY()  + " ");
+    res.append(this.fourmi.getrepresentationGraphique().getPosition().getX() + " ");
+    res.append(this.fourmi.getrepresentationGraphique().getPosition().getY()  + " ");
     
     return res.toString();
     
@@ -130,7 +130,6 @@ public class Adulte extends Phase {
 	@Override
 	public void updateH() {
 		// TODO Auto-generated method stub	
-		this.seDeplacer();
 	}
 
 	@Override
