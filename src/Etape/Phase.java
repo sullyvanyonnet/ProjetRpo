@@ -2,8 +2,9 @@ package Etape;
 
 import Fourmi.Fourmi;
 import modele.EtreVivant;
+import modele.Observateur;
 
-public abstract class Phase extends EtreVivant {
+public abstract class Phase implements Observateur {
 	
 	//attribut Fourmi 
 	Fourmi fourmi;
