@@ -3,6 +3,7 @@ package Etape;
 import Etape.*;
 import Fourmi.Fourmi;
 import Role.*;
+import modele.Coordonnees;
 
 public class Adulte extends Phase {
 	private Role role ;
@@ -88,18 +89,19 @@ public class Adulte extends Phase {
    * 0.50 / 0.75 : haut
    * 0.75 / 1.00 : bas
    */
-  public void seDeplacer() {
+  public Coordonnees seDeplacer(Coordonnees unecoordonnees) {
     double direction = Math.random();
-    
+    Coordonnees retourCoordonnees = unecoordonnees;
     if(direction < 0.25) {
-      this.coordonnees.setCoordonneeX(this.coordonnees.getCoordonneeX() - 1);
+    	retourCoordonnees.setCoordonneeX( unecoordonnees.getCoordonneeX() - 1);
     } else if (direction < 0.50) {
-      this.coordonnees.setCoordonneeX(this.coordonnees.getCoordonneeX() + 1);
+    	retourCoordonnees.setCoordonneeX(unecoordonnees.getCoordonneeX() + 1);
     } else if (direction < 0.75) {
-      this.coordonnees.setCoordonneeY(this.coordonnees.getCoordonneeY() + 1);
+    	retourCoordonnees.setCoordonneeY(unecoordonnees.getCoordonneeY() + 1);
     } else if (direction < 1.00) {
-      this.coordonnees.setCoordonneeY(this.coordonnees.getCoordonneeY() - 1);
+    	retourCoordonnees.setCoordonneeY(unecoordonnees.getCoordonneeY() - 1);
     }
+    return retourCoordonnees;
   }
   
 

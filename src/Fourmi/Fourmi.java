@@ -127,6 +127,13 @@ public class Fourmi extends ObjetGraphique {
 		this.setDureeDeVie(-1);
 		this.setPhase(new Cadavre(this));
 	}*/
+	public void seDeplacer() {
+		
+		if(this.phase.jeSuis().equals("adulte")) {
+			Adulte unAdulte = (Adulte)this.phase;
+			this.coordonnees = unAdulte.seDeplacer(this.coordonnees);
+		}
+	}
 	
 	public boolean devenirReine()
 	{		
