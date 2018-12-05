@@ -47,8 +47,8 @@ public class Fourmi extends ObjetGraphique {
 		this.poids = poids;
 	}
 	
-	//TODO methode pour surveiller si la duree de vie de la fourmi n'est pas à 0
-	//observer observable du temps
+	//vivre pendant un tick
+	//evoluer si la duree d'une phase s'est écoulée
 	public void vivre() throws InterruptedException
 	{
 		
@@ -71,46 +71,7 @@ public class Fourmi extends ObjetGraphique {
 	public void evolution()
 	{
 		phase = phase.phaseSuivante();
-		
-		//TODO supprimer ce bout de code
-		//switch case sur la phase
-	/*	switch(this.isPhase())
-		{
-			case "oeuf" :
-				this.evolutionLarve();
-				break;
-			case "larve" :
-				this.evolutionNymphe();
-				break;
-			case "nymphe" :
-				this.evolutionAdulte();	
-				break;
-			case "adulte" :
-				this.mourrir();
-				break;
-			default:
-				break;			
-		}*/
 	}
-	
-//TODO refaire l'evolution selon le modele du prof	
-/*	public void evolutionLarve()
-	{
-		this.setDureeDeVie(10);
-		this.setPhase(new Larve());		
-	}
-	
-	public void evolutionNymphe()
-	{
-		this.setDureeDeVie(16);
-		this.setPhase(new Nymphe());	
-	}
-	public void evolutionAdulte()
-	{
-		this.setDureeDeVie(this.dureeVieFourmiAdulte());
-		this.setPhase(new Adulte());	
-		this.poids = PoidsEnMilligramme;
-	}*/
 	
 	public double dureeVieFourmiAdulte()
 	{
@@ -121,12 +82,6 @@ public class Fourmi extends ObjetGraphique {
 	{
 		return (4*(1+((1.5*Math.random())/10)))*365;
 	}
-	
-	/*public void mourrir()
-	{
-		this.setDureeDeVie(-1);
-		this.setPhase(new Cadavre(this));
-	}*/
 	
 	public boolean devenirReine()
 	{		
