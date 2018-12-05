@@ -7,7 +7,7 @@ import java.awt.Point;
 import vue.Morph;
 import vue.Oval;
 
-public abstract class InterfaceMoph {
+public abstract class InterfaceMorph {
 	
 	static public Morph CreeProie(Point pos) {
 		  Dimension dim = new Dimension(3, 3);
