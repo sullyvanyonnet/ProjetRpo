@@ -12,13 +12,15 @@ import Role.Reine;
 public class Fourmiliere extends ObjetGraphique{
     List<Fourmi> listeDeFourmis;
     List<Salle> ListeSalle;
-    Reine saMajeste;
+    Fourmi saMajeste;
     private int nombreDeFourmi;
     
 
     public Fourmiliere(){
         this.listeDeFourmis = new ArrayList<>();
-        this.saMajeste = new Reine();
+        Fourmi uneFourmi= new Fourmi(nombreDeFourmi);
+        uneFourmi.devenirReine();
+        this.saMajeste = uneFourmi;
         this.coordonnees = new Coordonnees(100,100);
         this.ListeSalle = new ArrayList<>();
         this.ListeSalle.add(new Stock());
