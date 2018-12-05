@@ -52,6 +52,7 @@ public class Terrain implements Observateur{
 
 	@Override
 	public void updateH() {
+		
 		// TODO Auto-generated method stub
 		List<IMovableDrawable> drawables = this.getLeJardin().contents();
 		for (int i = 0; i < this.lesFourmilieres.size(); i++) {
