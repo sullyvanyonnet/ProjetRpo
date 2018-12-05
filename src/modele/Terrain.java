@@ -23,7 +23,7 @@ public class Terrain implements Observateur{
 		
 		int xFourmiliere = uneFourmiliere.getCoordonnees().getCoordonneeX();
 		int yFourmiliere = uneFourmiliere.getCoordonnees().getCoordonneeY();
-		this.leJardin.add(new Oval(Color.BLACK, new Point(xFourmiliere, yFourmiliere), new Dimension(20, 20)));
+		this.leJardin.contents().put(-1, new Oval(Color.BLACK, new Point(xFourmiliere, yFourmiliere), new Dimension(20, 20)));
 		
 		
 	}
