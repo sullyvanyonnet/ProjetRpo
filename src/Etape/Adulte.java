@@ -11,11 +11,13 @@ public class Adulte extends Phase {
 	
 	public Adulte(Fourmi fourmi) {
 		super(fourmi);
-		this.dureeAdulte = fourmi.dureeVieFourmiAdulte();
+		double tempsVie = fourmi.dureeVieFourmiAdulte();
+		this.dureeAdulte = tempsVie;
+		fourmi.setDureeDeVie(tempsVie);
 	}
 	
 	public Phase phaseSuivante() {
-		if (this.fourmi.getDureeDeVie() < this.dureeAdulte) return this;
+		if (this.fourmi.getDureeDeVie() > this.dureeAdulte) return this;
 		return new Cadavre(fourmi);
 	}
 	
@@ -41,7 +43,7 @@ public class Adulte extends Phase {
 	{	
 		if("adulte".equals(this.jeSuis()))
 		{
-			Reine reine = new Reine(fourmi);
+			Reine reine = new Reine(super.fourmi);
 			this.setRole(reine);
 			return true;
 		}	
@@ -52,7 +54,7 @@ public class Adulte extends Phase {
 	{
 		if(this.jeSuis().equals("adulte"))
 		{
-			Ouvrier ouvrier = new Ouvrier(fourmi);
+			Ouvrier ouvrier = new Ouvrier(super.fourmi);
 			this.setRole(ouvrier);
 			return true;
 		}
@@ -63,7 +65,7 @@ public class Adulte extends Phase {
 	{
 		if(this.jeSuis().equals("adulte"))
 		{
-			Soldat soldat = new Soldat(fourmi);
+			Soldat soldat = new Soldat(super.fourmi);;
 			this.setRole(soldat);
 			return true;
 		}
@@ -74,7 +76,7 @@ public class Adulte extends Phase {
 	{
 		if(this.jeSuis().equals("adulte"))
 		{
-			Reproducteur reproducteur = new Reproducteur(fourmi);
+			Reproducteur reproducteur = new Reproducteur(super.fourmi);
 			this.setRole(reproducteur);
 			return true;
 		} 
