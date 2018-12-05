@@ -1,17 +1,20 @@
 package Role;
 
+import Etape.Adulte;
 import Etape.Oeuf;
+import Fourmi.Fourmi;
 
 public class Reine extends Role {
 
-	//TODO trouver un moyen de modifier la duree de vie de la reine
-    public Reine() {
-    	super();
+	private Fourmi fourmi;
+
+    public Reine(Fourmi fourmi) {
+    	super(fourmi);
     }
    
     public Oeuf pondre()
     {
-		return new Oeuf();
+    	return new Oeuf(this.fourmi);
     }
 
     @Override

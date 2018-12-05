@@ -22,10 +22,11 @@ public class TestSequenceVieFourmie {
 					System.out.println("Nymphe ?");
 					break;
 				case "nymphe" :
-					System.out.println("Adulte ?");
+					System.out.println("Adulte ?");					
 					break;
 				case "adulte" :
 					System.out.println("Mourrir ?");
+					mimi.setDureeDeVie(1);
 					break;
 				case "cadavre" :
 					System.out.println("***MORT****");

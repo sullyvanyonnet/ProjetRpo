@@ -1,8 +1,10 @@
 package Role;
 
+import Fourmi.Fourmi;
+
 public class Soldat extends Role{
-	public Soldat() {
-    	super();
+	public Soldat(Fourmi fourmi) {
+    	super(fourmi);
     }
 	
 	@Override

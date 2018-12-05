@@ -1,10 +1,16 @@
 package Etape;
 
+import Fourmi.Fourmi;
 import modele.ObjetGraphique;
 
 public class Phase extends ObjetGraphique {
-	public Phase()
+	
+	//attribut Fourmi 
+	Fourmi fourmi;
+	
+	public Phase(Fourmi fourmi)
 	{	
+		this.fourmi = fourmi;
 	}
 
 	public String jeSuis()
@@ -30,5 +36,10 @@ public class Phase extends ObjetGraphique {
 		return false;
 		// TODO Auto-generated method stub
 		
+	}
+
+	public Phase phaseSuivante() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

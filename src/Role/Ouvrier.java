@@ -1,9 +1,11 @@
 package Role;
 
+import Fourmi.Fourmi;
+
 public class Ouvrier extends Role{
 	
-	public Ouvrier() {
-	   	super();
+	public Ouvrier(Fourmi fourmi) {
+	   	super(fourmi);
 	}
 	@Override
     public String monRole()

@@ -27,32 +27,32 @@ class TestsUnitairesFourmi {
 	}
 
 	//DO evolutionLarve
-	@Test
+	/*@Test
 	void testEvolutionLarve() {
 		mimi.evolutionLarve();
 		assert(mimi.getPhase() instanceof Larve);
-	}
+	}*/
 	//DO evolutionNymphe
-	@Test
-	void testEvolutionNymphe() {
+	//@Test
+	/*void testEvolutionNymphe() {
 		mimi.evolutionNymphe();
 		assert(mimi.getPhase() instanceof Nymphe);
-	}
+	}*/
 	//DO evolutionAdulte
-	@Test
+	/*@Test
 	void testEvolutionAdulte() {
 		mimi.evolutionAdulte();
 		assert(mimi.getPhase() instanceof Adulte);
-	}
+	}*/
 	//DO mourrir
-	@Test
+	/*@Test
 	void testMourrir() {
 		mimi.mourrir();
 		assert(mimi.getPhase() instanceof Cadavre);
-	}
+	}*/
 	
 	//DO mourrir
-		@Test
+	/*	@Test
 		void testMourrir2() throws InterruptedException {
 			int age = 15;
 			mimi.evolutionAdulte();
@@ -65,13 +65,9 @@ class TestsUnitairesFourmi {
 					System.out.println("***MORT****");	
 					break;
 				}
-				else
-				{
-					System.out.print("vi");
-				}
 				TimeUnit.MILLISECONDS.sleep(1);
 			}
-		}
+		}*/
 	
 	//DO evolution
 	@Test
@@ -90,6 +86,9 @@ class TestsUnitairesFourmi {
 	void testDureeVieFourmiAdulte()
 	{		
 		Double vie = mimi.dureeVieFourmiAdulte();
+		System.out.println("duree de vie d'une fourmi adulte : " + vie);
+		Double vie2 = mimi.dureeVieFourmiAdulte();
+		System.out.println("duree de vie d'une fourmi adulte : " + vie2);
 		assert(vie>(1.5*365) && vie<(2.6*365));
 	}
 }
