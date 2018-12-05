@@ -18,7 +18,7 @@ public class Fourmiliere extends ObjetGraphique{
 
     public Fourmiliere(){
         this.listeDeFourmis = new ArrayList<>();
-        this.saMajeste = new Reine();
+        this.saMajeste = new Reine(null);
         this.coordonnees = new Coordonnees(100,100);
         this.ListeSalle = new ArrayList<>();
         this.ListeSalle.add(new Stock());

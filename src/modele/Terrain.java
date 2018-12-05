@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import vue.IMovableDrawable;
@@ -54,7 +55,7 @@ public class Terrain implements Observateur{
 	public void updateH() {
 		
 		// TODO Auto-generated method stub
-		List<IMovableDrawable> drawables = this.getLeJardin().contents();
+		HashMap<Integer, IMovableDrawable> drawables = this.getLeJardin().contents();
 		for (int i = 0; i < this.lesFourmilieres.size(); i++) {
 			lesFourmilieres.get(i).updateH();
 		}

@@ -41,7 +41,7 @@ public class testGraphique {
 		
 		for (int i = 0; i < 100; i++) {
 			Fourmi newFourmi = new Fourmi(i);
-			newFourmi.evolutionAdulte();
+			newFourmi.evolution();
 			listFourmis.add(newFourmi);
 			newYork.ajouterFourmi();
 			

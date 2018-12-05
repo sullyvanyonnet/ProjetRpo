@@ -40,7 +40,7 @@ public class Adulte extends Phase {
 	{	
 		if("adulte".equals(this.jeSuis()))
 		{
-			Reine reine = new Reine();
+			Reine reine = new Reine(fourmi);
 			this.setRole(reine);
 			return true;
 		}	
@@ -51,7 +51,7 @@ public class Adulte extends Phase {
 	{
 		if(this.jeSuis().equals("adulte"))
 		{
-			Ouvrier ouvrier = new Ouvrier();
+			Ouvrier ouvrier = new Ouvrier(fourmi);
 			this.setRole(ouvrier);
 			return true;
 		}
@@ -62,7 +62,7 @@ public class Adulte extends Phase {
 	{
 		if(this.jeSuis().equals("adulte"))
 		{
-			Soldat soldat = new Soldat();
+			Soldat soldat = new Soldat(fourmi);
 			this.setRole(soldat);
 			return true;
 		}
@@ -73,7 +73,7 @@ public class Adulte extends Phase {
 	{
 		if(this.jeSuis().equals("adulte"))
 		{
-			Reproducteur reproducteur = new Reproducteur();
+			Reproducteur reproducteur = new Reproducteur(fourmi);
 			this.setRole(reproducteur);
 			return true;
 		} 
