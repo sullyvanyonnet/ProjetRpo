@@ -1,5 +1,6 @@
 package modele;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import Piece.Salle;
 import Piece.Stock;
 import Role.Reine;
 
-public class Fourmiliere extends ObjetGraphique {
+public class Fourmiliere extends EtreVivant {
 	List<Fourmi> listeDeFourmis;
 	List<Salle> ListeSalle;
 	Fourmi saMajeste;
@@ -20,7 +21,8 @@ public class Fourmiliere extends ObjetGraphique {
 		Fourmi uneFourmi = new Fourmi(nombreDeFourmi);
 		uneFourmi.devenirReine();
 		this.saMajeste = uneFourmi;
-		this.coordonnees = new Coordonnees(100, 100);
+		this.representationGraphique = InterfaceMoph.CreeFourmiliere(new Point(100, 100));
+		
 		this.ListeSalle = new ArrayList<>();
 		this.ListeSalle.add(new Stock());
 		this.ListeSalle.add(new Decharge());
@@ -41,8 +43,7 @@ public class Fourmiliere extends ObjetGraphique {
 	}
 
 	public Fourmi ajouterFourmi() {
-		Fourmi newFourmi = new Fourmi(this.nombreDeFourmi);
-		newFourmi.setCoordonnees(this.coordonnees);
+		Fourmi newFourmi = new Fourmi(this.nombreDeFourmi, Point(this.representationGraphique.getPosition()));
 		listeDeFourmis.add(newFourmi);
 		this.nombreDeFourmi++;
 		return newFourmi;

@@ -14,7 +14,7 @@ import Etape.Adulte;
 import Fourmi.Fourmi;
 import modele.Coordonnees;
 import modele.Fourmiliere;
-import modele.ObjetGraphique;
+import modele.EtreVivant;
 import modele.Terrain;
 import vue.IMovableDrawable;
 import vue.Oval;
@@ -29,7 +29,7 @@ public class testTerrain {
 		int xFourmiliere = lesFourmilieres.get(0).getCoordonnees().getCoordonneeX();
 		int yFourmiliere = lesFourmilieres.get(0).getCoordonnees().getCoordonneeY();
 
-		List<ObjetGraphique> mesObjetsGraphiques = new ArrayList<ObjetGraphique>();
+		List<EtreVivant> mesObjetsGraphiques = new ArrayList<EtreVivant>();
 		mesObjetsGraphiques.addAll(lesFourmilieres);
 		
 		monTerrain.open();
@@ -76,8 +76,8 @@ public class testTerrain {
 			}
 			
 			try {
-				TimeUnit.MILLISECONDS.sleep(100);
-				//lesFourmilieres.get(0).ajouterFourmi();
+				TimeUnit.MILLISECONDS.sleep(10);
+				lesFourmilieres.get(0).ajouterFourmi();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

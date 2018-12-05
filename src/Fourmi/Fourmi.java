@@ -1,5 +1,7 @@
 package Fourmi;
 
+import java.awt.Point;
+
 import Etape.Adulte;
 import Etape.Cadavre;
 import Etape.Larve;
@@ -7,9 +9,9 @@ import Etape.Nymphe;
 import Etape.Oeuf;
 import Etape.Phase;
 import Role.Ouvrier;
-import modele.ObjetGraphique;
+import modele.EtreVivant;
 
-public class Fourmi extends ObjetGraphique {
+public class Fourmi extends EtreVivant {
 	
 	private static int PoidsEnMilligramme = 15;
 	
@@ -18,7 +20,7 @@ public class Fourmi extends ObjetGraphique {
     private int poids;    
     private Phase phase ;
 	
-	public Fourmi(int identifiant) {
+	public Fourmi(int identifiant, Point unpoint) {
 		this.identifiant = identifiant;
 		this.dureeDeVie = (double) 3;
 		this.phase = new Oeuf(this);
@@ -87,7 +89,7 @@ public class Fourmi extends ObjetGraphique {
 	public void seDeplacer() {		
 		if(this.phase.jeSuis().equals("adulte")) {
 			Adulte unAdulte = (Adulte)this.phase;
-			this.coordonnees = unAdulte.seDeplacer(this.coordonnees);
+			this.representationGraphique.setPosition(unAdulte.seDeplacer(this.representationGraphique.getPosition()));  
 		}
 	}
 	

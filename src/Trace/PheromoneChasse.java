@@ -3,6 +3,7 @@ package Trace;
 import modele.Coordonnees;
 
 public class PheromoneChasse extends Pheromone{
+	
 
 	PheromoneChasse(Coordonnees unecoor) {
 		super(unecoor);

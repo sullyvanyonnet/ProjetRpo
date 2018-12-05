@@ -15,7 +15,7 @@ import Etape.Adulte;
 import Fourmi.Fourmi;
 import modele.Coordonnees;
 import modele.Fourmiliere;
-import modele.ObjetGraphique;
+import modele.EtreVivant;
 import vue.IMovableDrawable;
 import vue.Oval;
 import vue.World;
@@ -24,7 +24,7 @@ public class testGraphique {
 
 	public static void main(String[] args) {
 		Random x = new Random();
-		World jc = new World("Un essai de Fourmilière");
+		World jc = new World("Un essai de Fourmiliï¿½re");
 		jc.setBackground(Color.WHITE);
 		jc.setPreferredSize(new Dimension(800, 600));
 		Dimension dim = new Dimension(5, 5);
@@ -59,7 +59,7 @@ public class testGraphique {
 			jc.contents().put(i, new Oval(Color.RED, new Point(xFourmi, yFourmi), dim));
 		}
 		
-		List<ObjetGraphique> mesObjetsGraphiques = new ArrayList<ObjetGraphique>();
+		List<EtreVivant> mesObjetsGraphiques = new ArrayList<EtreVivant>();
 		mesObjetsGraphiques.add(newYork);
 		for (int i = 0; i < 100; i++) {
 			mesObjetsGraphiques.add(listAdulte.get(i));

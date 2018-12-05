@@ -1,9 +1,9 @@
 package Etape;
 
 import Fourmi.Fourmi;
-import modele.ObjetGraphique;
+import modele.EtreVivant;
 
-public class Phase extends ObjetGraphique {
+public class Phase extends EtreVivant {
 	
 	//attribut Fourmi 
 	Fourmi fourmi;

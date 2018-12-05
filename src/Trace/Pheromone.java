@@ -1,11 +1,13 @@
 package Trace;
 
 import modele.Coordonnees;
-import modele.ObjetGraphique;
+import modele.EtreVivant;
 
-public abstract class Pheromone extends ObjetGraphique {
-
+public abstract class Pheromone extends EtreVivant {
+	String ID ;
+	
 	Pheromone(Coordonnees unecoor){
+		this.ID = Integer.toString(unecoor.getCoordonneeX()) + Integer.toString(unecoor.getCoordonneeY());
 		this.coordonnees.setCoordonneeX(unecoor.getCoordonneeX());
 		this.coordonnees.setCoordonneeY(unecoor.getCoordonneeY());
 	}
