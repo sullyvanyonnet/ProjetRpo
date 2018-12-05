@@ -122,11 +122,11 @@ public class Fourmi extends ObjetGraphique {
 		return (4*(1+((1.5*Math.random())/10)))*365;
 	}
 	
-	public void mourrir()
+	/*public void mourrir()
 	{
 		this.setDureeDeVie(-1);
 		this.setPhase(new Cadavre(this));
-	}
+	}*/
 	
 	public boolean devenirReine()
 	{		

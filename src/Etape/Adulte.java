@@ -1,13 +1,21 @@
 package Etape;
 
 import Etape.*;
+import Fourmi.Fourmi;
 import Role.*;
 
 public class Adulte extends Phase {
 	private Role role ;
+	private double dureeAdulte;
 	
-	public Adulte() {
-		super();
+	public Adulte(Fourmi fourmi) {
+		super(fourmi);
+		this.dureeAdulte = fourmi.dureeVieFourmiAdulte();
+	}
+	
+	public Phase phaseSuivante() {
+		if (this.fourmi.getDureeDeVie() < this.dureeAdulte) return this;
+		return new Cadavre(fourmi);
 	}
 	
 	public Role getRole() {
