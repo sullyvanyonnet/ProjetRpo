@@ -25,14 +25,12 @@ public class testTerrain {
 		Terrain monTerrain = new Terrain();
 		Dimension dim = new Dimension(5, 5);
 
-		ArrayList<Fourmiliere> lesFourmilieres = monTerrain.getLesFourmilieres();
-		int xFourmiliere = (int) lesFourmilieres.get(0)
-				.getrepresentationGraphique().getPosition().getX();
-		int yFourmiliere = (int) lesFourmilieres.get(0)
-				.getrepresentationGraphique().getPosition().getY();
+		Fourmiliere laFourmiliere = monTerrain.getLaFourmilieres();
+		int xFourmiliere = (int) laFourmiliere.getrepresentationGraphique().getPosition().getX();
+		int yFourmiliere = (int) laFourmiliere.getrepresentationGraphique().getPosition().getY();
 
 		List<EtreVivant> mesObjetsGraphiques = new ArrayList<EtreVivant>();
-		mesObjetsGraphiques.addAll(lesFourmilieres);
+		mesObjetsGraphiques.add(laFourmiliere);
 		
 		monTerrain.open();
 		while (true) {
@@ -62,32 +60,32 @@ public class testTerrain {
 
 			}
 
-			for (int i = 0; i < lesFourmilieres.get(0).getFourmis().size(); i++) {
-				if (lesFourmilieres.get(0).getFourmis().get(i).isPhase().equals("nymphe")) 
+			for (int i = 0; i < laFourmiliere.getFourmis().size(); i++) {
+				if (laFourmiliere.getFourmis().get(i).isPhase().equals("nymphe")) 
 				{
-					lesFourmilieres.get(0).getFourmis().get(i).vivre();
-					if (lesFourmilieres.get(0).getFourmis().get(i).isPhase().equals("adulte")) 
+					laFourmiliere.getFourmis().get(i).vivre();
+					if (laFourmiliere.getFourmis().get(i).isPhase().equals("adulte")) 
 					{
-						mesObjetsGraphiques.add(lesFourmilieres.get(0).getFourmis().get(i));						
-						int xFourmi = (int) lesFourmilieres.get(0).getFourmis().get(i)
+						mesObjetsGraphiques.add(laFourmiliere.getFourmis().get(i));						
+						int xFourmi = (int) laFourmiliere.getFourmis().get(i)
 								.getrepresentationGraphique().getPosition().getX();
-						int yFourmi = (int) lesFourmilieres.get(0).getFourmis().get(i)
+						int yFourmi = (int) laFourmiliere.getFourmis().get(i)
 								.getrepresentationGraphique().getPosition().getY();
 						dim = new Dimension(3, 3);
 						//creer un nouvel objet graphique de type Fourmi dans le terrain : 
 						monTerrain.getLeJardin().contents()
-								.put(lesFourmilieres.get(0).getFourmis().get(i).getIdentifiant(), 
+								.put(laFourmiliere.getFourmis().get(i).getIdentifiant(), 
 								new Oval(Color.RED, new Point(xFourmi, yFourmi), dim));
 					}
 				} else {
-					lesFourmilieres.get(0).getFourmis().get(i).vivre();
+					laFourmiliere.getFourmis().get(i).vivre();
 				}
 				
 			}
 			
 			try {
-				TimeUnit.MILLISECONDS.sleep(10);
-				lesFourmilieres.get(0).ajouterFourmi();
+				TimeUnit.MILLISECONDS.sleep(100);
+				laFourmiliere.ajouterFourmi();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

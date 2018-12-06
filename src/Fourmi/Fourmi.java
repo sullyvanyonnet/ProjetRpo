@@ -10,6 +10,7 @@ import Etape.Oeuf;
 import Etape.Phase;
 import Role.Ouvrier;
 import modele.EtreVivant;
+import modele.InterfaceMorph;
 
 public class Fourmi extends EtreVivant {
 	
@@ -30,6 +31,7 @@ public class Fourmi extends EtreVivant {
 		this.identifiant = identifiant;
 		this.dureeDeVie = (double) 3;
 		this.phase = new Oeuf(this);
+		this.representationGraphique = InterfaceMorph.CreeFourmi(unPoint);
 	}
 	
 	public int getIdentifiant() {
