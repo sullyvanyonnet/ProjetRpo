@@ -100,19 +100,8 @@ public class Adulte extends Phase {
    * 0.75 / 1.00 : bas
    */
   public Point seDeplacer(Point point) {
-	  
-    double direction = Math.random();
-    Point retourCoordonnees = point;
-    if(direction < 0.25) {
-    	retourCoordonnees.setLocation(point.getX() - 1, point.getY());
-    } else if (direction < 0.50) {
-    	retourCoordonnees.setLocation(point.getX() + 1, point.getY());
-    } else if (direction < 0.75) {
-    	retourCoordonnees.setLocation(point.getX() ,point.getY() + 1);
-    } else if (direction < 1.00) {
-    	retourCoordonnees.setLocation(point.getX() ,point.getY() - 1);
-    }
-    return retourCoordonnees;
+	
+	  return  this.role.sedeplacer(point);
   }
   
 
