@@ -1,9 +1,10 @@
-package Role;
+package testRole;
 
 import java.awt.Point;
 import java.util.ArrayList;
 
 import Fourmi.Fourmi;
+import Role.Ouvrier;
 
 public class TestOuvrier {
 	
@@ -16,7 +17,7 @@ public class TestOuvrier {
 		 tabPoint.add(unOuvrier.sedeplacer(tabPoint.get(tabPoint.size()-1)));
 		 tabPoint.add(unOuvrier.sedeplacer(tabPoint.get(tabPoint.size()-1)));
 		 
-		 unOuvrier.rentreer = true;
+		 unOuvrier.rentre();
 		 
 		 if(tabPoint.get(tabPoint.size()-1).equals(unOuvrier.sedeplacer(tabPoint.get(tabPoint.size()-1)))) {
 			 System.out.println("OK");

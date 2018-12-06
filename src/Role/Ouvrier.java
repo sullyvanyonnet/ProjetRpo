@@ -13,8 +13,17 @@ public class Ouvrier extends Role{
 	   	super(fourmi);
 	}
 	
-	@Override
-	 
+	
+	public void explore() {
+		this.rentreer = false;
+	}
+	
+	public void rentre() {
+		this.rentreer = true;
+
+	}
+	
+	@Override 
 	public Point sedeplacer(Point unPoint){
 	    Point retourCoordonnees = unPoint;
 		if(!rentreer) {	
