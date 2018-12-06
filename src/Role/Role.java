@@ -12,7 +12,7 @@ public abstract class Role implements Observateur{
 	private Fourmi fourmi;
 	
 	
-	Point sedeplacer(Point unPoint){
+	public Point sedeplacer(Point unPoint){
 	    Point retourCoordonnees = unPoint;
 		    double direction = Math.random();	    
 		    if(direction < 0.25) {
