@@ -35,7 +35,7 @@ public class testGraphique {
 		int xFourmiliere =(int) newYork.getrepresentationGraphique().getPosition().getX();
 		int yFourmiliere =(int)  newYork.getrepresentationGraphique().getPosition().getY();
 		Point pos =  new Point(xFourmiliere, yFourmiliere);
-		jc.contents().put(-1, InterfaceMorph.CreeFourmiliere(pos)) ;
+		jc.contents().add(InterfaceMorph.CreeFourmiliere(pos)) ;
 
 		List<Fourmi> listFourmis = new ArrayList<Fourmi>();
 		List<Fourmi> listAdulte = new ArrayList<Fourmi>();
@@ -59,7 +59,7 @@ public class testGraphique {
 			int yFourmi = (int)listAdulte.get(i).getrepresentationGraphique().getPosition().getY();
 			dim = new Dimension(5, 5);
 			Point posiFourm = new Point(xFourmi, yFourmi);
-			jc.contents().put(i,InterfaceMorph.CreeFourmiliere(posiFourm));
+			jc.contents().add(InterfaceMorph.CreeFourmiliere(posiFourm));
 		}
 		
 		List<EtreVivant> mesObjetsGraphiques = new ArrayList<EtreVivant>();
@@ -70,7 +70,7 @@ public class testGraphique {
 		
 		jc.open();
 		while (true) {
-			HashMap<Integer, IMovableDrawable> drawables = jc.contents();
+			ArrayList<IMovableDrawable> drawables = jc.contents();
 			
 			for (int i = 0; i < mesObjetsGraphiques.size(); i++) {
 				
