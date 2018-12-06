@@ -33,6 +33,13 @@ public class Fourmiliere extends EtreVivant {
 		}
 	}
 
+	private int getX() {
+		return (int) this.representationGraphique.getPosition().getX();
+	}
+	private int getY() {
+		return (int) this.representationGraphique.getPosition().getY();
+	}
+	
 	public List<Fourmi> getFourmis() {
 		return this.listeDeFourmis;
 	}
@@ -43,7 +50,7 @@ public class Fourmiliere extends EtreVivant {
 	}
 
 	public Fourmi ajouterFourmi() {
-		Fourmi newFourmi = new Fourmi(this.nombreDeFourmi,new Point((int) this.representationGraphique.getPosition().getX(), ((int) this.representationGraphique.getPosition().getY())));
+		Fourmi newFourmi = new Fourmi(this.nombreDeFourmi, new Point(this.getX() ,this.getY()));
 		listeDeFourmis.add(newFourmi);
 		this.nombreDeFourmi++;
 		return newFourmi;
