@@ -54,7 +54,7 @@ public class testTerrain {
 					i++;
 				}
 				
-				monTerrain.getLeJardin().repaint();
+				//monTerrain.getLeJardin().repaint();
 
 			}
 
@@ -64,6 +64,7 @@ public class testTerrain {
 					laFourmiliere.getFourmis().get(i).vivre();
 					if (laFourmiliere.getFourmis().get(i).isPhase().equals("adulte")) 
 					{
+						laFourmiliere.getFourmis().get(i).devenirOuvrier();
 						mesObjetsGraphiques.add(laFourmiliere.getFourmis().get(i));						
 						int xFourmi = (int) laFourmiliere.getFourmis().get(i)
 								.getrepresentationGraphique().getPosition().getX();

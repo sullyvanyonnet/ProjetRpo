@@ -11,6 +11,7 @@ import Etape.Phase;
 import Role.Ouvrier;
 import modele.EtreVivant;
 import modele.InterfaceMorph;
+import modele.Terrain;
 
 public class Fourmi extends EtreVivant {
 	
@@ -27,10 +28,11 @@ public class Fourmi extends EtreVivant {
 		this.phase = new Oeuf(this);
 	}
 	
-	public Fourmi(int identifiant, Point unPoint) {
+	public Fourmi(int identifiant, Point unPoint, Terrain leTerrain) {
 		this.identifiant = identifiant;
 		this.dureeDeVie = (double) 3;
 		this.phase = new Oeuf(this);
+		this.terrainLie = leTerrain;
 		this.representationGraphique = InterfaceMorph.CreeFourmi(unPoint);
 	}
 	
@@ -98,6 +100,7 @@ public class Fourmi extends EtreVivant {
 		if(this.phase.jeSuis().equals("adulte")) {
 			Adulte unAdulte = (Adulte)this.phase;
 			this.representationGraphique.setPosition(unAdulte.seDeplacer(this.representationGraphique.getPosition()));  
+			this.terrainLie.updateEtreVivant(this.representationGraphique);
 		}
 	}
 	

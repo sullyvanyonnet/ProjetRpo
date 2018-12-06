@@ -15,17 +15,19 @@ public class Fourmiliere extends EtreVivant {
 	Fourmi saMajeste;
 	private int nombreDeFourmi;
 
-	public Fourmiliere() {
+	public Fourmiliere(Terrain leTerrain) {
 		
 		this.listeDeFourmis = new ArrayList<>();
 		this.representationGraphique = InterfaceMorph.CreeFourmiliere(new Point(100, 100));
-		Fourmi uneFourmi = new Fourmi(nombreDeFourmi,this.representationGraphique.getPosition());
+		Fourmi uneFourmi = new Fourmi(nombreDeFourmi,this.representationGraphique.getPosition(), leTerrain);
 		uneFourmi.devenirReine();		
 		this.saMajeste = uneFourmi;
 
 		this.ListeSalle = new ArrayList<>();
 		this.ListeSalle.add(new Stock());
 		this.ListeSalle.add(new Decharge());
+		
+		this.terrainLie = leTerrain;
 		this.nombreDeFourmi = 0;
 		
 		for (int i = 0; i < 100; i++) {
@@ -50,7 +52,7 @@ public class Fourmiliere extends EtreVivant {
 	}
 
 	public Fourmi ajouterFourmi() {
-		Fourmi newFourmi = new Fourmi(this.nombreDeFourmi, new Point(this.getX() ,this.getY()));
+		Fourmi newFourmi = new Fourmi(this.nombreDeFourmi, new Point(this.getX() ,this.getY()), this.terrainLie);
 		listeDeFourmis.add(newFourmi);
 		this.nombreDeFourmi++;
 		return newFourmi;

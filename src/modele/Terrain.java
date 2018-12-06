@@ -36,7 +36,7 @@ public class Terrain extends JFrame implements Observateur {
 
 		initFrame();
 
-		this.laFourmiliere = new Fourmiliere();
+		this.laFourmiliere = new Fourmiliere(this);
 		int xFourmiliere = (int) laFourmiliere.getCoordonnees().getX();
 		int yFourmiliere = (int) laFourmiliere.getCoordonnees().getY();
 
@@ -95,7 +95,10 @@ public class Terrain extends JFrame implements Observateur {
 
 	public void updateEtreVivant(Morph representationGraphique) {
 		int index = this.leJardin.contents().indexOf(representationGraphique);
-		this.leJardin.contents().set(index, representationGraphique);
+		if (index > 0) {
+			this.leJardin.contents().set(index, representationGraphique);
+		}
+		this.leJardin.repaint();
 	}
 	
 	public void notifyObservers() {
