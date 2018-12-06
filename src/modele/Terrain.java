@@ -8,7 +8,6 @@ import java.awt.Point;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -17,6 +16,7 @@ import javax.swing.JSplitPane;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 
+import Fourmi.Fourmi;
 import vue.IMovableDrawable;
 import vue.Morph;
 import vue.Oval;
@@ -31,12 +31,15 @@ public class Terrain extends JFrame implements Observateur {
 	private World leJardin;
 	private JTree tree;
 	private Fourmiliere laFourmiliere;
+	
+	List<EtreVivant> mesObjetsGraphiques = new ArrayList<EtreVivant>();
 
 	public Terrain() {
 
 		initFrame();
 
 		this.laFourmiliere = new Fourmiliere(this);
+		mesObjetsGraphiques.add(laFourmiliere);
 		int xFourmiliere = (int) laFourmiliere.getCoordonnees().getX();
 		int yFourmiliere = (int) laFourmiliere.getCoordonnees().getY();
 
@@ -47,9 +50,39 @@ public class Terrain extends JFrame implements Observateur {
 		}
 
 		this.tree.setPreferredSize(new Dimension(200, 800));
+		this.open();
 
 	}
+	
+	private void miseAjourPos() {
+		if (mesObjetsGraphiques.size() > 0) {
 
+			ArrayList<IMovableDrawable> drawables = this.getLeJardin().contents();
+	
+			int i = 0;
+			for(IMovableDrawable item : drawables) {
+				int coordonneeX = (int) mesObjetsGraphiques.get(i)
+						.getrepresentationGraphique().getPosition().getX();
+				int coordonneeY = (int) mesObjetsGraphiques.get(i)
+						.getrepresentationGraphique().getPosition().getY();
+				
+				IMovableDrawable unObjet = item;
+	
+				unObjet.setPosition(new Point(coordonneeX, coordonneeY));
+			 
+				i++;
+			}
+		}
+	}
+	
+	private void ajouterFourmiAffichage(Fourmi unefourmi) {
+		mesObjetsGraphiques.add(unefourmi);	
+		int coordonneeX = (int) unefourmi.getrepresentationGraphique().getPosition().getX();
+		int coordonneeY = (int) unefourmi.getrepresentationGraphique().getPosition().getY();
+		//IMovableDrawable unObjet = drawables.get(i);
+		this.getLeJardin().contents().add(InterfaceMorph.CreeFourmi(new Point(coordonneeX, coordonneeY)));
+	}
+	
 	private void initFrame() {
 
 		splitPane = new JSplitPane();
@@ -62,6 +95,7 @@ public class Terrain extends JFrame implements Observateur {
 		this.tree = new JTree(top);
 
 		setPreferredSize(new Dimension(1200, 800));
+
 		getContentPane().add(splitPane);
 
 		splitPane.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
@@ -110,24 +144,40 @@ public class Terrain extends JFrame implements Observateur {
 	public void updateH() {
 
 		// TODO Auto-generated method stub
-		ArrayList<IMovableDrawable> drawables = this.getLeJardin().contents();
+		laFourmiliere.updateH();
 		laFourmiliere.updateH();
 
-		for (int i = 0; i < this.laFourmiliere.listeDeFourmis.size(); i++) {
-			if (laFourmiliere.listeDeFourmis.get(i).isPhase().equals("adulte")) {
-				int coordonneeX = (int) laFourmiliere.listeDeFourmis.get(i).getCoordonnees().getX();
-				int coordonneeY = (int) laFourmiliere.listeDeFourmis.get(i).getCoordonnees().getY();
-				IMovableDrawable unObjet = drawables.get(i);
-				unObjet.setPosition(new Point(coordonneeX, coordonneeY));
-			}
-
-		}
+		this.miseAjourPos();
 		this.getLeJardin().repaint();
 	}
 
 	@Override
 	public void updateJ() {
 		laFourmiliere.updateJ();
+		for (int i = 0; i < this.laFourmiliere.listeDeFourmis.size(); i++) {
+			Fourmi unefourmi = laFourmiliere.getFourmis().get(i);
+			if (unefourmi.isPhase().equals("nymphe")) 
+			{
+				try {
+					unefourmi.vivre();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if (unefourmi.isPhase().equals("adulte")) {
+					ajouterFourmiAffichage(unefourmi);
+				}
+			}else {
+				try {
+					unefourmi.vivre();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+		}
+		this.miseAjourPos();
 
 		this.getLeJardin().repaint();
 	}

@@ -17,6 +17,12 @@ public class Adulte extends Phase {
 		this.dureeAdulte = tempsVie;
 		fourmi.setDureeDeVie(tempsVie);
 		fourmi.setPoids(calculPoids());
+		this.role = this.DefRole(fourmi);
+	}
+	
+	public Role DefRole(Fourmi fourmi) {
+		return new Ouvrier(fourmi);
+		
 	}
 	
 	public int calculPoids()

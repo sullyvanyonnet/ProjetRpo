@@ -65,7 +65,9 @@ public class testTerrain {
 					if (laFourmiliere.getFourmis().get(i).isPhase().equals("adulte")) 
 					{
 						laFourmiliere.getFourmis().get(i).devenirOuvrier();
-						mesObjetsGraphiques.add(laFourmiliere.getFourmis().get(i));						
+						
+						mesObjetsGraphiques.add(laFourmiliere.getFourmis().get(i));	
+						
 						int xFourmi = (int) laFourmiliere.getFourmis().get(i)
 								.getrepresentationGraphique().getPosition().getX();
 						int yFourmi = (int) laFourmiliere.getFourmis().get(i)
