@@ -116,10 +116,20 @@ public class Adulte extends Phase {
   }
   
 
+  //TODO
   //si ne se nourri pas dans la journée, meurt, cf. gestion du temps
   public void seNourrir() {
 	  //consommer 1/3 de son propre poids dans le stock
 	  //nettoyer 1 ou 2 cadavres    
+  }
+  
+  //TODO 
+  //fonction appelée par se nourrir
+  //peut aussi être appelée dans le cas où il y trop de cadavres 
+  //par rapport à la population de la fourmilliere (cf. decharge)
+  public void nettoyerCadavre()
+  {
+	  //nettoyer un voir deux cadavres (aléatoire)
   }
 
   @Override

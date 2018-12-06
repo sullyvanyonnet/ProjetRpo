@@ -6,5 +6,9 @@ public class TestSequenceProie {
 		// TODO Auto-generated method stub
 
 	}
+	
+	//TODO vie et mort de la proie suite à une chasse
+	
+	//TODO deplacement d'une proie
 
 }

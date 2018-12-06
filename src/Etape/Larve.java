@@ -22,10 +22,9 @@ public class Larve extends Phase {
 		return this;
 	}
 	
-	//si ne se nourri pas dans la journée, meurt, cf. gestion du temps
+	//si n'ai pas nourrie pas dans la journée, meurt, cf. gestion du temps
 	  public void seNourrir() {
-		  //consomme son propre poids dans le stock
-		  //nettoyer 1 ou 2 cadavres    
+		  //consomme son propre poids dans le stock  
 	  }
 	
 	public int calculPoids()
