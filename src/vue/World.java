@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 
 public class World extends JPanel {
 	private static final long serialVersionUID = 1L;
-	private ArrayList<IMovableDrawable> drawables = new ArrayList<IMovableDrawable>();
+	private HashMap<Integer, IMovableDrawable> drawables = new HashMap<Integer, IMovableDrawable>();
 
 	String name = "";
 
