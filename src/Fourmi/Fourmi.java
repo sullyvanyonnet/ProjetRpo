@@ -98,7 +98,7 @@ public class Fourmi extends EtreVivant {
 		if(this.phase.jeSuis().equals("adulte")) {
 			Adulte unAdulte = (Adulte)this.phase;
 			this.representationGraphique.setPosition(unAdulte.seDeplacer(this.representationGraphique.getPosition()));
-			
+			this.terrainLie.updateEtreVivant(this.representationGraphique);
 		}
 	}
 	

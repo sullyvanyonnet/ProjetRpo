@@ -36,12 +36,10 @@ public class testTerrain {
 		while (true) {
 			if (mesObjetsGraphiques.size() > 0) {
 
-				HashMap<Integer, IMovableDrawable> drawables = monTerrain.getLeJardin().contents();
+				ArrayList<IMovableDrawable> drawables = monTerrain.getLeJardin().contents();
 
 				int i = 0;
-				for(Entry<Integer, IMovableDrawable> entry : drawables.entrySet()) {
-					Integer key = entry.getKey();
-				    IMovableDrawable value = entry.getValue();
+				for(IMovableDrawable item : drawables) {
 				    
 				    mesObjetsGraphiques.get(i).seDeplacer();
 					int coordonneeX = (int) mesObjetsGraphiques.get(i)
@@ -49,7 +47,7 @@ public class testTerrain {
 					int coordonneeY = (int) mesObjetsGraphiques.get(i)
 							.getrepresentationGraphique().getPosition().getY();
 					
-					IMovableDrawable unObjet = value;
+					IMovableDrawable unObjet = item;
 
 					unObjet.setPosition(new Point(coordonneeX, coordonneeY));
 				 
@@ -74,8 +72,7 @@ public class testTerrain {
 						dim = new Dimension(3, 3);
 						//creer un nouvel objet graphique de type Fourmi dans le terrain : 
 						monTerrain.getLeJardin().contents()
-								.put(laFourmiliere.getFourmis().get(i).getIdentifiant(), 
-								new Oval(Color.RED, new Point(xFourmi, yFourmi), dim));
+								.add(new Oval(Color.RED, new Point(xFourmi, yFourmi), dim));
 					}
 				} else {
 					laFourmiliere.getFourmis().get(i).vivre();

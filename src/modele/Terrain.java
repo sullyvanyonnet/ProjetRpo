@@ -18,6 +18,7 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import vue.IMovableDrawable;
+import vue.Morph;
 import vue.Oval;
 import vue.World;
 
@@ -39,8 +40,7 @@ public class Terrain extends JFrame implements Observateur {
 		int xFourmiliere = (int) laFourmiliere.getCoordonnees().getX();
 		int yFourmiliere = (int) laFourmiliere.getCoordonnees().getY();
 
-		this.leJardin.contents().put(-1,
-				new Oval(Color.BLACK, new Point(xFourmiliere, yFourmiliere), new Dimension(20, 20)));
+		this.leJardin.contents().add(new Oval(Color.BLACK, new Point(xFourmiliere, yFourmiliere), new Dimension(20, 20)));
 
 		for (int i = 0; i < this.laFourmiliere.listeDeFourmis.size(); i++) {
 			this.laFourmiliere.listeDeFourmis.get(i).setCoordonnees(new Point(xFourmiliere, yFourmiliere));
@@ -98,11 +98,16 @@ public class Terrain extends JFrame implements Observateur {
 		this.laFourmiliere.updateH();
 	}
 
+	public void updateEtreVivant(Morph representationGraphique) {
+		int index = this.leJardin.contents().indexOf(representationGraphique);
+		this.leJardin.contents().set(index, representationGraphique);
+	}
+	
 	@Override
 	public void updateH() {
 
 		// TODO Auto-generated method stub
-		HashMap<Integer, IMovableDrawable> drawables = this.getLeJardin().contents();
+		ArrayList<IMovableDrawable> drawables = this.getLeJardin().contents();
 		laFourmiliere.updateH();
 
 		for (int i = 0; i < this.laFourmiliere.listeDeFourmis.size(); i++) {
