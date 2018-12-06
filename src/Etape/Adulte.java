@@ -136,12 +136,11 @@ public class Adulte extends Phase {
   
 	@Override
 	public void updateH() {
-		// TODO Auto-generated method stub	
+		this.role.updateH();		
 	}
 
 	@Override
 	public void updateJ() {
-		// TODO Auto-generated method stub
-		
+		this.role.updateJ();		
 	}
 }
