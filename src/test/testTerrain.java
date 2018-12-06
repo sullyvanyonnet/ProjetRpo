@@ -84,7 +84,7 @@ public class testTerrain {
 			}
 			
 			try {
-				TimeUnit.MILLISECONDS.sleep(100);
+				TimeUnit.MILLISECONDS.sleep(10);
 				laFourmiliere.ajouterFourmi();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block

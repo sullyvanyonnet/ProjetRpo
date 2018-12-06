@@ -7,6 +7,7 @@ import vue.Morph;
 public abstract class EtreVivant implements Observateur{
 
   protected Morph representationGraphique;
+  protected Terrain terrainLie;
   
   public void seDeplacer() {}
   
