@@ -21,15 +21,14 @@ public class World extends JPanel {
 	private HashMap<Integer, IMovableDrawable> drawables = new HashMap<Integer, IMovableDrawable>();
 
 	String name = "";
-
+	
 	public World(String name) {
 		this.name = name;
 	}
-
-	public ArrayList<IMovableDrawable> contents() {
+	public HashMap<Integer, IMovableDrawable> contents() {
 		return drawables;
 	}
-
+	
 	public void open() {
 		JFrame frame = new JFrame(name);
 		WindowAdapter wa = new WindowAdapter() {
@@ -42,42 +41,44 @@ public class World extends JPanel {
 		frame.pack();
 		frame.setVisible(true);
 	}
+	
+     public void add(int cle, IMovableDrawable d) {
+        drawables.put(cle, d);
+     }
+     
+     public void remove(int cle) {
+         drawables.remove(cle);
+      }
+     public void remove(IMovableDrawable d) {
+        drawables.remove(d);
+     }
 
-	public void add(IMovableDrawable d) {
-		drawables.add(d);
-	}
-
-	public void remove(int cle) {
-		drawables.remove(cle);
-	}
-
-	public void remove(IMovableDrawable d) {
-		drawables.remove(d);
-	}
-
-	public void paint(Graphics g) {
+    public void paint(Graphics g) {
         super.paint(g);
-        
-        for (IMovableDrawable item : drawables) {
-            	item.draw(g);
-    	}
-        
+        Iterator iter = drawables.entrySet().iterator();
+        while (iter.hasNext()) {
+            Map.Entry pair = (Map.Entry)iter.next();
+            ((IDrawable) pair.getValue()).draw(g);
+        }
     }
 
-	public void clear() {
-		drawables.clear();
-	}
+    public void clear() {
+        drawables.clear();
+     }
 
-	public ArrayList<IMovableDrawable> find(Point p) {
-		ArrayList<IMovableDrawable> l = new ArrayList<IMovableDrawable>();
+    public HashMap<Integer, IMovableDrawable> find(Point p) {
+    	HashMap<Integer, IMovableDrawable> hm = new HashMap<Integer, IMovableDrawable>();
+        
+        Iterator iter = drawables.entrySet().iterator();
+        while (iter.hasNext()) {
+            Map.Entry pair = (Map.Entry)iter.next();
+            if (((IDrawable) pair.getValue()).getBounds().contains(p)) {
+            	hm.put((Integer) pair.getKey(),(IMovableDrawable) pair.getValue());
+            }
+        }
+        
+        return hm;
+    }
 
-		for (IMovableDrawable item : l) {
-			if (item.getBounds().contains(p)) {
-				l.add(item);
-			}
-		}
-
-		return l;
-	}
 
 }
