@@ -13,6 +13,7 @@ public class Ouvrier extends Role{
 	   	super(fourmi);
 	}
 	
+	@Override 
 	Point sedeplacer(Point unPoint){
 	    Point retourCoordonnees = unPoint;
 		if(!rentreer) {	
