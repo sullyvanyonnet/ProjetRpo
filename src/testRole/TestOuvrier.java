@@ -17,7 +17,7 @@ public class TestOuvrier {
 		 tabPoint.add(unOuvrier.sedeplacer(tabPoint.get(tabPoint.size()-1)));
 		 tabPoint.add(unOuvrier.sedeplacer(tabPoint.get(tabPoint.size()-1)));
 		 
-		 unOuvrier.rentre();
+		 unOuvrier.inverseBool();
 		 
 		 if(tabPoint.get(tabPoint.size()-1).equals(unOuvrier.sedeplacer(tabPoint.get(tabPoint.size()-1)))) {
 			 System.out.println("OK");

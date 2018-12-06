@@ -14,13 +14,8 @@ public class Ouvrier extends Role{
 	}
 	
 	
-	public void explore() {
-		this.rentreer = false;
-	}
-	
-	public void rentre() {
-		this.rentreer = true;
-
+	public void inverseBool() {
+		this.rentreer = !this.rentreer;
 	}
 	
 	@Override 
