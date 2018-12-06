@@ -54,7 +54,6 @@ public class Ouvrier extends Role{
 	}
 	@Override
 	public void updateJ() {
-		// TODO Auto-generated method stub
-		
+		this.inverseBool();		
 	}
 }
