@@ -16,6 +16,12 @@ public class Adulte extends Phase {
 		double tempsVie = fourmi.dureeVieFourmiAdulte();
 		this.dureeAdulte = tempsVie;
 		fourmi.setDureeDeVie(tempsVie);
+		fourmi.setPoids(calculPoids());
+	}
+	
+	public int calculPoids()
+	{
+		return ((int) (15*(1+((1/3)*Math.random()))));
 	}
 	
 	public Phase phaseSuivante() {
@@ -110,9 +116,10 @@ public class Adulte extends Phase {
   }
   
 
-  
+  //si ne se nourri pas dans la journée, meurt, cf. gestion du temps
   public void seNourrir() {
-    
+	  //consommer 1/3 de son propre poids dans le stock
+	  //nettoyer 1 ou 2 cadavres    
   }
 
   @Override

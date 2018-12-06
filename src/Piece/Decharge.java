@@ -7,7 +7,8 @@ import Fourmi.Fourmi;
 
 public class Decharge extends Salle {
 
-	int poidsTotal;
+	int poidsTotal;	
+	//TODO observable pour surveiller que le nb de fourmi *0.3 > totalCadavre) 
 	int size;	
 	ArrayList<Cadavre> listeCadavre;
 		
