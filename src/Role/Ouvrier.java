@@ -13,7 +13,9 @@ public class Ouvrier extends Role{
 	   	super(fourmi);
 	}
 	
-	Point sedeplacer(Point unPoint){
+	@Override
+	 
+	public Point sedeplacer(Point unPoint){
 	    Point retourCoordonnees = unPoint;
 		if(!rentreer) {	
 		    double direction = Math.random();	    

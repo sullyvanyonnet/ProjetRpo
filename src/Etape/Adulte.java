@@ -100,26 +100,25 @@ public class Adulte extends Phase {
    * 0.75 / 1.00 : bas
    */
   public Point seDeplacer(Point point) {
-	  
-    double direction = Math.random();
-    Point retourCoordonnees = point;
-    if(direction < 0.25) {
-    	retourCoordonnees.setLocation(point.getX() - 1, point.getY());
-    } else if (direction < 0.50) {
-    	retourCoordonnees.setLocation(point.getX() + 1, point.getY());
-    } else if (direction < 0.75) {
-    	retourCoordonnees.setLocation(point.getX() ,point.getY() + 1);
-    } else if (direction < 1.00) {
-    	retourCoordonnees.setLocation(point.getX() ,point.getY() - 1);
-    }
-    return retourCoordonnees;
+	
+	  return  this.role.sedeplacer(point);
   }
   
 
+  //TODO
   //si ne se nourri pas dans la journée, meurt, cf. gestion du temps
   public void seNourrir() {
 	  //consommer 1/3 de son propre poids dans le stock
 	  //nettoyer 1 ou 2 cadavres    
+  }
+  
+  //TODO 
+  //fonction appelée par se nourrir
+  //peut aussi être appelée dans le cas où il y trop de cadavres 
+  //par rapport à la population de la fourmilliere (cf. decharge)
+  public void nettoyerCadavre()
+  {
+	  //nettoyer un voir deux cadavres (aléatoire)
   }
 
   @Override

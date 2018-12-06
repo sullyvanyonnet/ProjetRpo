@@ -6,12 +6,17 @@ import Etape.Adulte;
 import modele.Coordonnees;
 import modele.EtreVivant;
 
-public class Proie extends EtreVivant {
+public abstract class Proie extends EtreVivant {
 	
 	private static int PoidsEnMilligrammeParDefaut = 15;
 	
 	private int identifiant;
 	private int poids;
+	
+	//TODO ajouter parametres en rapport avec la chasse
+	//nbDeFourmiAttaquantes
+	//nbDeFourmiAttaquantesMax
+	//boolean mort
 
 	public Proie(int identifiant, int poids) {
 		super();
