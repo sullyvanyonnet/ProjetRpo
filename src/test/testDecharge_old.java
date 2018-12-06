@@ -12,13 +12,13 @@ import Fourmi.Fourmi;
 import Etape.Cadavre;
 import Piece.Decharge;
 
-class testDecharge {
+class testDecharge_old {
 	
-	Decharge decharge;
+	Decharge_old decharge;
 
 	@BeforeEach
 	void setUp() throws Exception {
-		decharge = new Decharge();
+		decharge = new Decharge_old();
 	}
 	
 

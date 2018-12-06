@@ -27,6 +27,13 @@ public class Fourmi extends EtreVivant {
 		this.dureeDeVie = (double) 3;
 		this.phase = new Oeuf(this);
 	}
+    
+    public Fourmi(int identifiant, Point unPoint) {
+		this.identifiant = identifiant;
+		this.dureeDeVie = (double) 3;
+		this.phase = new Oeuf(this);
+		this.representationGraphique = InterfaceMorph.CreeFourmi(unPoint);
+	}
 	
 	public Fourmi(int identifiant, Point unPoint, Terrain leTerrain) {
 		this.identifiant = identifiant;
