@@ -11,7 +11,11 @@ public abstract class EtreVivant implements Observateur {
 
 	public void seDeplacer() {
 	}
-
+	
+	public void vivre() throws InterruptedException
+	{	
+		
+	}
 	public Morph getrepresentationGraphique() {
 		return this.representationGraphique;
 	}
