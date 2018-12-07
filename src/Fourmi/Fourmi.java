@@ -167,4 +167,9 @@ public class Fourmi extends EtreVivant {
 			unAdulte.updateJ();
 		}
 	}
+
+	public double calculPoids() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

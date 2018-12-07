@@ -41,7 +41,8 @@ public class Decharge extends Salle {
 		{
 			this.listeCadavre.add(mimi);
 			ajouterPoids(mimi.getPoids());
-			size++;
+			this.size = this.getSize()+1;
+			System.out.println(this.getSize());
 			res = true;
 		}			
 		return res;
