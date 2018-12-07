@@ -47,6 +47,7 @@ public class Ouvrier extends Role{
 		return retourCoordonnees;
 	}
 	
+	//Creer la representation graphique d'un ouvrier
 	public Morph RepCreeFourmi() {
 		Point pos = this.fourmi.getrepresentationGraphique().getPosition();
 		Dimension dim = new Dimension(5, 5);
