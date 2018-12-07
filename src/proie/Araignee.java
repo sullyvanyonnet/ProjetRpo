@@ -1,5 +1,7 @@
 package proie;
 
+import modele.Terrain;
+
 public class Araignee extends Proie {
 	
 	private static int PoidsEnMilligrammeAraignee = 50;
@@ -9,12 +11,12 @@ public class Araignee extends Proie {
 		//nbDeFourmiAttaquantesMax
 		//boolean mort
 	
-	public Araignee(int identifiant, int poids) {
-		super(identifiant, poids);
+	public Araignee(int identifiant, int poids, Terrain leTerrain) {
+		super(identifiant, poids, leTerrain);
 	}
 	
 	public Araignee(int identifiant) {
-		super(identifiant, PoidsEnMilligrammeAraignee);
+		super(identifiant);
 	}
 
 }

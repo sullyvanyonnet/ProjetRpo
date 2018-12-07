@@ -21,6 +21,7 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import Fourmi.Fourmi;
+import proie.Araignee;
 import vue.IMovableDrawable;
 import vue.Morph;
 import vue.Oval;
@@ -91,7 +92,7 @@ public class Terrain extends JFrame implements Observateur {
 	public World getWord(){
 		return leJardin;	
 	}
-	private void ajouterFourmiAffichage(Fourmi unefourmi) {
+	private void ajouterFourmiAffichage(EtreVivant unefourmi) {
 		mesObjetsGraphiques.add(unefourmi);
 		int coordonneeX = (int) unefourmi.getrepresentationGraphique().getPosition().getX();
 		int coordonneeY = (int) unefourmi.getrepresentationGraphique().getPosition().getY();
@@ -212,11 +213,11 @@ public class Terrain extends JFrame implements Observateur {
 	@Override
 	public void updateJ() {
 		laFourmiliere.updateJ();
+		Araignee proie = new Araignee(1, (int) (15 + (Math.random() * 45)), this);
+		this.ajouterFourmiAffichage(proie);
 		for (int i = 0; i < this.laFourmiliere.listeDeFourmis.size(); i++) {
 			Fourmi unefourmi = laFourmiliere.getFourmis().get(i);
-			
 			ajouterFourmiAffichage(unefourmi);
-
 		}
 		this.miseAjourPos();
 
