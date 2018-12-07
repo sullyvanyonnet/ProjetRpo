@@ -1,5 +1,10 @@
 package Role;
 import Fourmi.Fourmi;
+import vue.Morph;
+import vue.Oval;
+
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Stack;
@@ -11,6 +16,7 @@ public class Ouvrier extends Role{
 	
 	public Ouvrier(Fourmi fourmi) {
 	   	super(fourmi);
+	   	this.fourmi.setRepresentationGraphique(this.RepCreeFourmi());
 	}
 	
 	
@@ -41,7 +47,12 @@ public class Ouvrier extends Role{
 		return retourCoordonnees;
 	}
 	
-	
+	  public Morph RepCreeFourmi() {
+		  Point pos = this.fourmi.getrepresentationGraphique().getPosition();
+		  Dimension dim = new Dimension(3, 3);
+		  return new Oval(Color.RED,pos,dim);
+	  }
+	  
 	@Override
     public String monRole()
 	{

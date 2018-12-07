@@ -15,6 +15,10 @@ public abstract class EtreVivant implements Observateur {
 	public Morph getrepresentationGraphique() {
 		return this.representationGraphique;
 	}
+	
+	public void setRepresentationGraphique(Morph uneRepresentationGraphique) {
+		this.representationGraphique = uneRepresentationGraphique; 
+	};
 
 	public Point getCoordonnees() {
 		return this.representationGraphique.getPosition();
