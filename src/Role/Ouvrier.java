@@ -30,13 +30,13 @@ public class Ouvrier extends Role{
 		if(!rentreer) {	
 		    double direction = Math.random();	    
 		    if(direction < 0.25) {
-		    	retourCoordonnees.setLocation(unPoint.getX() - 1, unPoint.getY());
+		    	retourCoordonnees.setLocation(unPoint.getX() - 2, unPoint.getY());
 		    } else if (direction < 0.50) {
-		    	retourCoordonnees.setLocation(unPoint.getX() + 1, unPoint.getY());
+		    	retourCoordonnees.setLocation(unPoint.getX() + 2, unPoint.getY());
 		    } else if (direction < 0.75) {
-		    	retourCoordonnees.setLocation(unPoint.getX() ,unPoint.getY() + 1);
+		    	retourCoordonnees.setLocation(unPoint.getX() ,unPoint.getY() + 2);
 		    } else if (direction < 1.00) {
-		    	retourCoordonnees.setLocation(unPoint.getX() ,unPoint.getY() - 1);
+		    	retourCoordonnees.setLocation(unPoint.getX() ,unPoint.getY() - 2);
 		    }
 		    this.PilePoint.add(retourCoordonnees);	    
 		}else {
@@ -47,12 +47,12 @@ public class Ouvrier extends Role{
 		return retourCoordonnees;
 	}
 	
-	  public Morph RepCreeFourmi() {
-		  Point pos = this.fourmi.getrepresentationGraphique().getPosition();
-		  Dimension dim = new Dimension(3, 3);
-		  return new Oval(Color.RED,pos,dim);
-	  }
-	  
+	public Morph RepCreeFourmi() {
+		Point pos = this.fourmi.getrepresentationGraphique().getPosition();
+		Dimension dim = new Dimension(5, 5);
+		return new Oval(Color.ORANGE, pos, dim);
+	}
+
 	@Override
     public String monRole()
 	{
