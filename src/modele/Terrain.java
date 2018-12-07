@@ -202,14 +202,14 @@ public class Terrain extends JFrame implements Observateur {
 	public void updateH() {
 
 		// TODO Auto-generated method stub
-		for (int i = 0; i < 20; i++) {
+		//for (int i = 0; i < 20; i++) {
 			for (EtreVivant unObjectGraphique : this.mesObjetsGraphiques) {
 				unObjectGraphique.updateH();
 			}
 
 			this.miseAjourPos();
 			this.getLeJardin().repaint();
-		}
+		//}
 	}
 
 	@Override
@@ -221,7 +221,9 @@ public class Terrain extends JFrame implements Observateur {
 		this.ajouterFourmiAffichage(proie);
 		for (int i = 0; i < this.laFourmiliere.listeDeFourmis.size(); i++) {
 			Fourmi unefourmi = laFourmiliere.getFourmis().get(i);
-			ajouterFourmiAffichage(unefourmi);
+			if(this.mesObjetsGraphiques.contains(unefourmi.representationGraphique)== false){
+				ajouterFourmiAffichage(unefourmi);
+			}
 		}
 		this.miseAjourPos();
 

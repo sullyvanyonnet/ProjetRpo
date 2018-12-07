@@ -15,7 +15,7 @@ import vue.RectangleDrawable;
 public abstract class Proie extends EtreVivant {
 	
 	private static int PoidsEnMilligrammeParDefaut = 15;
-	
+	private int DureeDeVie;
 	private int identifiant;
 	private int poids;
 	
@@ -30,12 +30,14 @@ public abstract class Proie extends EtreVivant {
 		this.poids = poids;
 		this.terrainLie = leTerrain;
 		this.representationGraphique = this.RepCreeFourmi();
+		this.DureeDeVie = 3;
 	}
 	
 	public Proie(int identifiant) {
 		super();
 		this.identifiant = identifiant;
 		this.poids = PoidsEnMilligrammeParDefaut;
+		this.DureeDeVie = 3;
 	}
 	
 	public void seDeplacer() {				
@@ -66,6 +68,17 @@ public abstract class Proie extends EtreVivant {
 		return new RectangleDrawable(Color.GRAY, pos, dim);
 	}
 	
+	public void vivre() throws InterruptedException
+	{
+		
+		this.DureeDeVie = this.DureeDeVie - 1	;
+		if(DureeDeVie == 0) {
+			int indexSupr = this.terrainLie.getWord().contents().indexOf(this.representationGraphique);
+			this.terrainLie.getWord().contents().remove(indexSupr);
+			this.terrainLie = null;
+		}
+	}
+	
 	@Override
 	public void updateH() {
 		this.seDeplacer();
@@ -75,7 +88,12 @@ public abstract class Proie extends EtreVivant {
 	@Override
 	public void updateJ() {
 		// TODO Auto-generated method stub
-		
+		try {
+			this.vivre();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
