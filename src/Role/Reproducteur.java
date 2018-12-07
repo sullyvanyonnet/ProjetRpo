@@ -24,13 +24,13 @@ public class Reproducteur extends Role {
 		Point retourCoordonnees = unPoint;
 		double direction = Math.random();
 		if (direction < 0.25) {
-			retourCoordonnees.setLocation(unPoint.getX() - 5, unPoint.getY());
+			retourCoordonnees.setLocation(unPoint.getX() - 2, unPoint.getY());
 		} else if (direction < 0.50) {
-			retourCoordonnees.setLocation(unPoint.getX() + 5, unPoint.getY());
+			retourCoordonnees.setLocation(unPoint.getX() + 2, unPoint.getY());
 		} else if (direction < 0.75) {
-			retourCoordonnees.setLocation(unPoint.getX(), unPoint.getY() + 5);
+			retourCoordonnees.setLocation(unPoint.getX(), unPoint.getY() + 2);
 		} else if (direction < 1.00) {
-			retourCoordonnees.setLocation(unPoint.getX(), unPoint.getY() - 5);
+			retourCoordonnees.setLocation(unPoint.getX(), unPoint.getY() - 2);
 		}
 		return retourCoordonnees;
 	}

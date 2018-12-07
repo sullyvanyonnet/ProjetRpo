@@ -163,12 +163,11 @@ public class Fourmi extends EtreVivant {
 	@Override
 	public void updateJ() {
 		//realise le viellissement
-		/*try {
+		try {
 			this.vivre();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		
 		Phase unephase = this.getPhase();
 		if(unephase.jeSuis().equals("adulte")) {
