@@ -1,6 +1,5 @@
 package modele;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -20,7 +19,6 @@ import javax.swing.JTextField;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import Fourmi.Fourmi;
 import proie.Araignee;
 import vue.IMovableDrawable;
 import vue.Morph;
@@ -29,20 +27,22 @@ import vue.World;
 
 public class Terrain extends JFrame implements Observateur {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7650649072491375316L;
 	/* les panneaux qui composent la fenetre */
 	private JSplitPane splitPaneGaucheDroite; // separation haut bas pour la zone de texte.
 	private JSplitPane splitPaneHautBas; // separation gauche droite pour le world et l'arbre.
 	private JPanel topPanel; // panneau superieur contenant le controle du temps.
-	private JPanel leftPanel; // panneau de gauche contenant le World.
-	private JPanel rightPanel; // panneau de droite contenant l'arbre de statistiques (non developpe)
 
 	/* les elements du topPanel */
 	private JTextField textfield;
 	private JButton boutonMoins;
 	private JButton boutonPlus;
 
-	private World leJardin;
-	private JTree tree;
+	private World leJardin; // panneau de gauche contenant le World.
+	private JTree tree; // panneau de droite contenant l'arbre de statistiques (non developpe)
 	private Fourmiliere laFourmiliere;
 	private Parametrage laPara;
 
@@ -86,8 +86,6 @@ public class Terrain extends JFrame implements Observateur {
 		splitPaneHautBas = new JSplitPane();
 		splitPaneGaucheDroite = new JSplitPane();
 		topPanel = new JPanel();
-		leftPanel = new JPanel();
-		rightPanel = new JPanel();
 
 		getContentPane().setLayout(new GridLayout());
 		this.leJardin = new World("Le Jardin");
@@ -125,7 +123,7 @@ public class Terrain extends JFrame implements Observateur {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int newValue = Integer.parseInt(textfield.getText());
-				laPara.setTick(Integer.parseInt(textfield.getText()));
+				laPara.setTick(newValue);
 			}
 		});
 
@@ -204,8 +202,6 @@ public class Terrain extends JFrame implements Observateur {
 	 */
 	public void ajouterFourmiAffichage(ObjetGraphique objet) {
 		mesObjetsGraphiques.add(objet);
-		int coordonneeX = (int) objet.getrepresentationGraphique().getPosition().getX();
-		int coordonneeY = (int) objet.getrepresentationGraphique().getPosition().getY();
 		this.getLeJardin().contents().add(objet.getrepresentationGraphique());
 	}
 
