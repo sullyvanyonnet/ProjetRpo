@@ -52,4 +52,9 @@ public abstract class Phase implements Observateur {
 	public Phase phaseSuivante() {
 		return null;
 	}
+
+	public int calculPoids() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

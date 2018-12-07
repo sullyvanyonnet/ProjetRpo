@@ -30,6 +30,8 @@ public class Fourmi extends EtreVivant {
 		this.identifiant = identifiant;
 		this.dureeDeVie = (double) 3;
 		this.phase = new Oeuf(this);
+		Point unpoint = new Point(100,100);
+    	this.representationGraphique = InterfaceMorph.CreeFourmi(unpoint);
 	}
     
     public Fourmi(int identifiant, Point unPoint) {
@@ -163,12 +165,11 @@ public class Fourmi extends EtreVivant {
 	@Override
 	public void updateJ() {
 		//realise le viellissement
-		/*try {
+		try {
 			this.vivre();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		
 		Phase unephase = this.getPhase();
 		if(unephase.jeSuis().equals("adulte")) {
@@ -179,7 +180,6 @@ public class Fourmi extends EtreVivant {
 	}
 
 	public double calculPoids() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.phase.calculPoids();
 	}
 }

@@ -1,5 +1,7 @@
 package Etape;
 
+import java.util.Random;
+
 import Fourmi.Fourmi;
 
 public class Larve extends Phase {
@@ -26,9 +28,11 @@ public class Larve extends Phase {
 	  public void seNourrir() {
 		  //consomme son propre poids dans le stock  
 	  }
-	
+	@Override
 	public int calculPoids()
 	{
-		return ((int) (15*(1+((1/3)*Math.random())))) * (3|4);
+		Random rand = new Random();
+		int booleen = rand.nextInt(2);
+		return  ((int) (15*(1+((1/3)*Math.random()))) * (3+(1*booleen)));
 	}
 }

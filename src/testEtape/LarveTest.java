@@ -16,6 +16,7 @@ class LarveTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
+		mimi = new Fourmi(1);
 		for(int i=0; i<4 ;i++)
 		{
 			mimi.vivre();
@@ -27,14 +28,17 @@ class LarveTest {
 	void tearDown() throws Exception {
 	}
 	
-	//TODO test calcul poids
 	@Test
 	void testCalculPoids()
 	{
 		double poidsAttenduMin = 15*3;
-		double poidsAttenduMax = 15*4+15*(1/3)*4;
+		double poidsAttenduMax = 15*4 + (15*(1/3))*4;
 		double poidsResultat = mimi.calculPoids();
-		
+		System.out.println("Resultat : " + poidsResultat);
+		System.out.println("Min : " + poidsAttenduMin);
+		System.out.println("Min : " + poidsAttenduMax);
+		assertTrue(poidsResultat<=poidsAttenduMax); 
+		assertTrue(poidsResultat>=poidsAttenduMin);		
 	}
 	
 

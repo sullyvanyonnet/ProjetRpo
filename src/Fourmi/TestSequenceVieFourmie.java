@@ -9,7 +9,7 @@ import Etape.Cadavre;
 public class TestSequenceVieFourmie {
 
 	public static void main(String[] args) throws InterruptedException {		
-		Fourmi mimi = new Fourmi(1, null);
+		Fourmi mimi = new Fourmi(1);
 		int ageMax = (3*365);
 		for (int i=0; i<ageMax; i++)
 		{
