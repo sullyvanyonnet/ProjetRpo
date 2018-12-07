@@ -19,15 +19,18 @@ public class Reine extends Role {
 		this.fourmi.setRepresentationGraphique(this.RepCreeFourmi());
 	}
 
+	//creation unitaire d'un nouvel oeuf
 	public Oeuf pondre() {
 		return new Oeuf(this.fourmi);
 	}
 
+	//remplace instanceof
 	@Override
 	public String monRole() {
 		return "reine";
 	}
 
+	//representation graphique de la reine
 	public Morph RepCreeFourmi() {
 		Point pos = this.fourmi.getrepresentationGraphique().getPosition();
 		Dimension dim = new Dimension(8, 8);
