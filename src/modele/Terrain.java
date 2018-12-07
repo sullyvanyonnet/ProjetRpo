@@ -59,7 +59,7 @@ public class Terrain extends JFrame implements Observateur {
 		int yFourmiliere = (int) laFourmiliere.getCoordonnees().getY();
 
 		this.leJardin.contents()
-				.add(new Oval(Color.BLACK, new Point(xFourmiliere, yFourmiliere), new Dimension(20, 20)));
+				.add(new Oval(Color.BLACK, new Point(xFourmiliere, yFourmiliere), new Dimension(40, 40)));
 
 		for (int i = 0; i < this.laFourmiliere.listeDeFourmis.size(); i++) {
 			this.laFourmiliere.listeDeFourmis.get(i).setCoordonnees(new Point(xFourmiliere, yFourmiliere));
@@ -93,8 +93,7 @@ public class Terrain extends JFrame implements Observateur {
 		mesObjetsGraphiques.add(unefourmi);
 		int coordonneeX = (int) unefourmi.getrepresentationGraphique().getPosition().getX();
 		int coordonneeY = (int) unefourmi.getrepresentationGraphique().getPosition().getY();
-		// IMovableDrawable unObjet = drawables.get(i);
-		this.getLeJardin().contents().add(InterfaceMorph.CreeFourmi(new Point(coordonneeX, coordonneeY)));
+		this.getLeJardin().contents().add(unefourmi.getrepresentationGraphique());
 	}
 
 	private void initFrame() {

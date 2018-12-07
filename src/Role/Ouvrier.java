@@ -49,8 +49,8 @@ public class Ouvrier extends Role{
 	
 	public Morph RepCreeFourmi() {
 		Point pos = this.fourmi.getrepresentationGraphique().getPosition();
-		Dimension dim = new Dimension(3, 3);
-		return new Oval(Color.RED, pos, dim);
+		Dimension dim = new Dimension(5, 5);
+		return new Oval(Color.YELLOW, pos, dim);
 	}
 
 	@Override

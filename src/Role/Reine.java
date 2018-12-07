@@ -30,7 +30,7 @@ public class Reine extends Role {
 
 	public Morph RepCreeFourmi() {
 		Point pos = this.fourmi.getrepresentationGraphique().getPosition();
-		Dimension dim = new Dimension(5, 5);
+		Dimension dim = new Dimension(8, 8);
 		return new Oval(Color.BLUE, pos, dim);
 	}
 
