@@ -69,34 +69,47 @@ public abstract class Proie extends ObjetGraphique {
 		}
 	}
 
+	//cree la representation graphique d'un proie
 	public Morph RepCreeFourmi() {
+		//recupaire Poind random dans sur le terain en X
 		double tailleProiX = Math.random() * Math.min(this.terrainLie.getWorld().getSize().getWidth(),
 				this.terrainLie.getWorld().getSize().getHeight());
+		
+		//recupaire Poind random dans sur le terain en Y
 		double tailleProiY = Math.random() * Math.min(this.terrainLie.getWorld().getSize().getWidth(),
 				this.terrainLie.getWorld().getSize().getHeight());
+		//cree le poind avec ces nouvelles coordonnées
 		Point pos = new Point((int) tailleProiX, (int) tailleProiY);
+		
 		double DimDefaut = 5;
+		//calcul une dimention proportionnelle en fonction de son poid
 		double moyenDim = DimDefaut * this.poids / 15;
+		//cree la dimention
 		Dimension dim = new Dimension((int) moyenDim, (int) moyenDim);
+		//cree le morph avec toutes les parametre
 		return new RectangleDrawable(Color.GRAY, pos, dim);
 	}
 
 	public void vivre() throws InterruptedException {
-
+		//fais baisser la vie de la proie de 1
 		this.DureeDeVie = this.DureeDeVie - 1;
+		//si la vie est a 0
 		if (DureeDeVie == 0) {
+			//stoque ca forme precedante
 			Morph old = this.representationGraphique;
+			//modifi les dimentions pour le faire disparetre
 			this.representationGraphique = new RectangleDrawable(Color.WHITE, new Point(0, 0), new Dimension(0, 0));
+			//met a jours l'IHM 
 			this.getTerrainLie().updateEtreVivant(old, this.representationGraphique);
 		}
 	}
-
+	//action a realiser toutes les heurs
 	@Override
 	public void updateH() {
 		this.seDeplacer();
 
 	}
-
+	//action a realiser toutes jours
 	@Override
 	public void updateJ() {
 		// TODO Auto-generated method stub
