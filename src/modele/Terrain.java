@@ -203,7 +203,9 @@ public class Terrain extends JFrame implements Observateur {
 
 		// TODO Auto-generated method stub
 		for (int i = 0; i < 20; i++) {
-			laFourmiliere.updateH();
+			for (EtreVivant unObjectGraphique : this.mesObjetsGraphiques) {
+				unObjectGraphique.updateH();
+			}
 
 			this.miseAjourPos();
 			this.getLeJardin().repaint();
@@ -212,7 +214,9 @@ public class Terrain extends JFrame implements Observateur {
 
 	@Override
 	public void updateJ() {
-		laFourmiliere.updateJ();
+		for (EtreVivant unObjectGraphique : this.mesObjetsGraphiques) {
+			unObjectGraphique.updateJ();
+		}
 		Araignee proie = new Araignee(1, (int) (15 + (Math.random() * 45)), this);
 		this.ajouterFourmiAffichage(proie);
 		for (int i = 0; i < this.laFourmiliere.listeDeFourmis.size(); i++) {

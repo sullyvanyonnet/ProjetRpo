@@ -69,16 +69,12 @@ public class Fourmiliere extends EtreVivant {
 
 	@Override
 	public void updateH() {
-		for(int i = 0 ; i < this.listeDeFourmis.size(); i++) {
-			listeDeFourmis.get(i).updateH();
-		}
+
 	}
 
 	@Override
 	public void updateJ() {
-		for(int i = 0 ; i < this.listeDeFourmis.size(); i++) {
-			listeDeFourmis.get(i).updateJ();
-		}
+
 	}
 
 }

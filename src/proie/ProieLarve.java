@@ -1,5 +1,7 @@
 package proie;
 
+import modele.Terrain;
+
 public class ProieLarve extends Proie {
 	
 	private static int PoidsEnMilligrammeLarve = 60;
@@ -9,12 +11,12 @@ public class ProieLarve extends Proie {
 		//nbDeFourmiAttaquantesMax
 		//boolean mort
 
-	public ProieLarve(int identifiant) {
-		super(identifiant, PoidsEnMilligrammeLarve);
+	public ProieLarve(int identifiant, Terrain terrainLie) {
+		super(identifiant, PoidsEnMilligrammeLarve, terrainLie);
 	}
 	
-	public ProieLarve(int identifiant, int poids) {
-		super(identifiant, poids);
+	public ProieLarve(int identifiant, int poids, Terrain terrainLie) {
+		super(identifiant, poids, terrainLie);
 	}
 
 }
