@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class Parametrage implements Runnable {
-	int Tick; //temps avant action en ms
-	int nbHeure;
+	private int Tick; //temps avant action en ms
+	private int nbHeure;
 	
 	Terrain unTerrain ;
 	
 	public Parametrage(int tickInitial) {
 		this.Tick = tickInitial;
-		this.unTerrain = new Terrain();
+		this.unTerrain = new Terrain(this);
 		this.nbHeure = 0;
 	}
 	

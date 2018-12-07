@@ -17,11 +17,18 @@ public class Adulte extends Phase {
 		this.dureeAdulte = tempsVie;
 		fourmi.setDureeDeVie(tempsVie);
 		fourmi.setPoids(calculPoids());
-		this.role = this.DefRole(fourmi);
+		this.DefRole(fourmi);
 	}
 	
-	public Role DefRole(Fourmi fourmi) {
-		return new Ouvrier(fourmi);
+	public void DefRole(Fourmi fourmi) {
+		double randRole = Math.random();	    
+	    if(randRole < 0.70) {
+	    	devenirOuvrier();
+	    } else if (randRole < 0.90) {
+	    	devenirSoldat();
+	    } else if (randRole < 1.00) {
+	    	devenirReproducteur();
+	    }  
 		
 	}
 	
