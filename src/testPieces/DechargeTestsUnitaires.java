@@ -14,6 +14,9 @@ import Piece.Decharge;
 
 class DechargeTestsUnitaires {
 	
+	//TODO mettre a jour
+	//code rendu obsolete lors de l'implémentation des vues
+	
 	Decharge dechargeVide;
 	Decharge decharge2cadavres;
 	Fourmi mimi;

@@ -17,6 +17,9 @@ import Role.Role;
 import Role.Soldat;
 
 class AdulteTest {
+	
+	//TODO mettre a jour
+	//code rendu obsolete lors de l'implémentation des vues
 
 	@BeforeEach
 	void setUp() throws Exception {
