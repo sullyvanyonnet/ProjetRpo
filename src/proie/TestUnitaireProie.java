@@ -23,6 +23,9 @@ class TestUnitaireProie {
 		assert(aragne instanceof Araignee);
 	}
 	
+	/*code rendu obsolète lors de l'implémentation des vues*/
+	//TODO mettre à jour les constructeurs
+	
 	//constructeur Araignee
 	@Test
 	void testNewAraigneeDeuxParametres() {

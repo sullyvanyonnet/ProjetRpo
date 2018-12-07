@@ -30,13 +30,13 @@ import vue.World;
 public class Terrain extends JFrame implements Observateur {
 
 	/* les panneaux qui composent la fenetre */
-	private JSplitPane splitPaneGaucheDroite; // s�paration haut bas pour la zone de texte
-	private JSplitPane splitPaneHautBas; // s�paration gauche droite pour le world et l'arbre
-	private JPanel topPanel;
-	private JPanel leftPanel;
-	private JPanel rightPanel;
+	private JSplitPane splitPaneGaucheDroite; // separation haut bas pour la zone de texte.
+	private JSplitPane splitPaneHautBas; // separation gauche droite pour le world et l'arbre.
+	private JPanel topPanel; // panneau superieur contenant le controle du temps.
+	private JPanel leftPanel; // panneau de gauche contenant le World.
+	private JPanel rightPanel; // panneau de droite contenant l'arbre de statistiques (non developpe)
 
-	/* les �l�ments du topPanel */
+	/* les elements du topPanel */
 	private JTextField textfield;
 	private JButton boutonMoins;
 	private JButton boutonPlus;
@@ -48,6 +48,10 @@ public class Terrain extends JFrame implements Observateur {
 
 	List<ObjetGraphique> mesObjetsGraphiques = new ArrayList<ObjetGraphique>();
 
+	/**
+	 * Methode mettant en place la fenetre et ses elements de base.
+	 * @param unePara : Parametrage lancant la fenetre.
+	 */
 	public Terrain(Parametrage unePara) {
 
 		this.laPara = unePara;
@@ -89,7 +93,7 @@ public class Terrain extends JFrame implements Observateur {
 			}
 		}
 	}
-	public World getWord(){
+	public World getWorld(){
 		return leJardin;	
 	}
 	

@@ -89,23 +89,25 @@ public class Fourmi extends ObjetGraphique {
 	
 	/*DO fonction retourne une chaine 
 	de caracteres pour signaler le type d'objet : 
-	oeuf, larve, nymphe */
+	oeuf, larve, nymphe, adulte, cadavre */
 	public String isPhase()
 	{
 		return getPhase().jeSuis();
 	}
 	
-	//evolution
+	//evolution, passage d'une phase a la suivante
 	public void evolution()
 	{
 		phase = phase.phaseSuivante();
 	}
 	
+	//calcul aléatoire vie adulte de fourmi
 	public double dureeVieFourmiAdulte()
 	{
 		return (1.5*(1+((7*Math.random())/10)))*365;
 	}
 	
+	//calcul aléatoire vie adulte de reine
 	public double dureeVieFourmiReine()
 	{
 		return (4*(1+((1.5*Math.random())/10)))*365;
@@ -120,6 +122,9 @@ public class Fourmi extends ObjetGraphique {
 		}
 	}
 	
+	/**
+	 * Fonctions de changement de rôle : 
+	 * */
 	
 	public boolean devenirReine()
 	{		
@@ -148,11 +153,18 @@ public class Fourmi extends ObjetGraphique {
 		return res;
 	}
 
+	//creer la representation graphique d'une fourmie. 
+	//Invisible au depart, la representation evoluera 
+	//grâce aux actions realisées sur la fourmi
 	  public Morph RepCreeFourmi(Point pos) {
 		  Dimension dim = new Dimension(0, 0);
 		  return new Oval(Color.WHITE,pos,dim);
 	  }
 	
+	  
+	//met a jour les informations de la fourmi par heure, 
+	//notamment son deplacement  
+	//fonctionne grâce à l'héritage d'objet graphique, qui a un role d'observer  
 	@Override
 	public void updateH() {
 		Phase unephase = this.getPhase();
@@ -164,6 +176,9 @@ public class Fourmi extends ObjetGraphique {
 		}
 	}
 
+	//met a jour les informations de la fourmi par jour, 
+	//notamment son deplacement  
+	//fonctionne grâce à l'héritage d'objet graphique, qui a un role d'observer  
 	@Override
 	public void updateJ() {
 		//realise le viellissement
@@ -181,6 +196,8 @@ public class Fourmi extends ObjetGraphique {
 		}
 	}
 
+	//repercute les calculs des poids
+	//en fonction de la phase de la fourmi
 	public double calculPoids() {
 		return this.phase.calculPoids();
 	}

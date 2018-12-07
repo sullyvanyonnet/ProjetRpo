@@ -12,6 +12,9 @@ import Fourmi.Fourmi;
 
 class LarveTest {
 	
+	//TODO mettre a jour
+	//code rendu obsolete lors de l'implémentation des vues
+	
 	Fourmi mimi;
 
 	@BeforeEach

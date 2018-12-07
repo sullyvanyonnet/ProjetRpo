@@ -15,7 +15,10 @@ import Fourmi.Fourmi;
 import Role.*;
 
 class ReineTest {
-
+	
+	//TODO mettre a jour
+	//code rendu obsolete lors de l'implémentation des vues
+	
 	Fourmi mimi ;
 	Adulte grandeMimi;
 	

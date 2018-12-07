@@ -3,11 +3,15 @@ package modele;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Classe principale de l'application, gere le lancement de la fenetre, le
+ * passage du temps fait se déplacer les ObjetsGraphiques.
+ */
 public class Parametrage implements Runnable {
-	private int Tick; // temps avant action en ms
-	private int nbHeure;
+	private int Tick; // Temps avant action en ms.
+	private int nbHeure; // Nombre d'heures écoulée depuis la derniere mise à jour journalière.
 
-	Terrain unTerrain;
+	Terrain unTerrain; // La fenetre de l'application.
 
 	public Parametrage(int tickInitial) {
 		this.Tick = tickInitial;
@@ -23,35 +27,20 @@ public class Parametrage implements Runnable {
 		this.Tick = nouveauTick;
 	}
 
-	public void notifyObserversH() {
+	public void notifyH() {
 		this.unTerrain.updateH();
 	}
 
-	public void notifyObserversJ() {
+	public void notifyJ() {
 		this.unTerrain.updateJ();
 	}
 
+	/**
+	 * Methode lancant le passage du temps, qui peut etre accéléré, 
+	 * ralentit et pausé depuis la fenetre.
+	 */
 	@Override
 	public void run() {
-		while (true) {
-			if (this.getTick() > 0) {
-				try {
-					TimeUnit.MILLISECONDS.sleep(this.Tick);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				if (this.nbHeure == 24) {
-					notifyObserversJ();
-					this.nbHeure = 0;
-				}
-				notifyObserversH();
-				this.nbHeure++;
-			}
-
-		}
-	}
-
-	public void starte() {
 		while (true) {
 			try {
 				TimeUnit.MILLISECONDS.sleep(1);
@@ -66,13 +55,12 @@ public class Parametrage implements Runnable {
 					e.printStackTrace();
 				}
 				if (this.nbHeure == 24) {
-					notifyObserversJ();
+					notifyJ();
 					this.nbHeure = 0;
 				}
-				notifyObserversH();
+				notifyH();
 				this.nbHeure++;
 			}
 		}
 	}
-
 }

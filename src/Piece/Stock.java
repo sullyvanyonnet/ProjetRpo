@@ -1,18 +1,55 @@
 package Piece;
 
+import java.util.ArrayList;
+
+import Fourmi.Fourmi;
+import proie.Proie;
+
 public class Stock extends Salle {
-	int poidStocke = 0;
+	int poidsTotal;	
+	int size;	
+	ArrayList<Proie> listeProies;
 	
-	void Ajouter(int unPoids){
-		this.poidStocke = this.poidStocke + unPoids;
+	public int getPoidsTotal() {
+		return poidsTotal;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public ArrayList<Proie> getListeProies() {
+		return listeProies;
+	}
+
+	void ajouterStock(int unPoids){
+		this.poidsTotal = this.poidsTotal + unPoids;
 	}
 	
-	boolean suppr(int unPoids) {
+	void ajouterStock(Proie uneProie){
+		this.listeProies.add(uneProie);
+		this.size = this.getSize() + 1;
+	}
+	
+	boolean supprimerStock(int unPoids) {
 		
-		if(this.poidStocke <= unPoids) {
-			this.poidStocke = this.poidStocke - unPoids;
+		if(this.poidsTotal <= unPoids) {
+			this.poidsTotal = this.poidsTotal - unPoids;
 			return true;
 		}
 		return false;	
 	}
+	
+	//TODO
+	/*boolean supprimerStock(Proie uneProie) {
+		
+		//regler proie
+		
+		//regler poids
+		if(this.poidsTotal <= uneProie.get) {
+			this.poidsTotal = this.poidsTotal - unPoids;
+			return true;
+		}
+		return false;	
+	}*/
 }
