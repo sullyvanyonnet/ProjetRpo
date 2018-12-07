@@ -1,10 +1,15 @@
 package proie;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Point;
 
 import Etape.Adulte;
 import modele.Coordonnees;
 import modele.EtreVivant;
+import vue.Morph;
+import vue.Oval;
+import vue.RectangleDrawable;
 
 public abstract class Proie extends EtreVivant {
 	
@@ -48,6 +53,15 @@ public abstract class Proie extends EtreVivant {
 	    }  	
 	}
 
+	public Morph RepCreeFourmi() {
+		double tailleProi = Math.random() * Math.min(this.terrainLie.getWord().getSize().getWidth(), this.terrainLie.getWord().getSize().getHeight()) - 50 ;
+		Point pos = new Point ((int)tailleProi,(int)tailleProi);
+		double DimDefaut = 5;
+		double moyenDim = DimDefaut*this.poids/15;
+		Dimension dim = new Dimension((int)moyenDim,(int)moyenDim);
+		return new RectangleDrawable(Color.black, pos, dim);
+	}
+	
 	@Override
 	public void updateH() {
 		this.seDeplacer();
