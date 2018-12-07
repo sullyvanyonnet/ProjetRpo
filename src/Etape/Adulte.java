@@ -6,6 +6,7 @@ import Etape.*;
 import Fourmi.Fourmi;
 import Role.*;
 import modele.Coordonnees;
+import vue.Morph;
 
 public class Adulte extends Phase {
 	private Role role ;
@@ -17,7 +18,10 @@ public class Adulte extends Phase {
 		this.dureeAdulte = tempsVie;
 		fourmi.setDureeDeVie(tempsVie);
 		fourmi.setPoids(calculPoids());
+		Morph old = this.fourmi.getrepresentationGraphique();
 		this.DefRole(fourmi);
+		this.fourmi.getTerrainLie().updateEtreVivant(old, this.fourmi.getrepresentationGraphique());
+
 	}
 	
 	public void DefRole(Fourmi fourmi) {

@@ -92,7 +92,8 @@ public class Terrain extends JFrame implements Observateur {
 	public World getWord(){
 		return leJardin;	
 	}
-	private void ajouterFourmiAffichage(EtreVivant unefourmi) {
+	
+	public void ajouterFourmiAffichage(EtreVivant unefourmi) {
 		mesObjetsGraphiques.add(unefourmi);
 		int coordonneeX = (int) unefourmi.getrepresentationGraphique().getPosition().getX();
 		int coordonneeY = (int) unefourmi.getrepresentationGraphique().getPosition().getY();
@@ -185,12 +186,11 @@ public class Terrain extends JFrame implements Observateur {
 		return this.leJardin;
 	}
 
-	public void updateEtreVivant(Morph representationGraphique) {
-		int index = this.leJardin.contents().indexOf(representationGraphique);
+	public void updateEtreVivant(Morph old, Morph representationGraphique) {
+		int index = this.leJardin.contents().indexOf(old);
 		if (index > 0) {
 			this.leJardin.contents().set(index, representationGraphique);
 		}
-		this.leJardin.repaint();
 	}
 
 	public void notifyObservers() {
@@ -202,14 +202,14 @@ public class Terrain extends JFrame implements Observateur {
 	public void updateH() {
 
 		// TODO Auto-generated method stub
-		//for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < 20; i++) {
 			for (EtreVivant unObjectGraphique : this.mesObjetsGraphiques) {
 				unObjectGraphique.updateH();
 			}
 
 			this.miseAjourPos();
 			this.getLeJardin().repaint();
-		//}
+		}
 	}
 
 	@Override
@@ -219,12 +219,6 @@ public class Terrain extends JFrame implements Observateur {
 		}
 		Araignee proie = new Araignee(1, (int) (15 + (Math.random() * 45)), this);
 		this.ajouterFourmiAffichage(proie);
-		for (int i = 0; i < this.laFourmiliere.listeDeFourmis.size(); i++) {
-			Fourmi unefourmi = laFourmiliere.getFourmis().get(i);
-			if(this.mesObjetsGraphiques.contains(unefourmi.representationGraphique)== false){
-				ajouterFourmiAffichage(unefourmi);
-			}
-		}
 		this.miseAjourPos();
 
 		this.getLeJardin().repaint();

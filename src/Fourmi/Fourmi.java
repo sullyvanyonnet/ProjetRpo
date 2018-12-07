@@ -48,6 +48,7 @@ public class Fourmi extends EtreVivant {
 		this.phase = new Oeuf(this);
 		this.terrainLie = leTerrain;
 		this.representationGraphique = this.RepCreeFourmi(unPoint);
+		this.terrainLie.ajouterFourmiAffichage(this);
 	}
 	
 	public int getIdentifiant() {
@@ -113,8 +114,9 @@ public class Fourmi extends EtreVivant {
 	public void seDeplacer() {		
 		if(this.phase.jeSuis().equals("adulte")) {
 			Adulte unAdulte = (Adulte)this.phase;
+			Morph old = this.representationGraphique;
 			this.representationGraphique.setPosition(unAdulte.seDeplacer(this.representationGraphique.getPosition()));  
-			this.terrainLie.updateEtreVivant(this.representationGraphique);
+			this.terrainLie.updateEtreVivant(old, this.representationGraphique);
 		}
 	}
 	

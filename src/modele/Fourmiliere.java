@@ -30,7 +30,7 @@ public class Fourmiliere extends EtreVivant {
 		this.terrainLie = leTerrain;
 		this.nombreDeFourmi = 0;
 		
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 1000; i++) {
 			this.ajouterFourmi();
 		}
 	}
