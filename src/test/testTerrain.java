@@ -14,7 +14,7 @@ import Etape.Adulte;
 import Fourmi.Fourmi;
 import modele.Coordonnees;
 import modele.Fourmiliere;
-import modele.ObjectGraphique;
+import modele.ObjetGraphique;
 import modele.Terrain;
 import vue.IMovableDrawable;
 import vue.Oval;
@@ -29,7 +29,7 @@ public class testTerrain {
 		int xFourmiliere = (int) laFourmiliere.getrepresentationGraphique().getPosition().getX();
 		int yFourmiliere = (int) laFourmiliere.getrepresentationGraphique().getPosition().getY();
 
-		List<ObjectGraphique> mesObjetsGraphiques = new ArrayList<ObjectGraphique>();
+		List<ObjetGraphique> mesObjetsGraphiques = new ArrayList<ObjetGraphique>();
 		mesObjetsGraphiques.add(laFourmiliere);
 		
 		monTerrain.open();

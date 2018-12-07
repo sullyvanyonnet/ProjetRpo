@@ -46,7 +46,7 @@ public class Terrain extends JFrame implements Observateur {
 	private Fourmiliere laFourmiliere;
 	private Parametrage laPara;
 
-	List<ObjectGraphique> mesObjetsGraphiques = new ArrayList<ObjectGraphique>();
+	List<ObjetGraphique> mesObjetsGraphiques = new ArrayList<ObjetGraphique>();
 
 	public Terrain(Parametrage unePara) {
 
@@ -93,7 +93,7 @@ public class Terrain extends JFrame implements Observateur {
 		return leJardin;	
 	}
 	
-	public void ajouterFourmiAffichage(ObjectGraphique unefourmi) {
+	public void ajouterFourmiAffichage(ObjetGraphique unefourmi) {
 		mesObjetsGraphiques.add(unefourmi);
 		int coordonneeX = (int) unefourmi.getrepresentationGraphique().getPosition().getX();
 		int coordonneeY = (int) unefourmi.getrepresentationGraphique().getPosition().getY();
@@ -203,7 +203,7 @@ public class Terrain extends JFrame implements Observateur {
 
 		// TODO Auto-generated method stub
 		for (int i = 0; i < 20; i++) {
-			for (ObjectGraphique unObjectGraphique : this.mesObjetsGraphiques) {
+			for (ObjetGraphique unObjectGraphique : this.mesObjetsGraphiques) {
 				unObjectGraphique.updateH();
 			}
 
@@ -214,7 +214,7 @@ public class Terrain extends JFrame implements Observateur {
 
 	@Override
 	public void updateJ() {
-		for (ObjectGraphique unObjectGraphique : this.mesObjetsGraphiques) {
+		for (ObjetGraphique unObjectGraphique : this.mesObjetsGraphiques) {
 			unObjectGraphique.updateJ();
 		}
 		Araignee proie = new Araignee(1, (int) (15 + (Math.random() * 45)), this);

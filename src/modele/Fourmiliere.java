@@ -9,7 +9,7 @@ import Piece.Decharge;
 import Piece.Salle;
 import Piece.Stock;
 
-public class Fourmiliere extends ObjectGraphique {
+public class Fourmiliere extends ObjetGraphique {
 	List<Fourmi> listeDeFourmis;
 	List<Salle> ListeSalle;
 	Fourmi saMajeste;

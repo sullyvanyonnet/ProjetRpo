@@ -1,7 +1,7 @@
 package Etape;
 
 import Fourmi.Fourmi;
-import modele.ObjectGraphique;
+import modele.ObjetGraphique;
 import modele.Observateur;
 
 public abstract class Phase implements Observateur {

@@ -4,12 +4,12 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 
-import modele.ObjectGraphique;
+import modele.ObjetGraphique;
 import modele.Terrain;
 import vue.Morph;
 import vue.RectangleDrawable;
 
-public abstract class Proie extends ObjectGraphique {
+public abstract class Proie extends ObjetGraphique {
 
 	private static int PoidsEnMilligrammeParDefaut = 15;
 	private int DureeDeVie;

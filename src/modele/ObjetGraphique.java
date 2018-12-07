@@ -4,7 +4,7 @@ import java.awt.Point;
 
 import vue.Morph;
 
-public abstract class ObjectGraphique implements Observateur {
+public abstract class ObjetGraphique implements Observateur {
 
 	protected Morph representationGraphique;
 	protected Terrain terrainLie;
