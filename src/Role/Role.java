@@ -1,6 +1,7 @@
 package Role;
 
 import modele.Observateur;
+import vue.Morph;
 
 import java.awt.Point;
 
@@ -9,7 +10,7 @@ import Fourmi.Fourmi;
 
 public abstract class Role implements Observateur{	
 	
-	private Fourmi fourmi;
+	protected Fourmi fourmi;
 	
 	
 	public Point sedeplacer(Point unPoint){
@@ -40,6 +41,10 @@ public abstract class Role implements Observateur{
 		return null;
 	}
 
+	public Morph RepCreeFourmi() {
+		return null;  
+	}
+	
 	public double dureeVieFourmiReine() {		
 		return (Double) null;
 	}

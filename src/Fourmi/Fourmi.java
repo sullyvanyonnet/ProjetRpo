@@ -1,5 +1,7 @@
 package Fourmi;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Point;
 
 import Etape.Adulte;
@@ -12,6 +14,8 @@ import Role.Ouvrier;
 import modele.EtreVivant;
 import modele.InterfaceMorph;
 import modele.Terrain;
+import vue.Morph;
+import vue.Oval;
 
 public class Fourmi extends EtreVivant {
 	
@@ -32,7 +36,8 @@ public class Fourmi extends EtreVivant {
 		this.identifiant = identifiant;
 		this.dureeDeVie = (double) 3;
 		this.phase = new Oeuf(this);
-		this.representationGraphique = InterfaceMorph.CreeFourmi(unPoint);
+		this.representationGraphique = this.RepCreeFourmi(unPoint);
+
 	}
 	
 	public Fourmi(int identifiant, Point unPoint, Terrain leTerrain) {
@@ -40,7 +45,7 @@ public class Fourmi extends EtreVivant {
 		this.dureeDeVie = (double) 3;
 		this.phase = new Oeuf(this);
 		this.terrainLie = leTerrain;
-		this.representationGraphique = InterfaceMorph.CreeFourmi(unPoint);
+		this.representationGraphique = this.RepCreeFourmi(unPoint);
 	}
 	
 	public int getIdentifiant() {
@@ -139,6 +144,11 @@ public class Fourmi extends EtreVivant {
 		return res;
 	}
 
+	  public Morph RepCreeFourmi(Point pos) {
+		  Dimension dim = new Dimension(0, 0);
+		  return new Oval(Color.WHITE,pos,dim);
+	  }
+	
 	@Override
 	public void updateH() {
 		Phase unephase = this.getPhase();
@@ -166,5 +176,10 @@ public class Fourmi extends EtreVivant {
 			this.seDeplacer();
 			unAdulte.updateJ();
 		}
+	}
+
+	public double calculPoids() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
