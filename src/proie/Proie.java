@@ -56,10 +56,10 @@ public abstract class Proie extends ObjetGraphique {
 	}
 
 	public Morph RepCreeFourmi() {
-		double tailleProiX = Math.random() * Math.min(this.terrainLie.getWord().getSize().getWidth(),
-				this.terrainLie.getWord().getSize().getHeight());
-		double tailleProiY = Math.random() * Math.min(this.terrainLie.getWord().getSize().getWidth(),
-				this.terrainLie.getWord().getSize().getHeight());
+		double tailleProiX = Math.random() * Math.min(this.terrainLie.getWorld().getSize().getWidth(),
+				this.terrainLie.getWorld().getSize().getHeight());
+		double tailleProiY = Math.random() * Math.min(this.terrainLie.getWorld().getSize().getWidth(),
+				this.terrainLie.getWorld().getSize().getHeight());
 		Point pos = new Point((int) tailleProiX, (int) tailleProiY);
 		double DimDefaut = 5;
 		double moyenDim = DimDefaut * this.poids / 15;
