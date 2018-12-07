@@ -26,7 +26,7 @@ class DechargeTestsUnitaires {
 		//ajouts de 2 cadavres à la decharge
 		mimi = new Fourmi(1);
 		int ageMax = 40;
-		for (int i=0; i<ageMax; i++)
+		while(!("cadavre".equals(mimi.isPhase())))
 		{
 			if("adulte".equals(mimi.isPhase()))
 			{
@@ -34,33 +34,32 @@ class DechargeTestsUnitaires {
 				//en mettant la duree de vie d'une fourmi adulte
 				//à 1 jour
 				mimi.setDureeDeVie(1);
-				break;
 			}
 			mimi.vivre();
 			TimeUnit.MILLISECONDS.sleep(1);
 		}
 		decharge2cadavres.ajouterCadavre(mimi);
 		mi = new Fourmi(1);
-		for (int i=0; i<ageMax; i++)
+		while(!("cadavre".equals(mi.isPhase())))
 		{
 			if("adulte".equals(mi.isPhase()))
 			{
 				//on force la mort 
 				//en mettant la duree de vie d'une fourmi adulte
 				//à 1 jour
-				mimi.setDureeDeVie(1);
-				break;
+				mi.setDureeDeVie(1);
 			}
 			mi.vivre();
 			TimeUnit.MILLISECONDS.sleep(1);
 		}
-		decharge2cadavres.ajouterCadavre(mi);
+		boolean b = decharge2cadavres.ajouterCadavre(mi);
+		System.out.println("test ajout 2 elements a la decharge : " + decharge2cadavres.getSize());
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 	}
-
+	
 	@Test
 	void testGetPoidsTotal() {
 								
@@ -72,12 +71,8 @@ class DechargeTestsUnitaires {
 	@Test
 	void testGetSize() {
 		assert(dechargeVide.getSize() == 0);
-		assert(decharge2cadavres.getSize() == 3);
-	}
-
-	@Test
-	void testGetListeCadavre() {
-		fail("Not yet implemented");
+		System.out.println(decharge2cadavres.getSize());
+		assert(decharge2cadavres.getSize() == 2);
 	}
 
 	@Test
@@ -91,33 +86,33 @@ class DechargeTestsUnitaires {
 		Fourmi mimi = new Fourmi(1);	
 		assertFalse(dechargeVide.ajouterCadavre(mimi));		
 	}
-	
-	//TODO 
+ 
 	@Test
 	void testAjouterCadavreVrai() throws InterruptedException {
 		Fourmi mimi = new Fourmi(1);
 		//simuler la vie de la fourmi jusqu'à sa mort
 		Fourmi mimi2 = new Fourmi(1);
-		while(true)
+		while(!("cadavre".equals(mimi2.isPhase())))
 		{
 			if("adulte".equals(mimi2.isPhase()))
 			{
 				//on force la mort 
 				//en mettant la duree de vie d'une fourmi adulte
 				//à 1 jour
-				mimi.setDureeDeVie(1);
-				break;
+				mimi2.setDureeDeVie(1);
 			}
 			mimi2.vivre();
 			TimeUnit.MILLISECONDS.sleep(1);
 		}
-		System.out.println(mimi2.isPhase());
 		assertTrue(dechargeVide.ajouterCadavre(mimi2));		
+		assertTrue(dechargeVide.getSize() == 1);
 	}
 
 	@Test
 	void testSupprimerCadavre() {
-		fail("Not yet implemented");
+		int sizeCadavresAvantSuppression = decharge2cadavres.getSize();
+		decharge2cadavres.supprimerCadavre(mimi);
+		assertTrue(decharge2cadavres.getSize() == (sizeCadavresAvantSuppression - 1));
 	}
 
 }

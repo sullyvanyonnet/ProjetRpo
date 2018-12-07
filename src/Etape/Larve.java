@@ -29,6 +29,6 @@ public class Larve extends Phase {
 	
 	public int calculPoids()
 	{
-		return ((int) (15*(1+((1/3)*Math.random()))))*(3|4);
+		return ((int) (15*(1+((1/3)*Math.random())))) * (3|4);
 	}
 }
