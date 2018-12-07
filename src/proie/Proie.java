@@ -74,8 +74,8 @@ public abstract class Proie extends EtreVivant {
 		this.DureeDeVie = this.DureeDeVie - 1	;
 		if(DureeDeVie == 0) {
 			int indexSupr = this.terrainLie.getWord().contents().indexOf(this.representationGraphique);
-			this.terrainLie.getWord().contents().remove(indexSupr);
-			this.terrainLie = null;
+		 this.terrainLie.getWord().contents().remove(indexSupr);
+			
 		}
 	}
 	
@@ -88,12 +88,7 @@ public abstract class Proie extends EtreVivant {
 	@Override
 	public void updateJ() {
 		// TODO Auto-generated method stub
-		try {
-			this.vivre();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 
 }
