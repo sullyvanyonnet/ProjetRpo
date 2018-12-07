@@ -11,25 +11,39 @@ public class Adulte extends Phase {
 	private Role role ;
 	private double dureeAdulte;
 	
+	//contructeur avec 1 parametre
 	public Adulte(Fourmi fourmi) {
+		//utilise le contructeur de phase
 		super(fourmi);
+		//defini le temps de vie de la fourmi
 		double tempsVie = fourmi.dureeVieFourmiAdulte();
 		this.dureeAdulte = tempsVie;
 		fourmi.setDureeDeVie(tempsVie);
+		//defini le point de la fourmit
 		fourmi.setPoids(calculPoids());
+		//sauvegarde l'ancien forme graphique de la fourmi
 		Morph old = this.fourmi.getrepresentationGraphique();
+		//defini le role de la fourmi
 		this.DefRole(fourmi);
+		//demande la mise a jour sur L'IHM avec l'ancien model et le nouveau
 		this.fourmi.getTerrainLie().updateEtreVivant(old, this.fourmi.getrepresentationGraphique());
 
 	}
-	
+	//defini le role de la fourmi en fonction des probabilités 
 	public void DefRole(Fourmi fourmi) {
-		double randRole = Math.random();	    
+		//genere un nombre aleatoir entre 0 et 1
+		double randRole = Math.random();
+		//test si le nombre plus petit que 0.70 qui correspond à 70%
 	    if(randRole < 0.70) {
+	    	//attribut le role ouvrier
 	    	devenirOuvrier();
+	    	//test si le nombre plus petit que 0.90qui correspond à 20%
 	    } else if (randRole < 0.90) {
+	    	//attribut le role solda
 	    	devenirSoldat();
+	    	//test si le nombre plus petit que 1.00qui correspond à 10%
 	    } else if (randRole < 1.00) {
+	    	//attribut le role Reproducteur
 	    	devenirReproducteur();
 	    }  
 		
@@ -37,11 +51,14 @@ public class Adulte extends Phase {
 	
 	public int calculPoids()
 	{
+		//fonction pour generer un poid aleatoir 15 et 20
 		return ((int) (15*(1+((1/3)*Math.random()))));
 	}
-	
+	//permet de definire la phase suivante 
 	public Phase phaseSuivante() {
+		//si la fourmi lui reste du temps dans ca phase retour l'objet courant
 		if (this.fourmi.getDureeDeVie() > this.dureeAdulte) return this;
+		//sinon retour la creation de la phase suivante 
 		return new Cadavre(fourmi);
 	}
 	
@@ -62,7 +79,7 @@ public class Adulte extends Phase {
 		return res;
 	}
 	
-	//devenirReine
+	//permet a la fourmi de devenir reine
 	public boolean devenirReine()
 	{	
 		if("adulte".equals(this.jeSuis()))
@@ -73,7 +90,7 @@ public class Adulte extends Phase {
 		}	
 		return false;
 	}
-	//devenirOuvriere
+	//permet a la fourmi de devenir Ouvriere
 	public boolean devenirOuvrier()
 	{
 		if(this.jeSuis().equals("adulte"))
@@ -84,7 +101,7 @@ public class Adulte extends Phase {
 		}
 		return false;
 	}
-	//devenirSoldat
+	//permet a la fourmi de devenir Soldat
 	public boolean devenirSoldat()
 	{
 		if(this.jeSuis().equals("adulte"))
@@ -95,7 +112,7 @@ public class Adulte extends Phase {
 		}
 		return false;
 	}
-	//devenirReproducteur
+	//permet a la fourmi de devenir Reproducteur
 	public boolean devenirReproducteur()
 	{
 		if(this.jeSuis().equals("adulte"))
@@ -115,9 +132,10 @@ public class Adulte extends Phase {
    * 0.50 / 0.75 : haut
    * 0.75 / 1.00 : bas
    */
+	//demande a la fourmi de se deplacer en fonction de son role. Prend en parametre son point courant et retourne le point atterit  
   public Point seDeplacer(Point point) {
 	
-	  return  this.role.sedeplacer(point);
+	  return this.role.sedeplacer(point);
   }
   
 
@@ -136,11 +154,12 @@ public class Adulte extends Phase {
   {
 	  //nettoyer un voir deux cadavres (aléatoire)
   }
-
+  //retour la phase de la fourmi en chaine de charactere 
   @Override
   public String jeSuis() {
 	  return "adulte";
   }
+  //retourne une position en chaine de charactere
   public String toString() {
     StringBuilder res = new StringBuilder("");
     res.append(this.fourmi.getrepresentationGraphique().getPosition().getX() + " ");
@@ -150,11 +169,13 @@ public class Adulte extends Phase {
     
   }
   
+  	//permet de definir les action a realiser toutes les heurs
 	@Override
 	public void updateH() {
 		this.role.updateH();		
 	}
-
+	
+  	//permet de definir les action a realiser toutes les jours
 	@Override
 	public void updateJ() {
 		this.role.updateJ();		

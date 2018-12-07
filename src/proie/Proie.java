@@ -20,7 +20,8 @@ public abstract class Proie extends ObjetGraphique {
 	// nbDeFourmiAttaquantes
 	// nbDeFourmiAttaquantesMax
 	// boolean mort
-
+	
+	//constructeur insecte avec 3 parametre 
 	public Proie(int identifiant, int poids, Terrain leTerrain) {
 		super();
 		this.identifiant = identifiant;
@@ -29,27 +30,40 @@ public abstract class Proie extends ObjetGraphique {
 		this.representationGraphique = this.RepCreeFourmi();
 		this.DureeDeVie = 3;
 	}
-
-	public Proie(int identifiant) {
+	//constructeur insecte avec 2 parametre et un poid par defaud 
+	public Proie(int identifiant, Terrain leTerrain) {
 		super();
 		this.identifiant = identifiant;
 		this.poids = PoidsEnMilligrammeParDefaut;
 		this.DureeDeVie = 3;
 	}
 
+	//permet le deplacement de la Proie
 	public void seDeplacer() {
+		//genere un nombre aleatoir entre 0 et 1
 		double direction = Math.random();
+		//cree un point vide
 		Point pos = new Point();
+		//si le nombre aleatoir et compris entre 0 et 0.25
 		if (direction < 0.25) {
+			//la proie se deplace vers la gauche de un pixel
 			pos.setLocation(this.representationGraphique.getPosition().getX() - 1,
 					this.representationGraphique.getPosition().getY());
+			
+		//si le nombre aleatoir et compris entre 0.25 et 0.50
 		} else if (direction < 0.50) {
+			//la proie se deplace vers la droite de un pixel
 			pos.setLocation(this.representationGraphique.getPosition().getX() + 1,
 					this.representationGraphique.getPosition().getY());
+			
+			//si le nombre aleatoir et compris entre 0.50 et 0.75
 		} else if (direction < 0.75) {
+			//la proie se deplace vers la haut de un pixel
 			pos.setLocation(this.representationGraphique.getPosition().getX(),
 					this.representationGraphique.getPosition().getY() + 1);
+			//si le nombre aleatoir et compris entre 0.75 et 1.00
 		} else if (direction < 1.00) {
+			//la proie se deplace vers la bas de un pixel
 			pos.setLocation(this.representationGraphique.getPosition().getX(),
 					this.representationGraphique.getPosition().getY() - 1);
 		}

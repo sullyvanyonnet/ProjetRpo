@@ -9,18 +9,24 @@ public class Larve extends Phase {
 	static double dureeLarve = 10;
 	
 	public Larve(Fourmi fourmi) {
+		//utilise le contructeur de phase
 		super(fourmi);
+		//defini le temps de vie de la fourmi
 		fourmi.setDureeDeVie(dureeLarve);
+		//defini le point de la fourmit
 		fourmi.setPoids(calculPoids());
 	}
-	
+	 //retour la phase de la fourmi en chaine de charactere 
 	@Override
 	public String jeSuis() {
 		  return "larve";
 	  }
 	
+	//permet de definire la phase suivante 
 	public Phase phaseSuivante() {
+		//si la fourmi lui reste du temps dans ca phase retour l'objet courant
 		if (this.fourmi.getDureeDeVie() < dureeLarve) return new Nymphe(fourmi);
+		//sinon retour la creation de la phase suivante 
 		return this;
 	}
 	

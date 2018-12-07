@@ -15,11 +15,13 @@ public class Cadavre extends Phase {
 		return super.fourmi;
 	}
 	
+	//retour en chaine de charactere la phase de la fourmi
 	@Override
 	public String jeSuis() {
 		  return "cadavre";
 	  }
 	
+	//retour toujours la mort qui est une phase terminale
 	public Phase phaseSuivante() {
 		return this;
 	}

@@ -1,10 +1,11 @@
 package Trace;
 
-import modele.Coordonnees;
+import java.awt.Point;
+
 
 public class PheromoneSeduction extends Pheromone{
 
-	PheromoneSeduction(Coordonnees unecoor) {
+	PheromoneSeduction(Point unecoor) {
 		super(unecoor);
 	}
 

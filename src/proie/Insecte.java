@@ -10,12 +10,13 @@ public class Insecte extends Proie {
 		//nbDeFourmiAttaquantes
 		//nbDeFourmiAttaquantesMax
 		//boolean mort
-
+	
+	//contructeur d'insecte avec 3 parametre
 	public Insecte(int identifiant, int poids,Terrain terrainLie) {
 		super(identifiant, poids, terrainLie);
-		// TODO Auto-generated constructor stub
 	}
 	
+	//constructeur insecte avec 2 parametre et un poid par defaut
 	public Insecte(int identifiant, Terrain terrainLie) {
 		super(identifiant, PoidsEnMilligrammeInsecte, terrainLie);
 	}

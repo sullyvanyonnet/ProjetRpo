@@ -11,12 +11,14 @@ public class Araignee extends Proie {
 		//nbDeFourmiAttaquantesMax
 		//boolean mort
 	
+	//contructeur d'insecte avec 3 parametre
 	public Araignee(int identifiant, int poids, Terrain leTerrain) {
 		super(identifiant, poids, leTerrain);
 	}
 	
-	public Araignee(int identifiant) {
-		super(identifiant);
+	//constructeur insecte avec 2 parametre et un poid par defaut	
+	public Araignee(int identifiant,Terrain terrainLie) {
+		super(identifiant, terrainLie);
 	}
 
 }
