@@ -27,5 +27,9 @@ public abstract class EtreVivant implements Observateur {
 	public void setCoordonnees(Point coord) {
 		this.representationGraphique.setPosition(coord);
 	}
+	
+	public Terrain getTerrainLie() {
+		return this.terrainLie;
+	}
 
 }

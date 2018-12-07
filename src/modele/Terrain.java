@@ -201,12 +201,12 @@ public class Terrain extends JFrame implements Observateur {
 	public void updateH() {
 
 		// TODO Auto-generated method stub
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 20; i++) {
 			laFourmiliere.updateH();
 
 			this.miseAjourPos();
+			this.getLeJardin().repaint();
 		}
-		this.getLeJardin().repaint();
 	}
 
 	@Override
