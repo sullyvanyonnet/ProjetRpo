@@ -29,13 +29,13 @@ import vue.World;
 public class Terrain extends JFrame implements Observateur {
 
 	/* les panneaux qui composent la fenetre */
-	private JSplitPane splitPaneGaucheDroite; // séparation haut bas pour la zone de texte
-	private JSplitPane splitPaneHautBas; // séparation gauche droite pour le world et l'arbre
+	private JSplitPane splitPaneGaucheDroite; // sï¿½paration haut bas pour la zone de texte
+	private JSplitPane splitPaneHautBas; // sï¿½paration gauche droite pour le world et l'arbre
 	private JPanel topPanel;
 	private JPanel leftPanel;
 	private JPanel rightPanel;
 
-	/* les éléments du topPanel */
+	/* les ï¿½lï¿½ments du topPanel */
 	private JTextField textfield;
 	private JButton boutonMoins;
 	private JButton boutonPlus;
@@ -88,7 +88,9 @@ public class Terrain extends JFrame implements Observateur {
 			}
 		}
 	}
-
+	public World getWord(){
+		return leJardin;	
+	}
 	private void ajouterFourmiAffichage(Fourmi unefourmi) {
 		mesObjetsGraphiques.add(unefourmi);
 		int coordonneeX = (int) unefourmi.getrepresentationGraphique().getPosition().getX();
