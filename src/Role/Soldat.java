@@ -47,6 +47,12 @@ public class Soldat extends Role {
 		return retourCoordonnees;
 	}
 
+	/**
+	 * Vérifie si la fourmi soldat ne s'eloigne pas trop
+	 * de la fourmiliere et empeche son deplacement sinon.
+	 * @param newPoint : coordonnée modifiée potentielle de la fourmi
+	 * @return : autorisation ou non de se déplacer
+	 */
 	private boolean checkDistanceFourmiliere(Point newPoint) {
 		double xFourmiliere = this.fourmi.getTerrainLie().getLaFourmilieres().getCoordonnees().getX();
 		double yFourmiliere = this.fourmi.getTerrainLie().getLaFourmilieres().getCoordonnees().getY();

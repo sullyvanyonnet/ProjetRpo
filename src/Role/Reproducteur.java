@@ -9,6 +9,7 @@ import vue.Morph;
 import vue.Oval;
 
 public class Reproducteur extends Role {
+	
 	public Reproducteur(Fourmi fourmi) {
 		super(fourmi);
 		this.fourmi.setRepresentationGraphique(this.RepCreeFourmi());
@@ -19,6 +20,9 @@ public class Reproducteur extends Role {
 		return "reproducteur";
 	}
 
+	/**
+	 * Methode faisant se deplacer la fourmi reproductrice
+	 */
 	@Override
 	public Point sedeplacer(Point unPoint) {
 		Point retourCoordonnees = unPoint;
@@ -35,6 +39,9 @@ public class Reproducteur extends Role {
 		return retourCoordonnees;
 	}
 
+	/**
+	 * Methode qui crée un Morph correspondant à un reproducteur.
+	 */
 	public Morph RepCreeFourmi() {
 		Point pos = this.fourmi.getrepresentationGraphique().getPosition();
 		Dimension dim = new Dimension(5, 5);

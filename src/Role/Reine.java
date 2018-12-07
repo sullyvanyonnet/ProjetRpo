@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 
-import Etape.Adulte;
 import Etape.Oeuf;
 import Fourmi.Fourmi;
 import vue.Morph;
@@ -12,7 +11,7 @@ import vue.Oval;
 
 public class Reine extends Role {
 
-	private Fourmi fourmi;
+	private Fourmi fourmi; // La fourmi correspondant a ce role.
 
 	public Reine(Fourmi fourmi) {
 		super(fourmi);

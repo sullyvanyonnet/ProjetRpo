@@ -12,7 +12,11 @@ public abstract class Role implements Observateur{
 	
 	protected Fourmi fourmi;
 	
-	
+	/**
+	 * Methode décrivant le déplacement de base d'une fourmi.
+	 * @param unPoint : position de base de la fourmi
+	 * @return Point : coordonnée modifiée de la fourmi
+	 */
 	public Point sedeplacer(Point unPoint){
 	    Point retourCoordonnees = unPoint;
 		    double direction = Math.random();	    
@@ -45,9 +49,12 @@ public abstract class Role implements Observateur{
 		return null;  
 	}
 	
+	/*
+	@SuppressWarnings("null")
 	public double dureeVieFourmiReine() {		
 		return (Double) null;
 	}
+	*/
 	
 	@Override
 	public void updateH() {
