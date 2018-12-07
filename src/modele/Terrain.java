@@ -200,7 +200,6 @@ public class Terrain extends JFrame implements Observateur {
 
 		// TODO Auto-generated method stub
 		laFourmiliere.updateH();
-		laFourmiliere.updateH();
 
 		this.miseAjourPos();
 		this.getLeJardin().repaint();
