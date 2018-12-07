@@ -34,9 +34,6 @@ class LarveTest {
 		double poidsAttenduMin = 15*3;
 		double poidsAttenduMax = 15*4 + (15*(1/3))*4;
 		double poidsResultat = mimi.calculPoids();
-		System.out.println("Resultat : " + poidsResultat);
-		System.out.println("Min : " + poidsAttenduMin);
-		System.out.println("Min : " + poidsAttenduMax);
 		assertTrue(poidsResultat<=poidsAttenduMax); 
 		assertTrue(poidsResultat>=poidsAttenduMin);		
 	}

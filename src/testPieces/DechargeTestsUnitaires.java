@@ -53,7 +53,6 @@ class DechargeTestsUnitaires {
 			TimeUnit.MILLISECONDS.sleep(1);
 		}
 		boolean b = decharge2cadavres.ajouterCadavre(mi);
-		System.out.println("test ajout 2 elements a la decharge : " + decharge2cadavres.getSize());
 	}
 
 	@AfterEach
@@ -64,7 +63,6 @@ class DechargeTestsUnitaires {
 	void testGetPoidsTotal() {
 								
 		int poidsTotalAttendu = mimi.getPoids()+ mi.getPoids();
-		System.out.println(decharge2cadavres.getPoidsTotal());
 		assert(poidsTotalAttendu == decharge2cadavres.getPoidsTotal());
 	}
 
