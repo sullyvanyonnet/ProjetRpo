@@ -11,13 +11,13 @@ import Etape.Nymphe;
 import Etape.Oeuf;
 import Etape.Phase;
 import Role.Ouvrier;
-import modele.EtreVivant;
+import modele.ObjectGraphique;
 import modele.InterfaceMorph;
 import modele.Terrain;
 import vue.Morph;
 import vue.Oval;
 
-public class Fourmi extends EtreVivant {
+public class Fourmi extends ObjectGraphique {
 	
 	private static int PoidsEnMilligramme = 15;
 	

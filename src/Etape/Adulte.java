@@ -5,7 +5,6 @@ import java.awt.Point;
 import Etape.*;
 import Fourmi.Fourmi;
 import Role.*;
-import modele.Coordonnees;
 import vue.Morph;
 
 public class Adulte extends Phase {

@@ -9,7 +9,7 @@ import Piece.Decharge;
 import Piece.Salle;
 import Piece.Stock;
 
-public class Fourmiliere extends EtreVivant {
+public class Fourmiliere extends ObjectGraphique {
 	List<Fourmi> listeDeFourmis;
 	List<Salle> ListeSalle;
 	Fourmi saMajeste;
@@ -30,7 +30,7 @@ public class Fourmiliere extends EtreVivant {
 		this.terrainLie = leTerrain;
 		this.nombreDeFourmi = 0;
 		
-		for (int i = 0; i < 1000; i++) {
+		for (int i = 0; i < 500; i++) {
 			this.ajouterFourmi();
 		}
 	}

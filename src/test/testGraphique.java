@@ -16,7 +16,7 @@ import Fourmi.Fourmi;
 import modele.Coordonnees;
 import modele.Fourmiliere;
 import modele.InterfaceMorph;
-import modele.EtreVivant;
+import modele.ObjectGraphique;
 import vue.IMovableDrawable;
 import vue.Oval;
 import vue.World;
@@ -62,7 +62,7 @@ public class testGraphique {
 			jc.contents().add(InterfaceMorph.CreeFourmiliere(posiFourm));
 		}
 		
-		List<EtreVivant> mesObjetsGraphiques = new ArrayList<EtreVivant>();
+		List<ObjectGraphique> mesObjetsGraphiques = new ArrayList<ObjectGraphique>();
 		mesObjetsGraphiques.add(newYork);
 		for (int i = 0; i < 100; i++) {
 			mesObjetsGraphiques.add(listAdulte.get(i));

@@ -4,15 +4,12 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 
-import Etape.Adulte;
-import modele.Coordonnees;
-import modele.EtreVivant;
+import modele.ObjectGraphique;
 import modele.Terrain;
 import vue.Morph;
-import vue.Oval;
 import vue.RectangleDrawable;
 
-public abstract class Proie extends EtreVivant {
+public abstract class Proie extends ObjectGraphique {
 
 	private static int PoidsEnMilligrammeParDefaut = 15;
 	private int DureeDeVie;
@@ -77,9 +74,6 @@ public abstract class Proie extends EtreVivant {
 			Morph old = this.representationGraphique;
 			this.representationGraphique = new RectangleDrawable(Color.WHITE, new Point(0, 0), new Dimension(0, 0));
 			this.getTerrainLie().updateEtreVivant(old, this.representationGraphique);
-			/*
-			int indexSupr = this.terrainLie.getWord().contents().indexOf(this.representationGraphique);
-			this.terrainLie.getWord().contents().remove(indexSupr);*/
 		}
 	}
 
