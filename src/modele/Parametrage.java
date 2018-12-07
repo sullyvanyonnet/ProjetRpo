@@ -46,12 +46,6 @@ public class Parametrage implements Runnable {
 				}
 				notifyObserversH();
 				this.nbHeure++;
-			} else {
-				try {
-					TimeUnit.MILLISECONDS.wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
 			}
 
 		}
@@ -60,17 +54,24 @@ public class Parametrage implements Runnable {
 	public void starte() {
 		while (true) {
 			try {
-				TimeUnit.MILLISECONDS.sleep(this.Tick);
-			} catch (InterruptedException e) {
+				TimeUnit.MILLISECONDS.sleep(1);
+			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				e1.printStackTrace();
 			}
-			if (this.nbHeure == 24) {
-				notifyObserversJ();
-				this.nbHeure = 0;
+			if (this.getTick() > 0) {
+				try {
+					TimeUnit.MILLISECONDS.sleep(this.Tick);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				if (this.nbHeure == 24) {
+					notifyObserversJ();
+					this.nbHeure = 0;
+				}
+				notifyObserversH();
+				this.nbHeure++;
 			}
-			notifyObserversH();
-			this.nbHeure++;
 		}
 	}
 

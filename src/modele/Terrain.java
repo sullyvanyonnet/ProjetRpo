@@ -195,7 +195,7 @@ public class Terrain extends JFrame implements Observateur {
 
 	public void notifyObservers() {
 		// TODO Auto-generated method stub
-		this.laFourmiliere.updateH();
+		//this.laFourmiliere.updateH();
 	}
 
 	@Override
