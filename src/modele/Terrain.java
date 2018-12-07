@@ -75,37 +75,14 @@ public class Terrain extends JFrame implements Observateur {
 
 	}
 
-	private void miseAjourPos() {
-		if (mesObjetsGraphiques.size() > 0) {
-
-			ArrayList<IMovableDrawable> drawables = this.getLeJardin().contents();
-
-			int i = 0;
-			for (IMovableDrawable item : drawables) {
-				int coordonneeX = (int) mesObjetsGraphiques.get(i).getrepresentationGraphique().getPosition().getX();
-				int coordonneeY = (int) mesObjetsGraphiques.get(i).getrepresentationGraphique().getPosition().getY();
-
-				IMovableDrawable unObjet = item;
-
-				unObjet.setPosition(new Point(coordonneeX, coordonneeY));
-
-				i++;
-			}
-		}
-	}
-	public World getWorld(){
-		return leJardin;	
-	}
-	
-	public void ajouterFourmiAffichage(ObjetGraphique unefourmi) {
-		mesObjetsGraphiques.add(unefourmi);
-		int coordonneeX = (int) unefourmi.getrepresentationGraphique().getPosition().getX();
-		int coordonneeY = (int) unefourmi.getrepresentationGraphique().getPosition().getY();
-		this.getLeJardin().contents().add(unefourmi.getrepresentationGraphique());
-	}
-
+	/**
+	 * Initialisation de composants Swing de la fenetre.
+	 */
 	private void initFrame() {
 
+		/*
+		 * Les panels principaux.
+		 */
 		splitPaneHautBas = new JSplitPane();
 		splitPaneGaucheDroite = new JSplitPane();
 		topPanel = new JPanel();
@@ -121,16 +98,26 @@ public class Terrain extends JFrame implements Observateur {
 
 		getContentPane().add(splitPaneHautBas);
 
+		/*
+		 * Mise en place du SplitPanel haut/bas.
+		 */
 		splitPaneHautBas.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		splitPaneHautBas.setDividerLocation(100);
 		splitPaneHautBas.setTopComponent(topPanel);
 		splitPaneHautBas.setBottomComponent(splitPaneGaucheDroite);
 
+		/**
+		 * Mise en place du SplitPanel gauche/droite.
+		 */
 		splitPaneGaucheDroite.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
 		splitPaneGaucheDroite.setDividerLocation(800);
 		splitPaneGaucheDroite.setLeftComponent(leJardin);
 		splitPaneGaucheDroite.setRightComponent(tree);
 
+		/*
+		 * Mise en place du textfield, des boutons plus/moins
+		 * et de leurs actions permettant de mettre à jour le passage du temps.
+		 */
 		this.textfield = new JTextField();
 		this.textfield.setText(String.valueOf(this.laPara.getTick()));
 		this.textfield.setPreferredSize(new Dimension(50, 28));
@@ -172,6 +159,9 @@ public class Terrain extends JFrame implements Observateur {
 		this.leJardin.setPreferredSize(new Dimension(800, 800));
 	}
 
+	/**
+	 * Affichage de la fenetre.
+	 */
 	public void open() {
 		WindowAdapter wa = new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
@@ -182,6 +172,43 @@ public class Terrain extends JFrame implements Observateur {
 		setVisible(true);
 	}
 
+	/**
+	 * Mise a jour de la position des Morph présents sur le World.
+	 */
+	private void miseAjourPos() {
+		if (mesObjetsGraphiques.size() > 0) {
+
+			ArrayList<IMovableDrawable> drawables = this.getLeJardin().contents();
+
+			int i = 0;
+			for (IMovableDrawable item : drawables) {
+				int coordonneeX = (int) mesObjetsGraphiques.get(i).getrepresentationGraphique().getPosition().getX();
+				int coordonneeY = (int) mesObjetsGraphiques.get(i).getrepresentationGraphique().getPosition().getY();
+
+				IMovableDrawable unObjet = item;
+
+				unObjet.setPosition(new Point(coordonneeX, coordonneeY));
+
+				i++;
+			}
+		}
+	}
+	
+	public World getWorld(){
+		return leJardin;	
+	}
+	
+	/**
+	 * Ajoute une fourmi et au World pour pouvoir l'afficher par la suite
+	 * @param objet : l'objet a ajouter
+	 */
+	public void ajouterFourmiAffichage(ObjetGraphique objet) {
+		mesObjetsGraphiques.add(objet);
+		int coordonneeX = (int) objet.getrepresentationGraphique().getPosition().getX();
+		int coordonneeY = (int) objet.getrepresentationGraphique().getPosition().getY();
+		this.getLeJardin().contents().add(objet.getrepresentationGraphique());
+	}
+
 	public Fourmiliere getLaFourmilieres() {
 		return this.laFourmiliere;
 	}
@@ -190,6 +217,9 @@ public class Terrain extends JFrame implements Observateur {
 		return this.leJardin;
 	}
 
+	/**
+	 * Met à jour le Morph d'un objet Graphique dans le World.
+	 */
 	public void updateEtreVivant(Morph old, Morph representationGraphique) {
 		int index = this.leJardin.contents().indexOf(old);
 		if (index > 0) {
@@ -197,11 +227,10 @@ public class Terrain extends JFrame implements Observateur {
 		}
 	}
 
-	public void notifyObservers() {
-		// TODO Auto-generated method stub
-		//this.laFourmiliere.updateH();
-	}
-
+	/**
+	 * Mise a jour horaire du Terrain. 
+	 * Tous les objets se déplacent, et le World est rafraichit.
+	 */
 	@Override
 	public void updateH() {
 
@@ -216,6 +245,10 @@ public class Terrain extends JFrame implements Observateur {
 		}
 	}
 
+	/**
+	 * Mise a jour journaliere du Terrain. 
+	 * Une proie est ajoutée aléatoirement sur le terrain, et le World est rafraichit.
+	 */
 	@Override
 	public void updateJ() {
 		for (ObjetGraphique unObjectGraphique : this.mesObjetsGraphiques) {
