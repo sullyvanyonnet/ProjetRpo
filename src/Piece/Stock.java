@@ -10,6 +10,8 @@ public class Stock extends Salle {
 	int size;	
 	ArrayList<Proie> listeProies;
 	
+	//TODO faire les tests
+	
 	public int getPoidsTotal() {
 		return poidsTotal;
 	}
@@ -22,6 +24,7 @@ public class Stock extends Salle {
 		return listeProies;
 	}
 
+	//TODO : supprimer dans la mesure ou l'on ne stockerais que des proies ?
 	void ajouterStock(int unPoids){
 		this.poidsTotal = this.poidsTotal + unPoids;
 	}
@@ -31,6 +34,7 @@ public class Stock extends Salle {
 		this.size = this.getSize() + 1;
 	}
 	
+	//TODO : supprimer dans la mesure ou l'on ne stockerais que des proies ?
 	boolean supprimerStock(int unPoids) {
 		
 		if(this.poidsTotal <= unPoids) {

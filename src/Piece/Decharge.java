@@ -31,10 +31,12 @@ public class Decharge extends Salle {
 		return listeCadavre;
 	}
 
+	//ajouter un dechet quelcquonque en fonction de son poids
 	public void ajouterPoids(int unPoids){
 		this.poidsTotal = this.poidsTotal + unPoids;
 	}
 	
+	//ajouter un dechet de type cadavre de fourmi
 	public boolean ajouterCadavre(Fourmi mimi){
 		boolean res = false;
 		if("cadavre".equals(mimi.isPhase()))
@@ -47,6 +49,8 @@ public class Decharge extends Salle {
 		}			
 		return res;
 	}
+	
+	//TODO supprimer poids
 	
 	public void supprimerCadavre(Fourmi uneFourmiMorte){
 		this.listeCadavre.remove(uneFourmiMorte);
